@@ -16,10 +16,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if (self.window!.rootViewController as? LoginViewController) != nil{
+            let controllerId = "Login"
+            
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: controllerId) as UIViewController
+            self.window?.rootViewController = initViewController
+            
+            return true
+        }
+        else{
         let splitViewController = self.window!.rootViewController as! UISplitViewController
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.5;
+        splitViewController.maximumPrimaryColumnWidth = splitViewController.view.bounds.size.width;
+
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+       // navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        let tabBarController = navigationController.topViewController! as? UITabBarController
+        let summaryController = (tabBarController?.viewControllers?[0] as! UINavigationController).topViewController as!  DbSummaryViewController
+        summaryController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        
+        
+        let dataMgmtController = (tabBarController?.viewControllers?[1] as! UINavigationController).topViewController as! DataMgmtViewController
+        dataMgmtController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        
+        let backupsController = (tabBarController?.viewControllers?[2] as! UINavigationController).topViewController as! BackupCollectionViewController
+        backupsController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        
+        
         splitViewController.delegate = self
+        }
         return true
     }
 
@@ -49,8 +75,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
+        guard let tabBarController = secondaryAsNavController.topViewController as? UITabBarController else { return false }
+        let summaryController = (tabBarController.viewControllers?[0] as! UINavigationController).topViewController as!  DbSummaryViewController
+        
+        let dataMgmtController = (tabBarController.viewControllers?[1] as! UINavigationController).topViewController  as! DataMgmtViewController
+        
+        if summaryController.detailItem == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            return true
+        }
+        if dataMgmtController.detailItem == nil {
             // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
             return true
         }
