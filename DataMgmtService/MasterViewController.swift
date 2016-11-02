@@ -30,6 +30,17 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.tabBarViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? UITabBarController
         }
+
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.tableView.bounds
+       //  gradient.colors = [UIColor(red:146.0/255, green:141.0/255, blue:171.0/255, alpha:1).cgColor, UIColor(red:0.0/255, green:210.0/255, blue:255.0/255, alpha:1).cgColor]
+        
+         gradient.colors = [UIColor(red:200.0/255, green:227.0/255, blue:240.0/255, alpha:0.7).cgColor, UIColor(red:200.0/255, green:227.0/255, blue:240.0/255, alpha:0.7).cgColor]
+        gradient.startPoint = CGPoint.zero
+        gradient.endPoint = CGPoint(x: 1,y :0)
+        gradient.name = "masterTable"
+        self.tableView.layer.insertSublayer(gradient, at: 0)
+
     }
     
     func loadDatabases(){
@@ -143,6 +154,19 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red:76.0/255, green:162.0/255, blue:205.0/255, alpha:1)
+    }
+    
+    // if tableView is set in attribute inspector with selection to multiple Selection it should work.
+    
+    // Just set it back in deselect
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
+        cellToDeSelect.contentView.backgroundColor = UIColor.clear
     }
 
 

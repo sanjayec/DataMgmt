@@ -9,16 +9,17 @@ import UIKit
 
 class DatabaseModel {
 
+    static let userPasswordString = "Bob:Bob"
    static func fetchDatabases(completionHandler: @escaping ([Database]) -> Void)  {
         let config = URLSessionConfiguration.default // Session Configuration
-        let userPasswordString = "Bob:Bob"
+    
         let userPasswordData = userPasswordString.data(using: String.Encoding.utf8)
         let base64EncodedCredential = userPasswordData!.base64EncodedString(options: [])
         let authString = "Basic \(base64EncodedCredential)"
         config.httpAdditionalHeaders = ["Authorization" : authString]
         let session = URLSession(configuration: config) // Load configuration into Session
         let url = URL(string: "http://52.53.155.179:8080/fws/instances")!
-        
+    
         
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
@@ -57,4 +58,47 @@ class DatabaseModel {
         
         
     }
+    
+    static func fetchDatasources(completionHandler: @escaping ([Datasource]) -> Void)  {
+        let config = URLSessionConfiguration.default // Session Configuration
+        let userPasswordData = userPasswordString.data(using: String.Encoding.utf8)
+        let base64EncodedCredential = userPasswordData!.base64EncodedString(options: [])
+        let authString = "Basic \(base64EncodedCredential)"
+        config.httpAdditionalHeaders = ["Authorization" : authString]
+        let session = URLSession(configuration: config) // Load configuration into Session
+        let url = URL(string: "http://52.53.155.179:8080/fws/datasources")!
+        
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            var datasources = [Datasource]()
+            
+            if error != nil {
+                
+                print(error!.localizedDescription)
+                
+            } else {
+                
+                
+                    if let data = data,
+                        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [Any] {
+                        for case let instance in json! {
+                            if let ds = try? Datasource(json: instance as! [String : Any]) {
+                                datasources.append(ds!)
+                            }
+                        }
+                    }
+                    
+                
+                
+                
+            }
+            completionHandler(datasources)
+        })
+        task.resume()
+        
+        
+        
+    }
+
 }

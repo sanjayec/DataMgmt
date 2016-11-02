@@ -15,10 +15,12 @@ class DbSummaryViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.colorMe()
         // Set Title
         title = "Summary"
         // Do any additional setup after loading the view.
         self.configureView()
+        
     }
 
     override func didReceiveMemoryWarning() {

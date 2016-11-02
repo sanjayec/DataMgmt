@@ -11,11 +11,15 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Properties
+    var useOratix = true
+    
     let login_url = "http://52.53.155.179:8080/login/api/Login"
     let checksession_url = "http://52.53.155.179:8080/login/api/CheckSession"
     @IBOutlet weak var userName: UITextField!
     
     @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var companyLogo: UIImageView!
     
     @IBOutlet weak var login_button: UIButton!
     @IBAction func login(_ sender: AnyObject) {
@@ -56,12 +60,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "LoginBackground")
         self.view.insertSubview(backgroundImage, at: 0)
-        
+        // Find logo to use
+        setLogo()
         //userName
         userName.delegate = self
         password.delegate = self
     }
     
+    func setLogo(){
+        if(useOratix){
+            companyLogo.image = #imageLiteral(resourceName: "oratix")
+            
+        }
+        else{
+            companyLogo.image = #imageLiteral(resourceName: "naftix")
+        }
+    }
     func login_now(username:String, password:String)
     {
         let post_data: NSDictionary = NSMutableDictionary()

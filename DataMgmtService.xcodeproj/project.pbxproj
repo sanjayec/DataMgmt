@@ -22,8 +22,14 @@
 		4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */; };
 		4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */; };
 		438696611DC4447100C49F06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438696601DC4447100C49F06 /* LoginViewController.swift */; };
+		43B92E471DC574B600659764 /* UIViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B92E461DC574B600659764 /* UIViewController+Background.swift */; };
+		43B92E481DC574B600659764 /* UIViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B92E461DC574B600659764 /* UIViewController+Background.swift */; };
 		43C1563C1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1563B1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift */; };
 		43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1563D1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift */; };
+		43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */; };
+		43F8F3DB1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */; };
+		43F8F3DD1DC68A01001D80A7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */; };
+		43F8F3DE1DC68A01001D80A7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */; };
 		43FCE4551DB13D9D00130EB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE4541DB13D9D00130EB1 /* AppDelegate.swift */; };
 		43FCE4571DB13D9D00130EB1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE4561DB13D9D00130EB1 /* MasterViewController.swift */; };
 		43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE4581DB13D9D00130EB1 /* DataMgmtViewController.swift */; };
@@ -35,6 +41,10 @@
 		43FCE4791DB1695200130EB1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE4781DB1695200130EB1 /* Database.swift */; };
 		43FCE47A1DB1695200130EB1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE4781DB1695200130EB1 /* Database.swift */; };
 		43FCE47C1DB1DA8700130EB1 /* DbSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCE47B1DB1DA8700130EB1 /* DbSummaryViewController.swift */; };
+		43FE2BD81DC83498008E1BAD /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE2BD71DC83498008E1BAD /* Datasource.swift */; };
+		43FE2BD91DC83498008E1BAD /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE2BD71DC83498008E1BAD /* Datasource.swift */; };
+		43FE2BDB1DC84702008E1BAD /* DatasourceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE2BDA1DC84702008E1BAD /* DatasourceCollectionViewCell.swift */; };
+		43FE2BDD1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE2BDC1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +70,11 @@
 		4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupProgressViewController.swift; sourceTree = "<group>"; };
 		4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
 		438696601DC4447100C49F06 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		43B92E461DC574B600659764 /* UIViewController+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Background.swift"; sourceTree = "<group>"; };
 		43C1563B1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreProgressCollectionViewController.swift; sourceTree = "<group>"; };
 		43C1563D1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreProgressCollectionViewCell.swift; sourceTree = "<group>"; };
+		43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Background.swift"; sourceTree = "<group>"; };
+		43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		43FCE4511DB13D9D00130EB1 /* DataMgmtService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataMgmtService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FCE4541DB13D9D00130EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FCE4561DB13D9D00130EB1 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +89,9 @@
 		43FCE4761DB147DC00130EB1 /* DatabaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTableViewCell.swift; sourceTree = "<group>"; };
 		43FCE4781DB1695200130EB1 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		43FCE47B1DB1DA8700130EB1 /* DbSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbSummaryViewController.swift; sourceTree = "<group>"; };
+		43FE2BD71DC83498008E1BAD /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		43FE2BDA1DC84702008E1BAD /* DatasourceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceCollectionViewCell.swift; sourceTree = "<group>"; };
+		43FE2BDC1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceBackupCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				4304838F1DC056E700FB9100 /* UIViewExtensions.swift */,
+				43B92E461DC574B600659764 /* UIViewController+Background.swift */,
+				43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */,
+				43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -165,6 +184,7 @@
 		43FCE4531DB13D9D00130EB1 /* DataMgmtService */ = {
 			isa = PBXGroup;
 			children = (
+				43FE2BD61DC83424008E1BAD /* datasource */,
 				4386965F1DC4445200C49F06 /* login */,
 				4304838E1DC056C100FB9100 /* extensions */,
 				43C1563A1DBEEDA0002B9870 /* dataManagement */,
@@ -192,6 +212,16 @@
 				43FCE46D1DB13D9D00130EB1 /* Info.plist */,
 			);
 			path = DataMgmtServiceTests;
+			sourceTree = "<group>";
+		};
+		43FE2BD61DC83424008E1BAD /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				43FE2BD71DC83498008E1BAD /* Datasource.swift */,
+				43FE2BDA1DC84702008E1BAD /* DatasourceCollectionViewCell.swift */,
+				43FE2BDC1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift */,
+			);
+			name = datasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +333,8 @@
 				430483871DBF209B00FB9100 /* Operation.swift in Sources */,
 				43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */,
 				43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */,
+				43FE2BD81DC83498008E1BAD /* Datasource.swift in Sources */,
+				43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */,
 				4330BF511DBCA715004911A8 /* Backup.swift in Sources */,
 				43FCE4571DB13D9D00130EB1 /* MasterViewController.swift in Sources */,
 				438696611DC4447100C49F06 /* LoginViewController.swift in Sources */,
@@ -311,12 +343,16 @@
 				43FCE4771DB147DC00130EB1 /* DatabaseTableViewCell.swift in Sources */,
 				430341E21DB9C2D300688800 /* Date.swift in Sources */,
 				43FCE47C1DB1DA8700130EB1 /* DbSummaryViewController.swift in Sources */,
+				43FE2BDB1DC84702008E1BAD /* DatasourceCollectionViewCell.swift in Sources */,
+				43FE2BDD1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift in Sources */,
 				430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
 				43FCE4791DB1695200130EB1 /* Database.swift in Sources */,
 				4303420F1DBC40A400688800 /* BackupCollectionViewCell.swift in Sources */,
 				4302BC521DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
 				43FCE4551DB13D9D00130EB1 /* AppDelegate.swift in Sources */,
+				43F8F3DD1DC68A01001D80A7 /* CommonUtil.swift in Sources */,
 				430341E71DBB1FB900688800 /* BackupCollectionViewController.swift in Sources */,
+				43B92E471DC574B600659764 /* UIViewController+Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +362,10 @@
 			files = (
 				4302BC531DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
 				430483911DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
+				43F8F3DE1DC68A01001D80A7 /* CommonUtil.swift in Sources */,
+				43FE2BD91DC83498008E1BAD /* Datasource.swift in Sources */,
+				43F8F3DB1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */,
+				43B92E481DC574B600659764 /* UIViewController+Background.swift in Sources */,
 				43FCE47A1DB1695200130EB1 /* Database.swift in Sources */,
 				43FCE46C1DB13D9D00130EB1 /* DataMgmtServiceTests.swift in Sources */,
 				4304838D1DBF7F1800FB9100 /* OperationStep.swift in Sources */,

@@ -21,6 +21,7 @@ class Database {
     var latestRestoreOperation:  Operation?
     var runningBackupOperation : Operation?
     
+    
     // MARK: Initialization
     
     init?(name: String, typeImage: UIImage?, datasource: String, expiresIn: String) {
@@ -84,7 +85,7 @@ class Database {
             self.datasource = dsName
             
             
-            // Extract expiration date
+            // Extract backupList
             guard let backups = associatedDataSourceJson?["backupList"] as? [Any] else {
                 throw SerializationError.missing("backupList")
             }
@@ -96,7 +97,7 @@ class Database {
 
             
         }
-        // Extract expiration date
+        // Extract backupList
         guard let backups = json["backupList"] as? [Any] else {
             throw SerializationError.missing("backupList")
         }
