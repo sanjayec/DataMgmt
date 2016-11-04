@@ -54,16 +54,16 @@ class MasterViewController: UITableViewController {
     }
     
     func loadSampleDatabases() {
-        let oracle = UIImage(named: "oracle")!
-        let database1 = Database(name: "CRM_DB_DEV_TIM", typeImage: oracle, datasource: "CRM Data Source", expiresIn: "1 month 2 weeks 2 days")!
+       // let oracle = UIImage(named: "oracle")!
+        let database1 = Database(name: "CRM_DB_DEV_TIM", type: "oracle_database", datasource: "CRM Data Source", expiresIn: "1 month 2 weeks 2 days")!
         
-        let mysql = UIImage(named: "mysql")!
-        let database2 = Database(name: "HCM_DB_DEV_SAM", typeImage: mysql, datasource: "HCM Data Source", expiresIn: "3 weeks 4 days")!
+       // let mysql = UIImage(named: "mysql")!
+        let database2 = Database(name: "HCM_DB_DEV_SAM",type: "mysql_database", datasource: "HCM Data Source", expiresIn: "3 weeks 4 days")!
         
-        let microsoftsqlserver = UIImage(named: "microsoftsqlserver")!
-        let database3 = Database(name: "SALES_DB_DEV_TIM", typeImage: microsoftsqlserver, datasource: "Sales Data Source", expiresIn: "1 week 3 days")!
+      //  let microsoftsqlserver = UIImage(named: "microsoftsqlserver")!
+        let database3 = Database(name: "SALES_DB_DEV_TIM", type: "microsoftsql_database", datasource: "Sales Data Source", expiresIn: "1 week 3 days")!
         
-        let database4 = Database(name: "SALES_DB_DEV_BOB", typeImage: mysql, datasource: "Sales Data Source", expiresIn: "1 month 1 week 2 days")!
+        let database4 = Database(name: "SALES_DB_DEV_BOB", type: "mysql_database", datasource: "Sales Data Source", expiresIn: "1 month 1 week 2 days")!
         
         databases += [database1, database2, database3, database4]
     }

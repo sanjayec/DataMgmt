@@ -8,9 +8,9 @@
 import UIKit
 
 extension UICollectionViewController {
-    override func colorMe() {
+    override func colorMe(type: String?) {
         //super.colorMe()
-        let imageViewBackground = CommonUtil.colorMe(sview: view)
+        let imageViewBackground = CommonUtil.getThemeView(sview: view, type: type)
         self.collectionView?.backgroundView = imageViewBackground
     }
 }

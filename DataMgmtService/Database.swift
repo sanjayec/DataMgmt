@@ -12,25 +12,27 @@ class Database {
     // MARK: Properties
     
     var name: String
+    var type: String
     var typeImage: UIImage?
     var datasource: String?
+    var dateCreated: Date?
     var expiresIn: String
     var backups = [Backup]()
     var operations = [Operation]()
     var restoreOperations = [Operation]()
     var latestRestoreOperation:  Operation?
     var runningBackupOperation : Operation?
-    
+    var properties = [String:String]()
     
     // MARK: Initialization
     
-    init?(name: String, typeImage: UIImage?, datasource: String, expiresIn: String) {
+    init?(name: String,type: String, datasource: String, expiresIn: String) {
         // Initialize stored properties.
         self.name = name
-        self.typeImage = typeImage
+        self.type = type
         self.datasource = datasource
         self.expiresIn = expiresIn
-        
+        setUIImageForDbType(dbtype: type)
         // Initialization should fail if there is no name
         if name.isEmpty  {
             return nil
@@ -68,6 +70,10 @@ class Database {
         // Extract type
         guard let type = json["type"] as? String else {
             throw SerializationError.missing("type")
+        }
+        // Extract dateCreated
+        guard let createdOn = json["dateCreated"] as? String else {
+            throw SerializationError.missing("dateCreated")
         }
         
         // Extract expiration date
@@ -162,13 +168,31 @@ class Database {
         self.restoreOperations.sort{ $0.startTime > $1.startTime }
         
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+        self.dateCreated = dateFormatter.date(from: createdOn)!
         
         // Initialize properties
         self.name = name
         self.expiresIn = "1 week 4 days"
+        self.type = type
         setUIImageForDbType(dbtype: type)
+        
+        self.readProperties(properties: (json["properties"] as? [Any])!)
+
     }
     
-   
+    func readProperties(properties: [Any]){
+        for prop  in properties{
+            let property = prop as? [String: Any]
+             let propName = property?["name"]  as? String
+            let propValue = property?["value"] as? String
+            
+                   self.properties[propName!] = propValue
+          
+            
+        }
+        
+    }
     
 }

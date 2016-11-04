@@ -88,7 +88,35 @@ class BackupProgressViewController: UIViewController, UICollectionViewDelegateFl
         return cell
     }
 
+    @IBAction func gotoOpDetails(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "showOpDetails", sender: self)
+    }
 
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOpDetails" {
+            
+                let operation = self.detailItem?.runningBackupOperation
+            
+            
+            let viewController = (segue.destination as! UINavigationController).topViewController as! OpearationStepsViewController
+            
+            viewController.operation = operation
+            
+            let newBackButton = UIBarButtonItem(title: "Backups", style: .plain, target: self, action: #selector(viewController.goBack(_:)))
+            
+            viewController.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
+            
+            //viewController.navigationItem.leftBarButtonItem = self. displayModeButtonItem
+            viewController.navigationItem.leftItemsSupplementBackButton = true
+            viewController.navigationItem.title = operation?.name
+
+            
+            }
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -98,5 +126,8 @@ class BackupProgressViewController: UIViewController, UICollectionViewDelegateFl
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func goBack(_ sender: Any)
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

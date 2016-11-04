@@ -18,6 +18,13 @@
 		430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
 		430483911DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
 		4330BF511DBCA715004911A8 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330BF501DBCA715004911A8 /* Backup.swift */; };
+		436B23021DCBCB30001F7ADC /* OpearationStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */; };
+		436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */; };
+		436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */; };
+		436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23071DCBD039001F7ADC /* TreeViewData.swift */; };
+		436B230A1DCBD079001F7ADC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23091DCBD079001F7ADC /* GlobalVariables.swift */; };
+		436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B230B1DCBD229001F7ADC /* TreeViewLists.swift */; };
+		436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */; };
 		4386965A1DC0EABE00C49F06 /* BackupPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */; };
 		4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */; };
 		4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */; };
@@ -66,6 +73,13 @@
 		4304838B1DBF7F1800FB9100 /* OperationStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationStep.swift; sourceTree = "<group>"; };
 		4304838F1DC056E700FB9100 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		4330BF501DBCA715004911A8 /* Backup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpearationStepsViewController.swift; sourceTree = "<group>"; };
+		436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
+		436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewNode.swift; sourceTree = "<group>"; };
+		436B23071DCBD039001F7ADC /* TreeViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewData.swift; sourceTree = "<group>"; };
+		436B23091DCBD079001F7ADC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		436B230B1DCBD229001F7ADC /* TreeViewLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewLists.swift; sourceTree = "<group>"; };
+		436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewViewController.swift; sourceTree = "<group>"; };
 		438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupPopupViewController.swift; sourceTree = "<group>"; };
 		4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupProgressViewController.swift; sourceTree = "<group>"; };
 		4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				430341E11DB9C2D300688800 /* Date.swift */,
+				436B23091DCBD079001F7ADC /* GlobalVariables.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -141,6 +156,19 @@
 				43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		436B23001DCBCAE5001F7ADC /* operation */ = {
+			isa = PBXGroup;
+			children = (
+				436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */,
+				436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */,
+				436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */,
+				436B23071DCBD039001F7ADC /* TreeViewData.swift */,
+				436B230B1DCBD229001F7ADC /* TreeViewLists.swift */,
+				436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */,
+			);
+			name = operation;
 			sourceTree = "<group>";
 		};
 		4386965F1DC4445200C49F06 /* login */ = {
@@ -184,6 +212,7 @@
 		43FCE4531DB13D9D00130EB1 /* DataMgmtService */ = {
 			isa = PBXGroup;
 			children = (
+				436B23001DCBCAE5001F7ADC /* operation */,
 				43FE2BD61DC83424008E1BAD /* datasource */,
 				4386965F1DC4445200C49F06 /* login */,
 				4304838E1DC056C100FB9100 /* extensions */,
@@ -328,10 +357,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C1563C1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift in Sources */,
+				436B23021DCBCB30001F7ADC /* OpearationStepsViewController.swift in Sources */,
 				4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */,
 				4304838C1DBF7F1800FB9100 /* OperationStep.swift in Sources */,
 				430483871DBF209B00FB9100 /* Operation.swift in Sources */,
+				436B230A1DCBD079001F7ADC /* GlobalVariables.swift in Sources */,
+				436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */,
 				43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */,
+				436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */,
 				43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */,
 				43FE2BD81DC83498008E1BAD /* Datasource.swift in Sources */,
 				43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */,
@@ -347,8 +380,11 @@
 				43FE2BDD1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift in Sources */,
 				430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
 				43FCE4791DB1695200130EB1 /* Database.swift in Sources */,
+				436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */,
 				4303420F1DBC40A400688800 /* BackupCollectionViewCell.swift in Sources */,
+				436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */,
 				4302BC521DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
+				436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */,
 				43FCE4551DB13D9D00130EB1 /* AppDelegate.swift in Sources */,
 				43F8F3DD1DC68A01001D80A7 /* CommonUtil.swift in Sources */,
 				430341E71DBB1FB900688800 /* BackupCollectionViewController.swift in Sources */,

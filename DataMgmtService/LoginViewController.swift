@@ -11,7 +11,7 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Properties
-    var useOratix = true
+    var useOratix = false
     
     let login_url = "http://52.53.155.179:8080/login/api/Login"
     let checksession_url = "http://52.53.155.179:8080/login/api/CheckSession"

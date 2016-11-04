@@ -19,6 +19,7 @@ class OperationStep {
     var level: String
     var status: String?
     var percentageComplete: String
+    var parentId: String?
     
     
     // MARK: Initialization
@@ -50,10 +51,17 @@ class OperationStep {
         // Extract endTime
        //  let endTime = json["endTime"] as? String
         
-        // Extract ownerId
+        // Extract level
         guard let level = json["level"] as? String else {
             throw SerializationError.missing("level")
         }
+        
+        // Extract parentId
+        guard let parentId = json["parentId"] as? String else {
+            throw SerializationError.missing("parentId")
+        }
+        
+        
         // Extract status
          let status = json["status"] as? String
         
@@ -61,8 +69,9 @@ class OperationStep {
         guard let percentageComplete = json["percentageComplete"] as? String else {
             throw SerializationError.missing("percentageComplete")
        }
-        let startIndex = name.index(name.startIndex, offsetBy: 9)
-        self.name = name.substring(from: startIndex)
+      //  let startIndex = name.index(name.startIndex, offsetBy: 9)
+       // self.name = name.substring(from: startIndex)
+        self.name = name
         self.id = id
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
@@ -71,7 +80,7 @@ class OperationStep {
         //if(endTime != "" ){
             //self.endTime = dateFormatter.date(from: endTime.substring(to: endIndex))!
        // }
-        
+        self.parentId = parentId
         self.level = level
         self.status = status
         self.percentageComplete = percentageComplete
