@@ -74,7 +74,11 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         self.percentageCompleted.text = operation?.percentageComplete
         
         //nav bar
-        let newBackButton = UIBarButtonItem(title: "Datasources", style: .plain, target: nil, action: #selector(goBackToParent))
+        var backButtonText = "Datasources"
+        if(self.operation?.type == "Backup Database"){
+            backButtonText = "Backups"
+        }
+        let newBackButton = UIBarButtonItem(title: backButtonText, style: .plain, target: nil, action: #selector(goBackToParent))
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
         //
