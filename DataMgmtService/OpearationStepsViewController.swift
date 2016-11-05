@@ -73,13 +73,22 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         
         self.percentageCompleted.text = operation?.percentageComplete
         
+        //nav bar
+        let newBackButton = UIBarButtonItem(title: "Datasources", style: .plain, target: nil, action: #selector(goBackToParent))
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
+        //
+        //viewController.navigationItem.leftBarButtonItem = self. displayModeButtonItem
+      //  self.navigationItem.leftItemsSupplementBackButton = true
+        self.navigationItem.title = operation?.name
         
     }
     
     
-    @IBAction func goBack(_ sender: Any) 
+    func goBackToParent()
     {
         self.navigationController?.popViewController(animated: true)
+        print("Inside GoBack Function")
     }
     
     override func didReceiveMemoryWarning() {

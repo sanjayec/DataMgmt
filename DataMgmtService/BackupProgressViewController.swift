@@ -105,7 +105,7 @@ class BackupProgressViewController: UIViewController, UICollectionViewDelegateFl
             
             viewController.operation = operation
             
-            let newBackButton = UIBarButtonItem(title: "Backups", style: .plain, target: self, action: #selector(viewController.goBack(_:)))
+            let newBackButton = UIBarButtonItem(title: "Backups", style: .plain, target: self, action: #selector(viewController.goBackToParent))
             
             viewController.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
             

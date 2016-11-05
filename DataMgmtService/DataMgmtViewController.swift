@@ -375,7 +375,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
         self.logsView.isHidden = false
         self.dataSourceTopView.isHidden = true
         
-        self.performSegue(withIdentifier: "showOpDetails", sender: self)
+       // self.performSegue(withIdentifier: "showOpDetails", sender: self)
 
         
     }
@@ -427,16 +427,16 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             
             viewController.operation = operation
             
-            let newBackButton = UIBarButtonItem(title: "Datasources", style: .plain, target: self, action: #selector(viewController.goBack(_:)))
-            
-            viewController.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
-
-            //viewController.navigationItem.leftBarButtonItem = self. displayModeButtonItem
-            viewController.navigationItem.leftItemsSupplementBackButton = true
-            viewController.navigationItem.title = operation?.name
+           
             
         }
         
+    }
+    @IBAction func landBackfromOperationsPage(segue:UIStoryboardSegue) {
+    }
+     func goBackToParent()
+    {
+        self.navigationController?.popViewController(animated: true)
     }
     
     

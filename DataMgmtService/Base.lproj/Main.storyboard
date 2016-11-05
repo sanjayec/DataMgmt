@@ -35,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gx-EU-trF">
-                                <rect key="frame" x="20" y="64" width="663" height="760"/>
+                                <rect key="frame" x="20" y="64" width="663" height="804"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mysql_server_5.7" translatesAutoresizingMaskIntoConstraints="NO" id="dsV-Hd-KEW">
                                         <rect key="frame" x="20" y="47.5" width="100" height="100"/>
@@ -733,10 +733,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5w-qw-gbh">
-                                <rect key="frame" x="20" y="64" width="662.5" height="660"/>
+                                <rect key="frame" x="20" y="64" width="663" height="655"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8u8-88-A3E" userLabel="orale Home Stack">
-                                        <rect key="frame" x="33" y="50" width="598" height="330.5"/>
+                                        <rect key="frame" x="32.5" y="50" width="598" height="330.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="iMG-EM-Bpj" userLabel="oracle top stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="598" height="54.5"/>
@@ -1006,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3525.5859375" y="128.125"/>
+            <point key="canvasLocation" x="4249.8046875" y="128.125"/>
         </scene>
         <!--Data Mgmt View Controller-->
         <scene sceneID="jSK-Fu-1n4">
@@ -1136,6 +1136,7 @@
                                                                     <state key="normal" title="Associate"/>
                                                                     <connections>
                                                                         <action selector="goToLogsView:" destination="WAL-WH-5LD" eventType="touchUpInside" id="2vq-UT-cP8"/>
+                                                                        <segue destination="nke-C7-Ge3" kind="show" identifier="showOpDetails" action="showDetailViewController:sender:" id="rgp-1r-fZR"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -1336,7 +1337,6 @@
                         <outlet property="progressView" destination="mfU-UI-ukK" id="PFP-Z4-fSd"/>
                         <outlet property="restoreOpsCollection" destination="jdz-Wq-ESC" id="UWc-pm-lfu"/>
                         <outlet property="showOps" destination="bM0-1k-hTT" id="3NA-uO-qZ1"/>
-                        <segue destination="nke-C7-Ge3" kind="show" identifier="showOpDetails" id="D4x-SE-a6e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZV-zD-rqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1378,7 +1378,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cpB-Vu-f5D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zol-q1-RlY">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vl-kr-wuU">
@@ -1504,14 +1504,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kus-EO-eaI">
-                                <rect key="frame" x="20" y="223.5" width="984" height="544.5"/>
+                                <rect key="frame" x="20" y="223.5" width="663" height="544.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" id="q8B-N7-ov3" customClass="StepTableViewCell" customModule="DataMgmtService" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="984" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="663" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q8B-N7-ov3" id="OFy-aI-0PN">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="663" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzf-q4-Ogc">
@@ -1538,7 +1538,7 @@
                                                     </constraints>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZW-3t-1VB">
-                                                    <rect key="frame" x="908" y="6.5" width="66" height="28"/>
+                                                    <rect key="frame" x="587" y="6.5" width="66" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <state key="normal" title="Show Logs"/>
                                                     <connections>
@@ -1898,7 +1898,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="B5p-1i-14x" kind="relationship" relationship="viewControllers" id="IXg-WE-kYX"/>
+                        <segue destination="Hy2-kZ-rWJ" kind="relationship" relationship="viewControllers" id="gt4-Jo-bmw"/>
                         <segue destination="llH-Hu-dnp" kind="relationship" relationship="viewControllers" id="UiY-46-kGh"/>
                         <segue destination="C9X-dL-3Vb" kind="relationship" relationship="viewControllers" id="rr1-3R-uej"/>
                     </connections>
@@ -2245,25 +2245,6 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
             </objects>
             <point key="canvasLocation" x="2040.8203124999998" y="1965.625"/>
         </scene>
-        <!--Summary-->
-        <scene sceneID="87t-US-3d6">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yj5-GE-CET" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController title="Summary" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="B5p-1i-14x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Summary" image="summaryb" id="bky-AC-rpG"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xML-Bp-fJV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="6Vb-HT-odz"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="2586.4000000000001" y="128.18590704647679"/>
-        </scene>
         <!--Data Management-->
         <scene sceneID="1CN-2Q-q2s">
             <objects>
@@ -2321,6 +2302,25 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
             </objects>
             <point key="canvasLocation" x="3218.5546875" y="1375"/>
         </scene>
+        <!--Summary-->
+        <scene sceneID="e31-eJ-GzZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hy2-kZ-rWJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Summary" image="summaryb" id="lUN-jh-rWh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWz-Ga-dV9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="k0R-YO-ySm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVD-LV-PkV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3525.5859375" y="128.125"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Running" width="29" height="25"/>
@@ -2337,7 +2337,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
         <image name="summaryb" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KzU-Kf-wUO"/>
+        <segue reference="rgp-1r-fZR"/>
         <segue reference="vyJ-Xr-qCK"/>
     </inferredMetricsTieBreakers>
 </document>
