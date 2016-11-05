@@ -62,6 +62,11 @@ class DbSummaryViewController: UIViewController {
     @IBOutlet weak var generalLogImage: UIImageView!
     @IBOutlet weak var slowQueryImage: UIImageView!
     
+    @IBOutlet weak var privatePassKeyImage: UIImageView!
+    @IBOutlet weak var publicPassKeyImage: UIImageView!
+    @IBOutlet weak var privatePassKey: UILabel!
+    @IBOutlet weak var publicPassKey: UILabel!
+    
     @IBOutlet weak var graphStack: UIStackView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -186,6 +191,37 @@ class DbSummaryViewController: UIViewController {
         else{
             self.slowQueryLog.text = "off"
         }
+        
+        //set authentication
+        if let sha256_private_key = self.detailItem?.properties["sha256_private_key"]{
+            self.privatePassKeyImage.image = #imageLiteral(resourceName: "ash_dot")
+            if(sha256_private_key == "OFF"){
+                self.privatePassKey.text = "off"
+            }
+            else{
+                self.privatePassKey.text = "on  " + sha256_private_key
+                self.privatePassKeyImage.image = #imageLiteral(resourceName: "green_dot")
+            }
+        }
+        else{
+            self.privatePassKey.text = "n/a"
+        }
+
+        if let sha256_public_key = self.detailItem?.properties["sha256_public_key"]{
+            self.publicPassKeyImage.image = #imageLiteral(resourceName: "ash_dot")
+            if(sha256_public_key == "OFF"){
+                self.publicPassKey.text = "off"
+            }
+            else{
+                self.publicPassKey.text = "on  " + sha256_public_key
+                self.publicPassKeyImage.image = #imageLiteral(resourceName: "green_dot")
+            }
+        }
+        else{
+            self.publicPassKey.text = "n/a"
+        }
+
+        
         
         
         if self.detailItem?.type == "mysql_database" {
