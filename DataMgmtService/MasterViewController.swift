@@ -28,7 +28,7 @@ class MasterViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.tabBarViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? UITabBarController
+            self.tabBarViewController = (controllers[controllers.count-1] ) as? UITabBarController
         }
 
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -90,6 +90,9 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selDB = databases[indexPath.row]
+                let navController = segue.destination as! UINavigationController
+                navController.navigationBar.isHidden = true
+                
                 let tabController = (segue.destination as! UINavigationController).topViewController as! UITabBarController
                 let summaryNavController = tabController.viewControllers?[0] as! UINavigationController
                 let summaryController = (summaryNavController).topViewController as!  DbSummaryViewController
