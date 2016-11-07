@@ -95,7 +95,8 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
         title = "Data Management"
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-        
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem)
+
         
         progressStepsCollection.dataSource = self
         progressStepsCollection.delegate = self

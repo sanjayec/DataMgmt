@@ -44,4 +44,24 @@ class CommonUtil {
        
         
     }
+    
+    static func setNavigationBarItems(navigationItem: UINavigationItem){
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "naftix_icon"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: Selector(("nil")), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x:0, y:0, width:75, height:18)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+       navigationItem.rightBarButtonItem = barButton
+        
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 246.0/255, green:254.0/255, blue:255.0/255, alpha:1)
+        
+        // self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 44.0/255, green:62.0/255, blue:80.0/255, alpha:1)]
+        
+    }
 }

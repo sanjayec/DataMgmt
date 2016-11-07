@@ -89,6 +89,14 @@ class DbSummaryViewController: UIViewController {
         title = "Summary"
         // Do any additional setup after loading the view.
         self.configureView()
+        self.setContent()
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem)
+         addLeftBorderForGraphSection(stackView: self.graphStack)
+        addLeftBorderForGraphSection(stackView: self.oracleGraphs)
+        // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)
+    }
+    
+    func setContent(){
         
         let properties = self.detailItem?.properties
         let dateCreated = self.detailItem?.dateCreated
@@ -96,16 +104,16 @@ class DbSummaryViewController: UIViewController {
         if let hostname = properties?["hostname"]{
             self.host.text = hostname
         }
-       if let socket = properties?["socket"]{
+        if let socket = properties?["socket"]{
             self.socket.text = socket
         }
         
         if let port = properties?["port"]{
             self.port.text = port
         }
-       
+        
         if let version = (properties?["version"]) { //! + " " + (properties?["version_comment"])!
-                    self.version.text = version
+            self.version.text = version
             if let versionComment = properties?["version_comment"] {
                 self.version.text =  version + " " + versionComment
             }
@@ -116,43 +124,43 @@ class DbSummaryViewController: UIViewController {
                 self.compiledFor.text = os + " " + compileMachine
             }
         }
-              self.configurationFile.text = "unknown"
+        self.configurationFile.text = "unknown"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
         if let dateCreated = self.detailItem?.dateCreated{
-           self.runningSince.text = dateFormatter.string(from: dateCreated)
+            self.runningSince.text = dateFormatter.string(from: dateCreated)
         }
         
-//        if let perfSchema = properties?["performance_schema"] {
-//        self.performanceSchema.text = perfSchema.lowercased()
-//        setImage(text: self.performanceSchema.text!, imageView: self.perfSchemaImage)
-//        }
+        //        if let perfSchema = properties?["performance_schema"] {
+        //        self.performanceSchema.text = perfSchema.lowercased()
+        //        setImage(text: self.performanceSchema.text!, imageView: self.perfSchemaImage)
+        //        }
         setUIValues(propName: "performance_schema",label: self.performanceSchema, imageView: self.perfSchemaImage)
         setUIValues(propName: "innodb_buffer_pool_dump_now",label: self.threadPool, imageView: self.threadPoolImage)
         setUIValues(propName: "locked_in_memory",label: self.memCachedPlugin, imageView: self.memCachedImage)
         setUIValues(propName: "sync_frm",label: self.semiSyncReplPlugin, imageView: self.semiSyncImage)
         setUIValues(propName: "have_ssl",label: self.ssalAvailability, imageView: self.ssaAvailImage)
-
+        
         setUIValues(propName: "password_validation",label: self.passwordValidation, imageView: self.passwordValidImage)
         setUIValues(propName: "audit_log",label: self.auditLog, imageView: self.AudiLogImage)
         setUIValues(propName: "firewall",label: self.firewall, imageView: self.firewallImage)
         setUIValues(propName: "firewall_trace",label: self.firewallTrace, imageView: self.firewallTraceImage)
-
+        
         if let propValue = self.detailItem?.properties["default_authentication_plugin"]{
             if(propValue == "pam_auth_password"){
                 setUIValues(propValue: "on",label: self.pamAuthentication, imageView: self.pamAuthImage)
- 
+                
             }
             else{
                 setUIValues(propValue: "off",label: self.pamAuthentication, imageView: self.pamAuthImage)
                 
-
+                
             }
         }
         //set server directory values
         if let basedir = self.detailItem?.properties["basedir"]{
-             self.baseDir.text = basedir
+            self.baseDir.text = basedir
         }
         if let datadir = self.detailItem?.properties["datadir"]{
             self.dataDir.text = datadir
@@ -190,7 +198,7 @@ class DbSummaryViewController: UIViewController {
                 
             }
             else{
-            self.generalLog.text = "on  " + generallog
+                self.generalLog.text = "on  " + generallog
                 self.slowQueryImage.image = #imageLiteral(resourceName: "green_dot")
             }
         }
@@ -226,7 +234,7 @@ class DbSummaryViewController: UIViewController {
         else{
             self.privatePassKey.text = "n/a"
         }
-
+        
         if let sha256_public_key = self.detailItem?.properties["sha256_public_key"]{
             self.publicPassKeyImage.image = #imageLiteral(resourceName: "ash_dot")
             if(sha256_public_key == "OFF"){
@@ -240,13 +248,13 @@ class DbSummaryViewController: UIViewController {
         else{
             self.publicPassKey.text = "n/a"
         }
-
+        
         
         
         
         if self.detailItem?.type == "mysql_database" {
-//            mySqlView.isHidden = false
-//            oracleView.isHidden = true
+            //            mySqlView.isHidden = false
+            //            oracleView.isHidden = true
             
             mysqlGraphs.isHidden = false
             oracleGraphs.isHidden = true
@@ -256,8 +264,8 @@ class DbSummaryViewController: UIViewController {
             socketOrconnectStringLabel.text = "Socket:"
         }
         else{
-//            mySqlView.isHidden = true
-//            oracleView.isHidden = false
+            //            mySqlView.isHidden = true
+            //            oracleView.isHidden = false
             
             mysqlGraphs.isHidden = true
             oracleGraphs.isHidden = false
@@ -266,11 +274,8 @@ class DbSummaryViewController: UIViewController {
             standbyDetails.text = "This is not standy database"
             socketOrconnectStringLabel.text = "Connect String:"
         }
-        addLeftBorderForGraphSection(stackView: self.graphStack)
-        addLeftBorderForGraphSection(stackView: self.oracleGraphs)
-        // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)
+
     }
-    
     func addLeftBorderForGraphSection(stackView : UIStackView){
         //left border
         let border = CALayer()

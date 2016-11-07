@@ -33,6 +33,8 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem)
+
         
         NotificationCenter.default.addObserver(self, selector: #selector(OpearationStepsViewController.ExpandCollapseNode(_:)), name: NSNotification.Name(rawValue: "TreeNodeButtonClicked"), object: nil)
         
