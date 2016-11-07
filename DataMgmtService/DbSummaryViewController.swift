@@ -69,6 +69,18 @@ class DbSummaryViewController: UIViewController {
     
     @IBOutlet weak var graphStack: UIStackView!
     
+    @IBOutlet weak var mysqlGraphs: UIStackView!
+    @IBOutlet weak var oracleGraphs: UIStackView!
+    
+    @IBOutlet weak var oracleRightTopStack: UIStackView!
+    @IBOutlet weak var perfRightDownStack: UIStackView!
+    
+    @IBOutlet weak var dbImage: UIImageView!
+    @IBOutlet weak var standyHeader: UILabel!
+    
+    @IBOutlet weak var standbyDetails: UILabel!
+    
+    @IBOutlet weak var socketOrconnectStringLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,9 +93,17 @@ class DbSummaryViewController: UIViewController {
         let properties = self.detailItem?.properties
         let dateCreated = self.detailItem?.dateCreated
         
-         self.host.text = (self.detailItem?.properties["hostname"])
-        self.socket.text = (properties?["socket"])
-        self.port.text = (properties?["port"])
+        if let hostname = properties?["hostname"]{
+            self.host.text = hostname
+        }
+       if let socket = properties?["socket"]{
+            self.socket.text = socket
+        }
+        
+        if let port = properties?["port"]{
+            self.port.text = port
+        }
+       
         if let version = (properties?["version"]) { //! + " " + (properties?["version_comment"])!
                     self.version.text = version
             if let versionComment = properties?["version_comment"] {
@@ -225,30 +245,45 @@ class DbSummaryViewController: UIViewController {
         
         
         if self.detailItem?.type == "mysql_database" {
-            mySqlView.isHidden = false
-            oracleView.isHidden = true
+//            mySqlView.isHidden = false
+//            oracleView.isHidden = true
+            
+            mysqlGraphs.isHidden = false
+            oracleGraphs.isHidden = true
+            dbImage.image = #imageLiteral(resourceName: "mysql_server_5.7")
+            standyHeader.text = "Replication Slave"
+            standbyDetails.text = "This server is not a slave in a replication setup"
+            socketOrconnectStringLabel.text = "Socket:"
         }
         else{
-            mySqlView.isHidden = true
-            oracleView.isHidden = false
+//            mySqlView.isHidden = true
+//            oracleView.isHidden = false
+            
+            mysqlGraphs.isHidden = true
+            oracleGraphs.isHidden = false
+            dbImage.image = #imageLiteral(resourceName: "oracle_11g")
+            standyHeader.text = "Standy Details"
+            standbyDetails.text = "This is not standy database"
+            socketOrconnectStringLabel.text = "Connect String:"
         }
-        addLeftBorderForGraphSection()
-        
+        addLeftBorderForGraphSection(stackView: self.graphStack)
+        addLeftBorderForGraphSection(stackView: self.oracleGraphs)
+        // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)
     }
     
-    func addLeftBorderForGraphSection(){
+    func addLeftBorderForGraphSection(stackView : UIStackView){
         //left border
         let border = CALayer()
         border.backgroundColor = UIColor.lightGray.cgColor
         border.opacity = 0.1
-        border.frame = CGRect(x:-20, y:100, width: 3, height:self.graphStack.frame.size.height)
+        border.frame = CGRect(x:-20, y:100, width: 3, height:stackView.frame.size.height)
         border.shadowColor = UIColor.gray.cgColor
         border.shadowOffset = CGSize(width:5, height:5)
         border.shadowRadius = 5
         border.shadowOpacity = 1.0
 
         
-        self.graphStack.layer.addSublayer(border)
+        stackView.layer.addSublayer(border)
         
        
 
