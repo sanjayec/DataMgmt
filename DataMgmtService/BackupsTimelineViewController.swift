@@ -16,9 +16,9 @@ class BackupsTimelineViewController: UIViewController {
     @IBOutlet weak var timeline: ISTimeline!
     var selectedBackup: Backup?
     
-    
     @IBOutlet weak var selectedBackupName: UILabel!
-    @IBOutlet weak var selectedBackupId: UILabel!
+    
+         @IBOutlet weak var selectedBackupId: UILabel!
     @IBOutlet weak var backupCreatedOn: UILabel!
     @IBOutlet weak var backupStatus: UILabel!
     @IBOutlet weak var storageType: UILabel!
@@ -51,6 +51,18 @@ class BackupsTimelineViewController: UIViewController {
             self.selectedBackupView.isHidden = false
             self.selectedBackup = point.pointObject as? Backup
             self.setSelectedBackupDetails(point: point,sliderValue: sliderValue)
+            if sliderValue == point.pointValue {
+                self.backupPointView.isHidden = false
+                self.selectedBackupView.isHidden = true
+                self.setSelectedBackupPointDetails()
+
+            }
+            else{
+                self.backupPointView.isHidden = true
+                self.selectedBackupView.isHidden = false
+                self.setSelectedBackupDetails(point: point,sliderValue: sliderValue)
+
+            }
             
         }
         
@@ -147,6 +159,31 @@ class BackupsTimelineViewController: UIViewController {
             self.archiveLogs.lineBreakMode = .byWordWrapping
             self.archiveLogs.numberOfLines = 0
         }
+        
+        
     }
+    func setSelectedBackupPointDetails(){
+        self.selectedBackupName2?.text = self.selectedBackup?.name
+        self.selectedBackupId2?.text = self.selectedBackup?.id
+        self.backupStatus2?.text = self.selectedBackup?.status
+        self.storageType2?.text = self.selectedBackup?.storageType
+        self.storageLocation2?.text = self.selectedBackup?.storageLocation
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
+        self.backupCreatedOn2?.text = dateFormatter.string(from: (self.selectedBackup?.dateCreated)!)
+        
+        self.storageLocation2.lineBreakMode = .byWordWrapping
+        self.storageLocation2.numberOfLines = 0
+    }
+
+    
+    @IBOutlet weak var selectedBackupName2: UILabel!
+    @IBOutlet weak var selectedBackupId2: UILabel!
+    @IBOutlet weak var backupCreatedOn2: UILabel!
+    @IBOutlet weak var backupStatus2: UILabel!
+    @IBOutlet weak var storageType2: UILabel!
+    @IBOutlet weak var storageLocation2: UILabel!
+    
+    @IBOutlet weak var backupPointView: BackupView!
 
 }

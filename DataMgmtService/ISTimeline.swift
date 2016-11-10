@@ -308,8 +308,8 @@ open class ISTimeline: UIScrollView {
         let point = touches.first!.location(in: self)
         for (index, section) in sections.enumerated() {
             if (section.bubbleRect.contains(point)) {
-                points[index].touchUpInside?(points[index], (slider?.value)!)
                 slider?.value = points[index].pointValue
+                points[index].touchUpInside?(points[index], (slider?.value)!)
                 break
             }
         }
