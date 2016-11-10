@@ -169,7 +169,7 @@ class Database {
         
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.dateCreated = dateFormatter.date(from: createdOn)!
         
         // Initialize properties

@@ -45,7 +45,7 @@ class CommonUtil {
         
     }
     
-    static func setNavigationBarItems(navigationItem: UINavigationItem){
+    static func setNavigationBarItems(navigationItem: UINavigationItem, navController: UINavigationController){
         //create a new button
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
@@ -53,15 +53,20 @@ class CommonUtil {
         //add function for button
         button.addTarget(self, action: Selector(("nil")), for: UIControlEvents.touchUpInside)
         //set frame
-        button.frame = CGRect(x:0, y:0, width:75, height:18)
+        button.frame = CGRect(x:0, y:0, width:90, height:18)
         
         let barButton = UIBarButtonItem(customView: button)
         //assign button to navigationbar
        navigationItem.rightBarButtonItem = barButton
         
-        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 246.0/255, green:254.0/255, blue:255.0/255, alpha:1)
+        //set back button color
+        navController.navigationBar.tintColor = UIColor.white
         
-        // self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 44.0/255, green:62.0/255, blue:80.0/255, alpha:1)]
+        navController.navigationBar.barTintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+        
+         navController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UITabBar.appearance().tintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+
         
     }
 }

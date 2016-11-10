@@ -19,6 +19,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // loadSampleDatabases()
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!)
         loadDatabases()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
@@ -108,11 +109,18 @@ class MasterViewController: UITableViewController {
                 dataMgmtController.navigationItem.leftItemsSupplementBackButton = true
                 dataMgmtController.navigationItem.title = selDB.name
                 
-                let backupsController = (tabController.viewControllers?[2] as! UINavigationController).topViewController  as! BackupCollectionViewController
-                backupsController.detailItem = selDB
-                backupsController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                backupsController.navigationItem.leftItemsSupplementBackButton = true
-                backupsController.navigationItem.title = selDB.name
+//                let backupsController = (tabController.viewControllers?[2] as! UINavigationController).topViewController  as! BackupCollectionViewController
+//                backupsController.detailItem = selDB
+//                backupsController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+//                backupsController.navigationItem.leftItemsSupplementBackButton = true
+//                backupsController.navigationItem.title = selDB.name
+                
+                let backupsTimelineController = (tabController.viewControllers?[2] as! UINavigationController).topViewController  as! BackupsTimelineViewController
+                backupsTimelineController.detailItem = selDB
+                backupsTimelineController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                backupsTimelineController.navigationItem.leftItemsSupplementBackButton = true
+                backupsTimelineController.navigationItem.title = selDB.name
+
                 
             }
                     }

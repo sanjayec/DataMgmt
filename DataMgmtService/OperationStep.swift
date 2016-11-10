@@ -74,7 +74,7 @@ class OperationStep {
         self.name = name
         self.id = id
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         self.startTime = dateFormatter.date(from: startTime)!
         //if(endTime != "" ){

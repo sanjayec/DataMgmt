@@ -40,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let dataMgmtController = (tabBarController?.viewControllers?[1] as! UINavigationController).topViewController as! DataMgmtViewController
         dataMgmtController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         
-        let backupsController = (tabBarController?.viewControllers?[2] as! UINavigationController).topViewController as! BackupCollectionViewController
-        backupsController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        
+//        let backupsController = (tabBarController?.viewControllers?[2] as! UINavigationController).topViewController as! BackupCollectionViewController
+//        backupsController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+//        
         
         splitViewController.delegate = self
         }
@@ -89,6 +89,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             return true
         }
         return false
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // I added this line
+        UITabBar.appearance().tintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+        
+        return true
     }
 
 }

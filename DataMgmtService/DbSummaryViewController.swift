@@ -90,7 +90,7 @@ class DbSummaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.configureView()
         self.setContent()
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem)
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!)
          addLeftBorderForGraphSection(stackView: self.graphStack)
         addLeftBorderForGraphSection(stackView: self.oracleGraphs)
         // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)

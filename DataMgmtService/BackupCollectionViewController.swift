@@ -145,7 +145,7 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem)
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem, navController: self.navigationController!)
 
              
     }
