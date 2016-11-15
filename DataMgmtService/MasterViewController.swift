@@ -8,18 +8,18 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 
     // MARK: Properties
     var databases = [Database]()
-    
+    var selectedDB: Database?
    
     var tabBarViewController: UITabBarController? = nil
    
     override func viewDidLoad() {
         super.viewDidLoad()
        // loadSampleDatabases()
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!)
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!, viewController: self)
         loadDatabases()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
@@ -41,7 +41,24 @@ class MasterViewController: UITableViewController {
         gradient.endPoint = CGPoint(x: 1,y :0)
         gradient.name = "masterTable"
         self.tableView.layer.insertSublayer(gradient, at: 0)
+        
+        //list all fonts
+//        for name in UIFont.familyNames {
+//            print(name)
+//            if let nameString = name as? String
+//            {
+//                print(UIFont.fontNames(forFamilyName: nameString))
+//            }
+//        }
+       // self.splitViewController?.preferredPrimaryColumnWidthFraction = 0.5
+        
+        //let splitViewController = self.window!.rootViewController as! UISplitViewController
+        self.splitViewController?.preferredPrimaryColumnWidthFraction = 0.37
+        self.splitViewController?.maximumPrimaryColumnWidth = (self.splitViewController?.view.bounds.size.width)!
+        
 
+       // self.splitViewController?.minimumPrimaryColumnWidth = 500
+        
     }
     
     func loadDatabases(){
@@ -88,9 +105,10 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showTabDetails" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selDB = databases[indexPath.row]
+                self.selectedDB = selDB
                 let navController = segue.destination as! UINavigationController
                 navController.navigationBar.isHidden = true
                 
@@ -121,9 +139,42 @@ class MasterViewController: UITableViewController {
                 backupsTimelineController.navigationItem.leftItemsSupplementBackButton = true
                 backupsTimelineController.navigationItem.title = selDB.name
 
+                let maskingViewController = (tabController.viewControllers?[3] as! UINavigationController).topViewController  as! MaskingViewController
+                maskingViewController.detailItem = selDB
+                maskingViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                maskingViewController.navigationItem.leftItemsSupplementBackButton = true
+                maskingViewController.navigationItem.title = selDB.name
                 
+                    
+                                       // self.performSegue(withIdentifier: "showOpDetails", sender: self)
+                    
+                
+                 
             }
                     }
+        else if segue.identifier == "showOpDetails" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selDB = databases[indexPath.row]
+                selectedDB = selDB
+                var operation:Operation?
+                
+                        let restoreOperation = selectedDB?.latestRestoreOperation
+                let backupOperation = selectedDB?.runningBackupOperation
+                if(restoreOperation?.status == "1"){
+                    operation = restoreOperation
+                }
+                else{ // backup operation
+                    operation = backupOperation
+                }
+            let opStepsviewController =  (segue.destination as! UINavigationController).topViewController  as! OpearationStepsViewController
+            
+            opStepsviewController.operation = operation
+                opStepsviewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                opStepsviewController.navigationItem.leftItemsSupplementBackButton = true
+                //opStepsviewController.navigationItem.title = selectedDB.name
+            }
+            
+        }
     }
 
     // MARK: - Table View
@@ -149,7 +200,26 @@ class MasterViewController: UITableViewController {
         cell.typeImage!.image = databases[indexPath.row].typeImage
         //cell.expiresIn!.text = "Expires in " + databases[indexPath.row].expiresIn
         //cell.expiresIn!.textAlignment = .right
+        // if databases[indexPath.row].latestRestoreOperation?.status == "1"  {
+        if databases[indexPath.row].latestRestoreOperation?.status == "1"
+        {
+            cell.Status.isHidden = false
+            cell.statusBtnText.isHidden = false
+            CommonUtil.rotateView(targetView: cell.Status, duration: 0.2)
+            cell.statusBtnText.setTitle("Restore in Progress", for: .normal)
 
+        }
+        else if databases[indexPath.row].runningBackupOperation?.status == "1" {
+            
+            cell.Status.isHidden = false
+            cell.statusBtnText.isHidden = false
+            CommonUtil.rotateView(targetView: cell.Status, duration: 0.2)
+            cell.statusBtnText.setTitle("Backup in Progress", for: .normal)
+        }
+         else{
+            cell.Status.isHidden = true
+        }
+        
         return cell
     }
 
@@ -169,6 +239,13 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red:76.0/255, green:162.0/255, blue:205.0/255, alpha:1)
+        if databases[indexPath.row].latestRestoreOperation?.status != "1"{
+         self.performSegue(withIdentifier: "showTabDetails", sender: self)
+        }
+        else{
+            (selectedCell as? DatabaseTableViewCell)?.Status.isHidden = false
+            self.performSegue(withIdentifier: "showOpDetails", sender: self)
+        }
     }
     
     // if tableView is set in attribute inspector with selection to multiple Selection it should work.
@@ -179,7 +256,20 @@ class MasterViewController: UITableViewController {
         let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         cellToDeSelect.contentView.backgroundColor = UIColor.clear
     }
-
-
+ 
+    
+   
+    @IBAction func statusClicked(_ sender: Any) {
+        print("Status Clicked.")
+    }
+    
+    
+    @IBAction func statusButtonTxtClicked(_ sender: Any) {
+        
+         self.performSegue(withIdentifier: "showOpDetails", sender: self)
+        
+    }
+   
+   
 }
 

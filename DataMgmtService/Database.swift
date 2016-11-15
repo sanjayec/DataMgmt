@@ -156,7 +156,7 @@ class Database {
         
         if runningBackupOperation != nil{
             if let runningBackup = Backup(name: (runningBackupOperation?.name)!, dateCreated: runningBackupOperation?.startTime, storageType: "N/A", status: "Running"){
-                self.backups.append(runningBackup)
+              //   self.backups.append(runningBackup)
             }
             
         }

@@ -100,5 +100,48 @@ class DatabaseModel {
         
         
     }
+    
+    static func fetchOperation(operationId:String, completionHandler: @escaping (Operation?) -> Void)  {
+        let config = URLSessionConfiguration.default // Session Configuration
+        let userPasswordData = userPasswordString.data(using: String.Encoding.utf8)
+        let base64EncodedCredential = userPasswordData!.base64EncodedString(options: [])
+        let authString = "Basic \(base64EncodedCredential)"
+        config.httpAdditionalHeaders = ["Authorization" : authString]
+        let session = URLSession(configuration: config) // Load configuration into Session
+        let url = URL(string: "http://52.53.155.179:8080/fws/getOperationDefintions/" + operationId)!
+        
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            var operation : Operation?
+            
+            if error != nil {
+                
+                print(error!.localizedDescription)
+                
+            } else {
+                
+                
+                if let data = data,
+                    let json = try? JSONSerialization.jsonObject(with: data, options: []) as? Any {
+                    if let op = try? Operation(json: json as! [String : Any]) {
+                       operation = op
+                    }
+
+                    
+                }
+                
+                
+                
+                
+            }
+            completionHandler(operation)
+        })
+        task.resume()
+        
+        
+        
+    }
+    
 
 }

@@ -16,21 +16,24 @@ class StepTableViewCell: UITableViewCell {
     
     @IBOutlet weak var statusIcon: UIButton!
     @IBOutlet weak var showLogsBtn: UIButton!
+    @IBOutlet weak var startDate: UILabel!
+    @IBOutlet weak var endDate: UILabel!
    
+    @IBOutlet weak var duration: UILabel!
     
     //MARK:  Draw Rectangle for Image
     
     override func draw(_ rect: CGRect) {
         var cellFrame: CGRect = self.treeLabel.frame
         var buttonFrame: CGRect = self.treeButton.frame
-        var statusIconFrame: CGRect = self.statusIcon.frame
+      //  var statusIconFrame: CGRect = self.statusIcon.frame
         let indentation: Int = self.treeNode.nodeLevel! * 25
         cellFrame.origin.x = buttonFrame.size.width + CGFloat(indentation) + 5
         buttonFrame.origin.x = 2 + CGFloat(indentation)
-        statusIconFrame.origin.x = cellFrame.origin.x + cellFrame.size.width + 5
+      //  statusIconFrame.origin.x = cellFrame.origin.x + cellFrame.size.width + 5
         self.treeLabel.frame = cellFrame
         self.treeButton.frame = buttonFrame
-        self.statusIcon.frame = statusIconFrame
+        //self.statusIcon.frame = statusIconFrame
         
         if self.treeNode.nodeChildren == nil
         {
@@ -39,7 +42,16 @@ class StepTableViewCell: UITableViewCell {
         else{
             self.treeButton.isHidden = false
         }
+//        if(self.endDate.text == nil || self.endDate.text == ""){
+//            startRotating(button: self.statusIcon)
+//        }
+//        else{
+//            stopRotating(button: self.statusIcon)
+//        }
     }
+    
+   
+    
     
     //MARK:  Set Background image
     
@@ -55,6 +67,10 @@ class StepTableViewCell: UITableViewCell {
     
     //MARK:  Expand Node
     @IBAction func expand(_ sender: Any) {
+       expandTree()
+    }
+    
+    func expandTree(){
         if (self.treeNode != nil)
         {
             if self.treeNode.nodeChildren != nil
@@ -78,7 +94,6 @@ class StepTableViewCell: UITableViewCell {
             //print("button clicked")
         }
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

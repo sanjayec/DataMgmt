@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DbSummaryViewController: UIViewController {
+class DbSummaryViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     // MARK: Properties
     
@@ -90,7 +90,8 @@ class DbSummaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.configureView()
         self.setContent()
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!)
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
+      
          addLeftBorderForGraphSection(stackView: self.graphStack)
         addLeftBorderForGraphSection(stackView: self.oracleGraphs)
         // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)
@@ -178,9 +179,9 @@ class DbSummaryViewController: UIViewController {
             self.tmpDir.text = tmpdir
         }
         if let errorlog = self.detailItem?.properties["log_error"]{
-            self.errorLogImage.image = #imageLiteral(resourceName: "ash_dot")
+           // self.errorLogImage.image = #imageLiteral(resourceName: "ash_dot")
             if(errorlog == "OFF"){
-                self.errorLog.text = "off"
+               // self.errorLog.text = "off"
                 
             }
             else{
@@ -189,10 +190,11 @@ class DbSummaryViewController: UIViewController {
             }
         }
         else{
-            self.errorLog.text = "off"
+            //self.errorLog.text = "off"
         }
+        self.generalLogImage.image = #imageLiteral(resourceName: "ash_dot")
         if let generallog = self.detailItem?.properties["general_log"]{
-            self.generalLogImage.image = #imageLiteral(resourceName: "ash_dot")
+           
             if(generallog == "OFF"){
                 self.generalLog.text = "off"
                 
@@ -205,9 +207,9 @@ class DbSummaryViewController: UIViewController {
         else{
             self.generalLog.text = "off"
         }
-        
+         self.slowQueryImage.image = #imageLiteral(resourceName: "ash_dot")
         if let slow_query_log = self.detailItem?.properties["slow_query_log"]{
-            self.slowQueryImage.image = #imageLiteral(resourceName: "ash_dot")
+           
             if(slow_query_log == "OFF"){
                 self.slowQueryLog.text = "off"
             }
@@ -262,6 +264,8 @@ class DbSummaryViewController: UIViewController {
             standyHeader.text = "Replication Slave"
             standbyDetails.text = "This server is not a slave in a replication setup"
             socketOrconnectStringLabel.text = "Socket:"
+            mysqlAvailServFeaturesStack.isHidden = false
+            oracleServerFeaturesStack.isHidden = true
         }
         else{
             //            mySqlView.isHidden = true
@@ -273,6 +277,9 @@ class DbSummaryViewController: UIViewController {
             standyHeader.text = "Standy Details"
             standbyDetails.text = "This is not standy database"
             socketOrconnectStringLabel.text = "Connect String:"
+            
+            mysqlAvailServFeaturesStack.isHidden = true
+            oracleServerFeaturesStack.isHidden = false
         }
 
     }
@@ -363,6 +370,9 @@ class DbSummaryViewController: UIViewController {
         }
     }
     
+  
+    @IBOutlet weak var mysqlAvailServFeaturesStack: UIStackView!
     
-
+    @IBOutlet weak var oracleServerFeaturesStack: UIStackView!
+    
 }

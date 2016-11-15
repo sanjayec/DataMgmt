@@ -17,6 +17,10 @@ class DatabaseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var typeImage: UIImageView!
     @IBOutlet weak var expiresIn: UILabel!
+    @IBOutlet weak var Status: UIButton!
+    @IBOutlet weak var statusBtnText: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,5 +31,7 @@ class DatabaseTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+        
 
 }

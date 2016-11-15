@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackupsTimelineViewController: UIViewController {
+class BackupsTimelineViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     
     
@@ -39,18 +39,37 @@ class BackupsTimelineViewController: UIViewController {
             navigationItem.title = detail.name
         }
     }
+    
+    func setCompareRegion(){
+        self.compareItem1View.layer.borderWidth = 1
+        self.compareItem1View.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+    
+      
+      //  self.compareItem1View.layer.borderColor = (UIColor(patternImage: UIImage(named: "dash")!)).cgColor
+        self.compareItem2View.layer.borderWidth = 1
+        self.compareItem2View.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+       
+        
+        self.compareItem1.lineBreakMode = .byWordWrapping
+        self.compareItem1.numberOfLines = 0
+        self.compareItem2.lineBreakMode = .byWordWrapping
+        self.compareItem2.numberOfLines = 0
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem, navController: self.navigationController!)
-
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
+   setCompareRegion()
         let black = UIColor.black
         let green = UIColor.init(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         
         let touchAction = { (point:ISPoint, _ sliderValue: Float) in
             print("point \(point.title)")
+           // self.compareView.isHidden = true
             self.selectedBackupView.isHidden = false
             self.selectedBackup = point.pointObject as? Backup
-            self.setSelectedBackupDetails(point: point,sliderValue: sliderValue)
+           
             if sliderValue == point.pointValue {
                 self.backupPointView.isHidden = false
                 self.selectedBackupView.isHidden = true
@@ -138,7 +157,7 @@ class BackupsTimelineViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
-        self.backupCreatedOn?.text = dateFormatter.string(from: (self.selectedBackup?.dateCreated)!)
+        self.backupCreatedOn?.text = dateFormatter.string(from: (self.selectedBackup?.dateCreated)!) + " UTC"
         // Do any additional setup after loading the view.
         
         self.storageLocation.lineBreakMode = .byWordWrapping
@@ -158,6 +177,8 @@ class BackupsTimelineViewController: UIViewController {
             self.archiveLogs.text =  "archive_logs_09_10_Seq1.log, archive_logs_19_10_Seq2.log, archive_logs_20_10_Seq3.log, archive_logs_21_10_Seq4.log"
             self.archiveLogs.lineBreakMode = .byWordWrapping
             self.archiveLogs.numberOfLines = 0
+            
+            addToCompareAction()
         }
         
         
@@ -170,12 +191,79 @@ class BackupsTimelineViewController: UIViewController {
         self.storageLocation2?.text = self.selectedBackup?.storageLocation
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
-        self.backupCreatedOn2?.text = dateFormatter.string(from: (self.selectedBackup?.dateCreated)!)
+        self.backupCreatedOn2?.text = dateFormatter.string(from: (self.selectedBackup?.dateCreated)!) + " UTC"
         
         self.storageLocation2.lineBreakMode = .byWordWrapping
         self.storageLocation2.numberOfLines = 0
+        addToCompareAction()
+        
+        if(self.selectedBackup?.status == "Running"){
+            let popover = self.storyboard?.instantiateViewController(withIdentifier: "backupProgressPopup") as! BackupProgressViewController
+            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+            popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+            
+            popover.popoverPresentationController?.delegate = self
+            popover.popoverPresentationController?.sourceView = self.selectedBackupView
+            popover.popoverPresentationController?.sourceRect = self.selectedBackupView.bounds
+            popover.popoverPresentationController?.permittedArrowDirections = .any
+            popover.preferredContentSize = CGSize(width: 1200, height: 160)
+            
+            //map database object
+            popover.detailItem = self.detailItem
+            
+            self.present(popover, animated: true, completion: nil)
+        }
+        else{
+            addToCompareAction()
+        }
     }
 
+     func addToCompareAction() {
+        
+        if numberOfSelects % 2 == 0 {
+            if self.backup2ForCompare?.name != self.selectedBackup?.name{
+            self.backup1ForCompare = self.selectedBackup
+            self.compareItem1?.text = self.selectedBackup?.name
+                numberOfSelects += 1
+            }
+        }
+        else{
+            if self.backup1ForCompare?.name != self.selectedBackup?.name{
+            self.backup2ForCompare = self.selectedBackup
+            self.compareItem2?.text = self.selectedBackup?.name
+                numberOfSelects += 1
+            }
+        }
+        
+        
+        
+    }
+    
+    @IBAction func compareAction(_ sender: Any) {
+//        self.compareView.isHidden = false
+//        self.selectedBackupView.isHidden = true
+//        self.backupPointView.isHidden = true
+        let popover = self.storyboard?.instantiateViewController(withIdentifier: "compareBackupsPopup") as! CompareResultsViewController
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+        
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = self.compareItem2View
+       // popover.popoverPresentationController?.sourceRect = selectedCellSourceRect!
+        popover.popoverPresentationController?.permittedArrowDirections = .any
+        popover.preferredContentSize = CGSize(width: 750, height: 700)
+        
+        //get data
+        popover.backup1 = backup1ForCompare
+        popover.backup2 = backup2ForCompare
+        
+        
+        self.present(popover, animated: true, completion: nil)
+
+    }
+    var backup1ForCompare:Backup?
+    var backup2ForCompare:Backup?
+    var numberOfSelects = 0
     
     @IBOutlet weak var selectedBackupName2: UILabel!
     @IBOutlet weak var selectedBackupId2: UILabel!
@@ -185,5 +273,19 @@ class BackupsTimelineViewController: UIViewController {
     @IBOutlet weak var storageLocation2: UILabel!
     
     @IBOutlet weak var backupPointView: BackupView!
+    
+    
+    @IBOutlet weak var compareItem1View: UIView!
 
+    @IBOutlet weak var compareBtn: UIButton!
+    @IBOutlet weak var compareItem2View: UIView!
+    
+
+    @IBOutlet weak var compareItem1: UILabel!
+    @IBOutlet weak var compareItem2: UILabel!
+    
+    
+    @IBOutlet weak var compareDriftImage: UIImageView!
+    
+    
 }

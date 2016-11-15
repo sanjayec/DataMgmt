@@ -61,7 +61,7 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
             UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear, animations: {
                 cell.backupIcon.transform =  cell.backupIcon.transform.rotated(by: CGFloat(M_PI/10))
             }) { finished in
-                self.rotateView(targetView: cell.backupIcon, duration: 1)
+                CommonUtil.rotateView(targetView: cell.backupIcon, duration: 1)
             }
             
         }
@@ -145,7 +145,7 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem, navController: self.navigationController!)
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
 
              
     }
@@ -237,13 +237,6 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
         self.shouldStopRotating = false
     }
     
-    // Rotate <targetView> indefinitely
-    private func rotateView(targetView: UIImageView, duration: Double = 1.0) {
-        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
-            targetView.transform = targetView.transform.rotated(by: CGFloat(M_PI/10))
-        }) { finished in
-            self.rotateView(targetView: targetView, duration: duration)
-        }
-    }
+  
 
 }

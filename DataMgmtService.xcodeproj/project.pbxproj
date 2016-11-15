@@ -18,7 +18,19 @@
 		430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
 		430483911DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
 		4321E0191DD2CFE0006C1004 /* BackupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0181DD2CFE0006C1004 /* BackupView.swift */; };
+		4321E01C1DD512E8006C1004 /* CompareResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E01B1DD512E8006C1004 /* CompareResultsViewController.swift */; };
+		4321E01E1DD54ABF006C1004 /* DataChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E01D1DD54ABF006C1004 /* DataChangeTableViewCell.swift */; };
+		4321E0211DD54E86006C1004 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0201DD54E86006C1004 /* TableData.swift */; };
+		4321E0231DD54E9A006C1004 /* ResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0221DD54E9A006C1004 /* ResultsModel.swift */; };
+		4321E0251DD570BD006C1004 /* SchemaChangeTableRowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0241DD570BD006C1004 /* SchemaChangeTableRowData.swift */; };
+		4321E0271DD573B7006C1004 /* SchemaChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0261DD573B7006C1004 /* SchemaChangeTableViewCell.swift */; };
 		4330BF511DBCA715004911A8 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330BF501DBCA715004911A8 /* Backup.swift */; };
+		43494F9A1DD932CC0031398E /* proximanova-light-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494F991DD932CC0031398E /* proximanova-light-webfont.ttf */; };
+		43494F9C1DD932D60031398E /* proximanova-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494F9B1DD932D60031398E /* proximanova-bold-webfont.ttf */; };
+		43494F9E1DD936120031398E /* UILabel+FontStyleOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43494F9D1DD936120031398E /* UILabel+FontStyleOverride.swift */; };
+		43494FA01DD938460031398E /* proximanova-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494F9F1DD938460031398E /* proximanova-regular-webfont.ttf */; };
+		43494FA21DD938B50031398E /* proximanova-semibold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494FA11DD938B50031398E /* proximanova-semibold-webfont.ttf */; };
+		43494FA51DDA9CC50031398E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43494FA41DDA9CC50031398E /* ProfileViewController.swift */; };
 		436B23021DCBCB30001F7ADC /* OpearationStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */; };
 		436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */; };
 		436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */; };
@@ -37,6 +49,7 @@
 		43B92E481DC574B600659764 /* UIViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B92E461DC574B600659764 /* UIViewController+Background.swift */; };
 		43C1563C1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1563B1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift */; };
 		43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1563D1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift */; };
+		43E2D0151DD928A6005D4387 /* MaskingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2D0141DD928A6005D4387 /* MaskingViewController.swift */; };
 		43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */; };
 		43F8F3DB1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */; };
 		43F8F3DD1DC68A01001D80A7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */; };
@@ -77,7 +90,19 @@
 		4304838B1DBF7F1800FB9100 /* OperationStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationStep.swift; sourceTree = "<group>"; };
 		4304838F1DC056E700FB9100 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		4321E0181DD2CFE0006C1004 /* BackupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupView.swift; sourceTree = "<group>"; };
+		4321E01B1DD512E8006C1004 /* CompareResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareResultsViewController.swift; sourceTree = "<group>"; };
+		4321E01D1DD54ABF006C1004 /* DataChangeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataChangeTableViewCell.swift; sourceTree = "<group>"; };
+		4321E0201DD54E86006C1004 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
+		4321E0221DD54E9A006C1004 /* ResultsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsModel.swift; sourceTree = "<group>"; };
+		4321E0241DD570BD006C1004 /* SchemaChangeTableRowData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaChangeTableRowData.swift; sourceTree = "<group>"; };
+		4321E0261DD573B7006C1004 /* SchemaChangeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaChangeTableViewCell.swift; sourceTree = "<group>"; };
 		4330BF501DBCA715004911A8 /* Backup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		43494F991DD932CC0031398E /* proximanova-light-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-light-webfont.ttf"; sourceTree = "<group>"; };
+		43494F9B1DD932D60031398E /* proximanova-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-bold-webfont.ttf"; sourceTree = "<group>"; };
+		43494F9D1DD936120031398E /* UILabel+FontStyleOverride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+FontStyleOverride.swift"; sourceTree = "<group>"; };
+		43494F9F1DD938460031398E /* proximanova-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-regular-webfont.ttf"; sourceTree = "<group>"; };
+		43494FA11DD938B50031398E /* proximanova-semibold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-semibold-webfont.ttf"; sourceTree = "<group>"; };
+		43494FA41DDA9CC50031398E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpearationStepsViewController.swift; sourceTree = "<group>"; };
 		436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
 		436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewNode.swift; sourceTree = "<group>"; };
@@ -95,6 +120,7 @@
 		43B92E461DC574B600659764 /* UIViewController+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Background.swift"; sourceTree = "<group>"; };
 		43C1563B1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreProgressCollectionViewController.swift; sourceTree = "<group>"; };
 		43C1563D1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoreProgressCollectionViewCell.swift; sourceTree = "<group>"; };
+		43E2D0141DD928A6005D4387 /* MaskingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskingViewController.swift; sourceTree = "<group>"; };
 		43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Background.swift"; sourceTree = "<group>"; };
 		43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		43FCE4511DB13D9D00130EB1 /* DataMgmtService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataMgmtService.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +172,7 @@
 		430341E31DBB1EF300688800 /* backup */ = {
 			isa = PBXGroup;
 			children = (
+				4321E01A1DD512B5006C1004 /* compare */,
 				430341E61DBB1FB900688800 /* BackupCollectionViewController.swift */,
 				4303420E1DBC40A400688800 /* BackupCollectionViewCell.swift */,
 				4330BF501DBCA715004911A8 /* Backup.swift */,
@@ -164,8 +191,49 @@
 				43B92E461DC574B600659764 /* UIViewController+Background.swift */,
 				43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */,
 				43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */,
+				43494F9D1DD936120031398E /* UILabel+FontStyleOverride.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		4321E01A1DD512B5006C1004 /* compare */ = {
+			isa = PBXGroup;
+			children = (
+				4321E01F1DD54E6E006C1004 /* data */,
+				4321E01B1DD512E8006C1004 /* CompareResultsViewController.swift */,
+				4321E01D1DD54ABF006C1004 /* DataChangeTableViewCell.swift */,
+				4321E0261DD573B7006C1004 /* SchemaChangeTableViewCell.swift */,
+			);
+			name = compare;
+			sourceTree = "<group>";
+		};
+		4321E01F1DD54E6E006C1004 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				4321E0201DD54E86006C1004 /* TableData.swift */,
+				4321E0221DD54E9A006C1004 /* ResultsModel.swift */,
+				4321E0241DD570BD006C1004 /* SchemaChangeTableRowData.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		43494F941DD932450031398E /* fontStyles */ = {
+			isa = PBXGroup;
+			children = (
+				43494FA11DD938B50031398E /* proximanova-semibold-webfont.ttf */,
+				43494F9F1DD938460031398E /* proximanova-regular-webfont.ttf */,
+				43494F991DD932CC0031398E /* proximanova-light-webfont.ttf */,
+				43494F9B1DD932D60031398E /* proximanova-bold-webfont.ttf */,
+			);
+			name = fontStyles;
+			sourceTree = "<group>";
+		};
+		43494FA31DDA9CA50031398E /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				43494FA41DDA9CC50031398E /* ProfileViewController.swift */,
+			);
+			name = profile;
 			sourceTree = "<group>";
 		};
 		436B23001DCBCAE5001F7ADC /* operation */ = {
@@ -210,6 +278,14 @@
 			name = dataManagement;
 			sourceTree = "<group>";
 		};
+		43E2D0131DD9288A005D4387 /* masking */ = {
+			isa = PBXGroup;
+			children = (
+				43E2D0141DD928A6005D4387 /* MaskingViewController.swift */,
+			);
+			name = masking;
+			sourceTree = "<group>";
+		};
 		43FCE4481DB13D9D00130EB1 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +307,9 @@
 		43FCE4531DB13D9D00130EB1 /* DataMgmtService */ = {
 			isa = PBXGroup;
 			children = (
+				43494FA31DDA9CA50031398E /* profile */,
+				43494F941DD932450031398E /* fontStyles */,
+				43E2D0131DD9288A005D4387 /* masking */,
 				43A6E6931DD173C700E3B095 /* ISTimeline */,
 				436B23001DCBCAE5001F7ADC /* operation */,
 				43FE2BD61DC83424008E1BAD /* datasource */,
@@ -356,9 +435,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43494F9A1DD932CC0031398E /* proximanova-light-webfont.ttf in Resources */,
 				43FCE4611DB13D9D00130EB1 /* LaunchScreen.storyboard in Resources */,
+				43494FA01DD938460031398E /* proximanova-regular-webfont.ttf in Resources */,
+				43494F9C1DD932D60031398E /* proximanova-bold-webfont.ttf in Resources */,
 				43FCE45E1DB13D9D00130EB1 /* Assets.xcassets in Resources */,
 				43FCE45C1DB13D9D00130EB1 /* Main.storyboard in Resources */,
+				43494FA21DD938B50031398E /* proximanova-semibold-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +463,8 @@
 				43C1563C1DBEEDF7002B9870 /* RestoreProgressCollectionViewController.swift in Sources */,
 				436B23021DCBCB30001F7ADC /* OpearationStepsViewController.swift in Sources */,
 				43A6E6951DD174C000E3B095 /* ISTimeline.swift in Sources */,
+				43494F9E1DD936120031398E /* UILabel+FontStyleOverride.swift in Sources */,
+				4321E0211DD54E86006C1004 /* TableData.swift in Sources */,
 				4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */,
 				4304838C1DBF7F1800FB9100 /* OperationStep.swift in Sources */,
 				430483871DBF209B00FB9100 /* Operation.swift in Sources */,
@@ -387,25 +472,32 @@
 				436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */,
 				43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */,
 				436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */,
+				4321E0251DD570BD006C1004 /* SchemaChangeTableRowData.swift in Sources */,
 				43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */,
+				4321E0231DD54E9A006C1004 /* ResultsModel.swift in Sources */,
 				43FE2BD81DC83498008E1BAD /* Datasource.swift in Sources */,
 				43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */,
 				43A6E6991DD17B3200E3B095 /* BackupsTimelineViewController.swift in Sources */,
 				4330BF511DBCA715004911A8 /* Backup.swift in Sources */,
 				43FCE4571DB13D9D00130EB1 /* MasterViewController.swift in Sources */,
+				4321E01E1DD54ABF006C1004 /* DataChangeTableViewCell.swift in Sources */,
 				438696611DC4447100C49F06 /* LoginViewController.swift in Sources */,
 				4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */,
+				43E2D0151DD928A6005D4387 /* MaskingViewController.swift in Sources */,
 				4386965A1DC0EABE00C49F06 /* BackupPopupViewController.swift in Sources */,
 				43FCE4771DB147DC00130EB1 /* DatabaseTableViewCell.swift in Sources */,
 				430341E21DB9C2D300688800 /* Date.swift in Sources */,
 				43FCE47C1DB1DA8700130EB1 /* DbSummaryViewController.swift in Sources */,
 				43FE2BDB1DC84702008E1BAD /* DatasourceCollectionViewCell.swift in Sources */,
 				43FE2BDD1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift in Sources */,
+				4321E01C1DD512E8006C1004 /* CompareResultsViewController.swift in Sources */,
 				430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
 				43FCE4791DB1695200130EB1 /* Database.swift in Sources */,
 				436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */,
+				4321E0271DD573B7006C1004 /* SchemaChangeTableViewCell.swift in Sources */,
 				4303420F1DBC40A400688800 /* BackupCollectionViewCell.swift in Sources */,
 				436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */,
+				43494FA51DDA9CC50031398E /* ProfileViewController.swift in Sources */,
 				4302BC521DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
 				436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */,
 				43A6E6971DD174EE00E3B095 /* ISPoint.swift in Sources */,

@@ -55,13 +55,17 @@ class TreeViewLists
             let node: TreeViewNode = TreeViewNode()
             node.nodeLevel = data.level
             node.nodeObject = data.object as AnyObject?
-            node.isExpanded = GlobalVariables.FALSE
+            
             let newLevel = data.level + 1
             node.nodeChildren = LoadChildrenNodes(dataList, level: newLevel, parentId: data.id)
             
             if (node.nodeChildren?.count == 0)
             {
                 node.nodeChildren = nil
+                node.isExpanded = GlobalVariables.FALSE
+            }
+            else{
+                node.isExpanded = GlobalVariables.TRUE
             }
             
             nodes.append(node)

@@ -11,7 +11,8 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Properties
-    var useOratix = false
+    
+    
     
     let login_url = "http://52.53.155.179:8080/login/api/Login"
     let checksession_url = "http://52.53.155.179:8080/login/api/CheckSession"
@@ -68,13 +69,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setLogo(){
-        if(useOratix){
-            companyLogo.image = #imageLiteral(resourceName: "oratix")
+        
+        companyLogo.image =  UIImage(named:CommonUtil.logoToBeUsed)
             
-        }
-        else{
-            companyLogo.image = #imageLiteral(resourceName: "naftix")
-        }
     }
     func login_now(username:String, password:String)
     {

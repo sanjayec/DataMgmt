@@ -12,6 +12,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var refreshBtn: UIButton!
     var displayArray = [TreeViewNode]()
     var indentation: Int = 0
     var nodes: [TreeViewNode] = []
@@ -27,26 +28,32 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var percentageCompleted: UILabel!
     var selectedCell: StepTableViewCell?
     
+    @IBOutlet weak var duration: UILabel!
     
     //MARK:  Init & Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!)
-
+        if (self.navigationItem != nil && self.navigationController != nil ) {
+        CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(OpearationStepsViewController.ExpandCollapseNode(_:)), name: NSNotification.Name(rawValue: "TreeNodeButtonClicked"), object: nil)
         
-        data = TreeViewLists.LoadInitialData(operation: operation!)
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        if operation !=  nil {
+           data = TreeViewLists.LoadInitialData(operation: operation!)
+        }
         
         //for i in 0..<data.count
         //{
         //    let d: TreeViewData = data[i]
         //    print("\(d.name)")
         //}
-        tableView.dataSource = self
-        tableView.delegate = self
+       
         
         nodes = TreeViewLists.LoadInitialNodes(data)
         
@@ -58,10 +65,13 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        self.startTime.text = dateFormatter.string(from: (operation?.startTime)!)
+        if (operation?.startTime != nil ) {
+         self.startTime.text = dateFormatter.string(from: (operation?.startTime)!) + " UTC"
+        }
         if let endTIme = operation?.endTime{
-         self.endTime.text = dateFormatter.string(from: endTIme)
+         self.endTime.text = dateFormatter.string(from: endTIme) + " UTC"
+         duration.text =  CommonUtil.getDuration(date1: (operation?.startTime)!, date2: endTIme)
+
         }
         if operation?.status == "0" {
         self.status.text = "Completed"
@@ -76,20 +86,54 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         self.percentageCompleted.text = operation?.percentageComplete
         
         //nav bar
-        var backButtonText = "Datasources"
-        if(self.operation?.type == "Backup Database"){
-            backButtonText = "Backups"
-        }
-        let newBackButton = UIBarButtonItem(title: backButtonText, style: .plain, target: nil, action: #selector(goBackToParent))
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
+//        var backButtonText = "Datasources"
+//        if(self.operation?.type == "Backup Database"){
+//            backButtonText = "Backups"
+//        }
+//        let newBackButton = UIBarButtonItem(title: backButtonText, style: .plain, target: nil, action: #selector(goBackToParent))
+//        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
         //
         //viewController.navigationItem.leftBarButtonItem = self. displayModeButtonItem
       //  self.navigationItem.leftItemsSupplementBackButton = true
         self.navigationItem.title = operation?.name
         
+        setRefreshButtonImage()
+        
+        var timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchOperation), userInfo: nil, repeats: true)
+
+        // NotificationCenter.default.post(name: Notification.Name(rawValue: "TreeNodeButtonClicked"), object: self)
     }
     
+    func setRefreshButtonImage(){
+        //set image for button
+        self.refreshBtn.setImage(UIImage(named: "refresh_icon"), for: UIControlState.normal)
+        //add function for button
+       // self.refreshBtn.addTarget(self, action: Selector(("nil")), for: UIControlEvents.touchUpInside)
+        //set frame
+        //self.refreshBtn.frame = CGRect(x:0, y:0, width:30, height:30)
+    }
+    @IBAction func refreshAction(_ sender: Any) {
+        fetchOperation()
+    }
+    
+    func fetchOperation(){
+        if self.operation?.status == "1"{
+        DatabaseModel.fetchOperation(operationId: (self.operation?.id)!){ op in
+            if(op != nil){
+            self.operation = op
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.viewDidLoad()
+                self.view.setNeedsDisplay()
+                
+            }
+            
+        }
+        }
+        
+    }
     
     func goBackToParent()
     {
@@ -173,28 +217,57 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         var colors:[Any]
-        if (opStep.percentageComplete == "100%"){
+        if (opStep.status == "5"){
+            CommonUtil.stopRotating( button: cell.statusIcon)
+
             
+            // cell.statusIcon =
             cell.setTheStatusIcon(UIImage(named: "green_tick")!)
             colors = [UIColor(red:0.0/255, green:210.0/255, blue:255.0/255, alpha:1).cgColor, UIColor(red:58.0/255, green:123.0/255, blue:213.0/255, alpha:1).cgColor]
             
-        }
-        else if(opStep.percentageComplete == "0%"){
+            //removeAnimation(cell: cell)
             
-            colors = [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
+
+        }
+        else if(opStep.status == "1"){
+            //removeAnimation(cell: cell)
+            cell.setTheStatusIcon(UIImage(named: "clock")!)
+           // cell.statusIcon.layer.removeAllAnimations()
+           // stopRotating(button: cell.statusIcon)
+            CommonUtil.startRotating(duration: 1, button: cell.statusIcon)
+            
+            colors = [UIColor(red:255.0/255, green:209.0/255, blue:148.0/255, alpha:1).cgColor, UIColor(red:112.0/255, green:225.0/255, blue:245.0/255, alpha:1).cgColor]
+          
             
         }
         else{
-            cell.setTheStatusIcon(UIImage(named: "clock")!)
-            colors = [UIColor(red:255.0/255, green:209.0/255, blue:148.0/255, alpha:1).cgColor, UIColor(red:112.0/255, green:225.0/255, blue:245.0/255, alpha:1).cgColor]
             
+              colors = [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
         }
         //addGradient(cell: cell, colors: colors)
+        //cell.expand(nil)
+        //set startDate/ endDate, Duration
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        
+          cell.startDate.text = "Started: " + dateFormatter.string(from: opStep.startTime) + " UTC"
+        if let endTime = opStep.endTime {
+          cell.endDate.text = "Ended: " + dateFormatter.string(from: endTime) + " UTC"
+          cell.duration.text = "Duration: " + CommonUtil.getDuration(date1: opStep.startTime, date2: endTime)
+        }
+        else{
+          //  cell.duration.text = "Duration: " + CommonUtil.getDuration(date1: opStep.startTime, date2: Date())
+            
+        }
+        
+        
         
         cell.setNeedsDisplay()
         
         return cell
     }
+    
+  
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         for cell in tableView.visibleCells as! [StepTableViewCell]{
@@ -207,6 +280,12 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         }
         
        
+    }
+    
+    func removeAnimation(cell: StepTableViewCell){
+        cell.statusIcon.layer.removeAllAnimations()
+        self.view.layer.removeAllAnimations()
+        self.view.layoutIfNeeded()
     }
     
     @IBAction func showLogsAction(_ sender: Any) {

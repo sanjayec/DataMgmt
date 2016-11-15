@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: controllerId) as UIViewController
             self.window?.rootViewController = initViewController
-            
             return true
         }
         else{

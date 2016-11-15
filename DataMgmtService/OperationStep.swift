@@ -49,8 +49,7 @@ class OperationStep {
         }
         
         // Extract endTime
-       //  let endTime = json["endTime"] as? String
-        
+         let endTime = json["endTime"] as? String
         // Extract level
         guard let level = json["level"] as? String else {
             throw SerializationError.missing("level")
@@ -77,9 +76,9 @@ class OperationStep {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         self.startTime = dateFormatter.date(from: startTime)!
-        //if(endTime != "" ){
-            //self.endTime = dateFormatter.date(from: endTime.substring(to: endIndex))!
-       // }
+        if(endTime != nil ){
+            self.endTime = dateFormatter.date(from: endTime!)
+        }
         self.parentId = parentId
         self.level = level
         self.status = status

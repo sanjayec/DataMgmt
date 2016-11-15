@@ -54,7 +54,7 @@ class Operation {
         }
         
         // Extract ownerId
-        guard let endTime = json["ownerId"] as? String else {
+        guard let endTime = json["endTime"] as? String else {
             throw SerializationError.missing("endTime")
         }
         
@@ -99,7 +99,7 @@ class Operation {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.startTime = dateFormatter.date(from: startTime)!
         if(endTime != "" ){
-          // self.endTime = dateFormatter.date(from: endTime.substring(to: endIndex))!
+           self.endTime = dateFormatter.date(from: endTime)
         }
         self.ownerId = ownerId
         self.status = status
