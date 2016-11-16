@@ -10,7 +10,7 @@ import UIKit
 class CommonUtil {
     
     // GlobalVariables.NAFTIX, GlobalVariables.NUTANIX, GlobalVariables.ORATIX
-    static let logoToBeUsed = GlobalVariables.NAFTIX
+    static let logoToBeUsed = GlobalVariables.NUTANIX
     
     static var viewController: UIViewController?
     static var navigationItem: UINavigationItem?
