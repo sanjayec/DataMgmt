@@ -28,6 +28,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var percentageCompleted: UILabel!
     var selectedCell: StepTableViewCell?
     
+    @IBOutlet weak var stepsHeader: UILabel!
     @IBOutlet weak var duration: UILabel!
     
     //MARK:  Init & Load
@@ -35,7 +36,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if (self.navigationItem != nil && self.navigationController != nil ) {
+        if ( self.navigationController != nil ) {
         CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
         }
         
@@ -82,36 +83,33 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         else {
             self.status.text = "Running"
         }
+        setStepsHeader()
         
         self.percentageCompleted.text = operation?.percentageComplete
         
-        //nav bar
-//        var backButtonText = "Datasources"
-//        if(self.operation?.type == "Backup Database"){
-//            backButtonText = "Backups"
-//        }
-//        let newBackButton = UIBarButtonItem(title: backButtonText, style: .plain, target: nil, action: #selector(goBackToParent))
-//        self.navigationItem.hidesBackButton = true
-//        self.navigationItem.leftBarButtonItem = newBackButton // This will show in the next view controller being pushed
-        //
-        //viewController.navigationItem.leftBarButtonItem = self. displayModeButtonItem
-      //  self.navigationItem.leftItemsSupplementBackButton = true
+       
         self.navigationItem.title = operation?.name
         
         setRefreshButtonImage()
         
-        var timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchOperation), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchOperation), userInfo: nil, repeats: true)
 
-        // NotificationCenter.default.post(name: Notification.Name(rawValue: "TreeNodeButtonClicked"), object: self)
+        
+    }
+    
+    func setStepsHeader(){
+        if self.operation?.type == "Backup Database"{
+            stepsHeader.text = "Backup Steps"
+        }
+        else{
+            stepsHeader.text = "Restore Steps"
+        }
     }
     
     func setRefreshButtonImage(){
-        //set image for button
+        
         self.refreshBtn.setImage(UIImage(named: "refresh_icon"), for: UIControlState.normal)
-        //add function for button
-       // self.refreshBtn.addTarget(self, action: Selector(("nil")), for: UIControlEvents.touchUpInside)
-        //set frame
-        //self.refreshBtn.frame = CGRect(x:0, y:0, width:30, height:30)
+       
     }
     @IBAction func refreshAction(_ sender: Any) {
         fetchOperation()
@@ -137,7 +135,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     
     func goBackToParent()
     {
-        self.navigationController?.popViewController(animated: true)
+      //  self.navigationController?.popViewController(animated: true)
         print("Inside GoBack Function")
     }
     
@@ -216,14 +214,14 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
             cell.setTheButtonBackgroundImage(UIImage(named: "whiteClose")!)
         }
         
-        var colors:[Any]
+        //var colors:[Any]
         if (opStep.status == "5"){
             CommonUtil.stopRotating( button: cell.statusIcon)
 
             
             // cell.statusIcon =
             cell.setTheStatusIcon(UIImage(named: "green_tick")!)
-            colors = [UIColor(red:0.0/255, green:210.0/255, blue:255.0/255, alpha:1).cgColor, UIColor(red:58.0/255, green:123.0/255, blue:213.0/255, alpha:1).cgColor]
+          //  colors = [UIColor(red:0.0/255, green:210.0/255, blue:255.0/255, alpha:1).cgColor, UIColor(red:58.0/255, green:123.0/255, blue:213.0/255, alpha:1).cgColor]
             
             //removeAnimation(cell: cell)
             
@@ -236,13 +234,13 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
            // stopRotating(button: cell.statusIcon)
             CommonUtil.startRotating(duration: 1, button: cell.statusIcon)
             
-            colors = [UIColor(red:255.0/255, green:209.0/255, blue:148.0/255, alpha:1).cgColor, UIColor(red:112.0/255, green:225.0/255, blue:245.0/255, alpha:1).cgColor]
+         //   colors = [UIColor(red:255.0/255, green:209.0/255, blue:148.0/255, alpha:1).cgColor, UIColor(red:112.0/255, green:225.0/255, blue:245.0/255, alpha:1).cgColor]
           
             
         }
         else{
             
-              colors = [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
+           //   colors = [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
         }
         //addGradient(cell: cell, colors: colors)
         //cell.expand(nil)

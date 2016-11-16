@@ -61,7 +61,7 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         super.viewDidLoad()
         CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
    setCompareRegion()
-        let black = UIColor.black
+       
         let green = UIColor.init(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         
         let touchAction = { (point:ISPoint, _ sliderValue: Float) in
@@ -287,5 +287,58 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
     
     @IBOutlet weak var compareDriftImage: UIImageView!
     
+    @IBAction func restoreAction(_ sender: Any) {
+        showRestoreConfirmPopup()
+    }
+    
+    @IBAction func pointInTimeRestore(_ sender: Any) {
+        showRestoreConfirmPopup()
+    }
+    
+    
+    func showRestoreConfirmPopup() {
+        let refreshAlert = UIAlertController(title: "Restore Database Confirmation", message: "Are you sure you want to restore the database ?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            DatabaseModel.submitRestore(database: self.detailItem!, backup: self.selectedBackup!){ message in
+                if message == "succeeded" {
+                    self.showJobSubmittedAlert()
+                }
+                else {
+                    self.showFailedJobAlert(message: message)
+                }
+                
+            }
+            print("Restore Job Submitted")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancelled Job")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    func showJobSubmittedAlert() {
+        let refreshAlert = UIAlertController(title: "Restore job submitted successfully", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Clicked on OK")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    
+    func showFailedJobAlert(message: String?) {
+        let refreshAlert = UIAlertController(title: "Unable to submit restore job", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Clicked on OK")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
     
 }

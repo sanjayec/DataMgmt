@@ -100,7 +100,7 @@ class DbSummaryViewController: UIViewController, UIPopoverPresentationController
     func setContent(){
         
         let properties = self.detailItem?.properties
-        let dateCreated = self.detailItem?.dateCreated
+        _ = self.detailItem?.dateCreated
         
         if let hostname = properties?["hostname"]{
             self.host.text = hostname
@@ -362,7 +362,7 @@ class DbSummaryViewController: UIViewController, UIPopoverPresentationController
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-             navigationItem.title = self.detailItem?.name
+             navigationItem.title = detail.name
            
           
             

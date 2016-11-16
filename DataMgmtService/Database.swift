@@ -23,11 +23,16 @@ class Database {
     var latestRestoreOperation:  Operation?
     var runningBackupOperation : Operation?
     var properties = [String:String]()
+    var workSubmitted : OpWork?
+    var id:String
+    var clientId:String
     
     // MARK: Initialization
     
-    init?(name: String,type: String, datasource: String, expiresIn: String) {
+    init?(id: String, clientId:String, name: String,type: String, datasource: String, expiresIn: String) {
         // Initialize stored properties.
+        self.id = id
+        self.clientId = clientId
         self.name = name
         self.type = type
         self.datasource = datasource
@@ -65,6 +70,14 @@ class Database {
         // Extract name
         guard let name = json["name"] as? String else {
             throw SerializationError.missing("name")
+        }
+        //get ID
+        guard let id = json["id"] as? String else {
+            throw SerializationError.missing("id")
+        }
+        //get clientId
+         guard let clientId = json["clientId"] as? String else {
+            throw SerializationError.missing("clientId")
         }
         
         // Extract type
@@ -173,6 +186,8 @@ class Database {
         self.dateCreated = dateFormatter.date(from: createdOn)!
         
         // Initialize properties
+        self.id = id
+        self.clientId = clientId
         self.name = name
         self.expiresIn = "1 week 4 days"
         self.type = type

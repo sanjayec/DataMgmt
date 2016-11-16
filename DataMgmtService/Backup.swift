@@ -73,42 +73,7 @@ class Backup {
             throw SerializationError.missing("storageLocation")
         }
         
-//        // Extract associated data source
-//        let associatedDataSourceJson = json["associatedDataSource"] as? [String: Any]
-//        if associatedDataSourceJson != nil{
-//            // Extract associated data source
-//            guard let dsName = associatedDataSourceJson?["name"] as? String else {
-//                throw SerializationError.missing("name in associatedDataSource")
-//            }
-//            self.datasource = dsName
-//        }
-        //
-        //        // Extract and validate coordinates
-        //        guard let coordinatesJSON = json["coordinates"] as? [String: Double],
-        //            let latitude = coordinatesJSON["lat"],
-        //            let longitude = coordinatesJSON["lng"]
-        //            else {
-        //                throw SerializationError.missing("coordinates")
-        //        }
-        //
-        //        let coordinates = (latitude, longitude)
-        //        guard case (-90...90, -180...180) = coordinates else {
-        //            throw SerializationError.invalid("coordinates", coordinates)
-        //        }
-        //
-        //        // Extract and validate meals
-        //        guard let mealsJSON = json["meals"] as? [String] else {
-        //            throw SerializationError.missing("meals")
-        //        }
-        //
-        //        var meals: Set<Meal> = []
-        //        for string in mealsJSON {
-        //            guard let meal = Meal(rawValue: string) else {
-        //                throw SerializationError.invalid("meals", string)
-        //            }
-        //
-        //            meals.insert(meal)
-        //        }
+
         
         // Initialize properties
         self.name = name

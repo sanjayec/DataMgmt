@@ -131,13 +131,13 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
           }
     // change background color when user touches cell
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        _ = collectionView.cellForItem(at: indexPath)
        // cell?.backgroundColor = UIColor(red:75.0/255, green:121.0/255, blue:161.0/255, alpha:1)
     }
     
     // change background color back when user releases touch
     override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        _ = collectionView.cellForItem(at: indexPath)
         //cell?.backgroundColor = UIColor(red:224.0/255, green:234.0/255, blue:252.0/255, alpha:1)
     }
     
@@ -212,7 +212,7 @@ class BackupCollectionViewController: UICollectionViewController, UIPopoverPrese
     }
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
+        if self.detailItem != nil {
 //            if (nameLabel) != nil{
 //                nameLabel.text = detail.name
 //            }

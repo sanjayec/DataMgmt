@@ -126,8 +126,8 @@ class BackupProgressViewController: UIViewController, UICollectionViewDelegateFl
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func goBack(_ sender: Any)
-    {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func goBack(_ sender: Any)
+//    {
+//        self.navigationController?.popViewController(animated: true)
+//    }
 }

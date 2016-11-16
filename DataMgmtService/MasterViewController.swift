@@ -56,7 +56,7 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         self.splitViewController?.preferredPrimaryColumnWidthFraction = 0.37
         self.splitViewController?.maximumPrimaryColumnWidth = (self.splitViewController?.view.bounds.size.width)!
         
-
+   Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(loadDatabases), userInfo: nil, repeats: true)
        // self.splitViewController?.minimumPrimaryColumnWidth = 500
         
     }
@@ -64,6 +64,24 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     func loadDatabases(){
         DatabaseModel.fetchDatabases(){ databases in
             self.databases = databases
+            
+            for db in databases {
+               
+                DatabaseModel.fetchWorks(clientId: db.clientId) { work in
+                    
+                    
+                    if work != nil {
+                        if db.id == (work?.instanceId)!{
+                            db.workSubmitted = work
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                
+                }
+            }
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -71,20 +89,22 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         }
     }
     
-    func loadSampleDatabases() {
-       // let oracle = UIImage(named: "oracle")!
-        let database1 = Database(name: "CRM_DB_DEV_TIM", type: "oracle_database", datasource: "CRM Data Source", expiresIn: "1 month 2 weeks 2 days")!
-        
-       // let mysql = UIImage(named: "mysql")!
-        let database2 = Database(name: "HCM_DB_DEV_SAM",type: "mysql_database", datasource: "HCM Data Source", expiresIn: "3 weeks 4 days")!
-        
-      //  let microsoftsqlserver = UIImage(named: "microsoftsqlserver")!
-        let database3 = Database(name: "SALES_DB_DEV_TIM", type: "microsoftsql_database", datasource: "Sales Data Source", expiresIn: "1 week 3 days")!
-        
-        let database4 = Database(name: "SALES_DB_DEV_BOB", type: "mysql_database", datasource: "Sales Data Source", expiresIn: "1 month 1 week 2 days")!
-        
-        databases += [database1, database2, database3, database4]
-    }
+    
+    
+//    func loadSampleDatabases() {
+//       // let oracle = UIImage(named: "oracle")!
+//        let database1 = Database(name: "CRM_DB_DEV_TIM", type: "oracle_database", datasource: "CRM Data Source", expiresIn: "1 month 2 weeks 2 days")!
+//        
+//       // let mysql = UIImage(named: "mysql")!
+//        let database2 = Database(name: "HCM_DB_DEV_SAM",type: "mysql_database", datasource: "HCM Data Source", expiresIn: "3 weeks 4 days")!
+//        
+//      //  let microsoftsqlserver = UIImage(named: "microsoftsqlserver")!
+//        let database3 = Database(name: "SALES_DB_DEV_TIM", type: "microsoftsql_database", datasource: "Sales Data Source", expiresIn: "1 week 3 days")!
+//        
+//        let database4 = Database(name: "SALES_DB_DEV_BOB", type: "mysql_database", datasource: "Sales Data Source", expiresIn: "1 month 1 week 2 days")!
+//        
+//        databases += [database1, database2, database3, database4]
+//    }
 
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
@@ -205,7 +225,8 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         {
             cell.Status.isHidden = false
             cell.statusBtnText.isHidden = false
-            CommonUtil.rotateView(targetView: cell.Status, duration: 0.2)
+            cell.Status.setImage(UIImage(named:"gear"), for: .normal)
+            CommonUtil.startRotating(duration:2, button: cell.Status)
             cell.statusBtnText.setTitle("Restore in Progress", for: .normal)
 
         }
@@ -213,11 +234,29 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
             
             cell.Status.isHidden = false
             cell.statusBtnText.isHidden = false
-            CommonUtil.rotateView(targetView: cell.Status, duration: 0.2)
+            cell.Status.setImage(UIImage(named:"gear"), for: .normal)
+            CommonUtil.startRotating(duration:2, button: cell.Status)
+            //CommonUtil.rotateView(targetView: cell.Status, duration: 0.2)
             cell.statusBtnText.setTitle("Backup in Progress", for: .normal)
         }
+        else if  let workSubmitted = databases[indexPath.row].workSubmitted {
+            cell.Status.isHidden = false
+            cell.statusBtnText.isHidden = false
+            CommonUtil.stopRotating(button: cell.Status)
+            cell.Status.setImage(UIImage(named:"scheduler_clock"), for: .normal)
+            if(workSubmitted.type == "backup_database"){
+                cell.statusBtnText.setTitle("Backup job submitted", for: .normal)
+            }
+            else{
+                cell.statusBtnText.setTitle("Restore job submitted", for: .normal)
+            }
+        }
          else{
+                      
+            CommonUtil.stopRotating(button: cell.Status)
+            
             cell.Status.isHidden = true
+            cell.statusBtnText.isHidden = true
         }
         
         return cell

@@ -175,7 +175,7 @@ class CommonUtil {
         if difference.hour!   > 0 { return hours }
         if difference.minute! > 0 { return minutes }
         if difference.second! > 0 { return seconds }
-        return ""
+        return "0s"
     }
     static func startRotating(duration: Double = 1, button: UIButton) {
         let kAnimationKey = "rotation"

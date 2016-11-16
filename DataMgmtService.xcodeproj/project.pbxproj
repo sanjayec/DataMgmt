@@ -17,6 +17,7 @@
 		4304838D1DBF7F1800FB9100 /* OperationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838B1DBF7F1800FB9100 /* OperationStep.swift */; };
 		430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
 		430483911DC056E700FB9100 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4304838F1DC056E700FB9100 /* UIViewExtensions.swift */; };
+		430D14391DDBDA3900C59CF7 /* OpWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D14381DDBDA3900C59CF7 /* OpWork.swift */; };
 		4321E0191DD2CFE0006C1004 /* BackupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E0181DD2CFE0006C1004 /* BackupView.swift */; };
 		4321E01C1DD512E8006C1004 /* CompareResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E01B1DD512E8006C1004 /* CompareResultsViewController.swift */; };
 		4321E01E1DD54ABF006C1004 /* DataChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321E01D1DD54ABF006C1004 /* DataChangeTableViewCell.swift */; };
@@ -89,6 +90,7 @@
 		430483861DBF209B00FB9100 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		4304838B1DBF7F1800FB9100 /* OperationStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationStep.swift; sourceTree = "<group>"; };
 		4304838F1DC056E700FB9100 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		430D14381DDBDA3900C59CF7 /* OpWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpWork.swift; sourceTree = "<group>"; };
 		4321E0181DD2CFE0006C1004 /* BackupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupView.swift; sourceTree = "<group>"; };
 		4321E01B1DD512E8006C1004 /* CompareResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareResultsViewController.swift; sourceTree = "<group>"; };
 		4321E01D1DD54ABF006C1004 /* DataChangeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataChangeTableViewCell.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				43FCE4541DB13D9D00130EB1 /* AppDelegate.swift */,
 				43FCE4561DB13D9D00130EB1 /* MasterViewController.swift */,
 				43FCE4781DB1695200130EB1 /* Database.swift */,
+				430D14381DDBDA3900C59CF7 /* OpWork.swift */,
 				43FCE4581DB13D9D00130EB1 /* DataMgmtViewController.swift */,
 				43FCE45A1DB13D9D00130EB1 /* Main.storyboard */,
 				43FCE4761DB147DC00130EB1 /* DatabaseTableViewCell.swift */,
@@ -480,6 +483,7 @@
 				43A6E6991DD17B3200E3B095 /* BackupsTimelineViewController.swift in Sources */,
 				4330BF511DBCA715004911A8 /* Backup.swift in Sources */,
 				43FCE4571DB13D9D00130EB1 /* MasterViewController.swift in Sources */,
+				430D14391DDBDA3900C59CF7 /* OpWork.swift in Sources */,
 				4321E01E1DD54ABF006C1004 /* DataChangeTableViewCell.swift in Sources */,
 				438696611DC4447100C49F06 /* LoginViewController.swift in Sources */,
 				4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */,

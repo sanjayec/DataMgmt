@@ -45,7 +45,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
+        if self.detailItem != nil {
            loadDatasources()
             setSelectedDatasourceCell()
                    }
@@ -81,7 +81,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
                 self.view.setNeedsDisplay()
                 self.datasourcesCollectionView.reloadData()
                 self.setSelectedDatasourceCell()
-                let items = self.datasourcesCollectionView.numberOfItems(inSection: 0)
+                _ = self.datasourcesCollectionView.numberOfItems(inSection: 0)
                 
             }
             
@@ -213,10 +213,10 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          if let indexPath = collectionView.indexPathsForSelectedItems{
             let selectedCell = collectionView.cellForItem(at: indexPath[0])
-            let visibleCells = collectionView.visibleCells
-            let items = self.datasourcesCollectionView.numberOfItems(inSection: 0)
+            _ = collectionView.visibleCells
+            _ = self.datasourcesCollectionView.numberOfItems(inSection: 0)
 
-            let selectedCellSourceRect = selectedCell?.bounds
+            _ = selectedCell?.bounds
         // handle tap events
         if collectionView == datasourcesCollectionView{
           
@@ -435,10 +435,10 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
     }
     @IBAction func landBackfromOperationsPage(segue:UIStoryboardSegue) {
     }
-     func goBackToParent()
-    {
-        self.navigationController?.popViewController(animated: true)
-    }
+//     func goBackToParent()
+//    {
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     
 }
