@@ -1,0 +1,7 @@
+Getting cloud storage information for this database...
+
+Cloud storage identified.
+
+Creating parent contianer objects...
+
+Cloud storage is now ready to recieve payloads.

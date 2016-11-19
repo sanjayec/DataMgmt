@@ -127,12 +127,24 @@ class CommonUtil {
         navController.navigationBar.barTintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
         
          navController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        UITabBar.appearance().tintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+      //  UITabBar.appearance().tintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
 
         UILabel.appearance().substituteFontNameLight = GlobalVariables.ProximaNovaLight
         UILabel.appearance().substituteFontName = GlobalVariables.ProximaNovaRegular
         UILabel.appearance().substituteFontNameBold = GlobalVariables.ProximaNovaBold
         UILabel.appearance().substituteFontNameSemibold = GlobalVariables.ProximaNovaSemiBold
+        
+        if let tbController = viewController.tabBarController{
+        // self.window!.rootViewController as! UITabBarController
+       // tbController.tabBar.barTintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+            
+            let appearance = UITabBarItem.appearance()
+            let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
+
+           // let attributes = [NSFontAttributeName:UIFont(name: GlobalVariables.ProximaNovaSemiBold, size: 12), underlineAttribute]
+            appearance.setTitleTextAttributes(underlineAttribute, for: .normal)
+            UITabBar.appearance().tintColor = UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1)
+    }
 
     }
     @objc static func brandButtonClicked(sender: AnyObject){
@@ -207,5 +219,29 @@ class CommonUtil {
         button.setNeedsDisplay()
     }
     
+   static func getprogressIndicatorView( view: UIView, message: String) -> UIView{
+        var boxView = UIView()
+
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        var activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityView.startAnimating()
+        
+        var textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.textColor = UIColor.gray
+        textLabel.text = message
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        return boxView
+        
+    }
     
 }

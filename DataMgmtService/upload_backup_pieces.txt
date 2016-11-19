@@ -1,0 +1,5 @@
+Starting upload of backup files...
+
+10%...20%...35%...59%...70%...86%...96%...100%
+
+All backup file upload successfully to cloud storage.

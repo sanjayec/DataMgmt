@@ -11,13 +11,15 @@ import UIKit
 class LogsViewViewController: UIViewController {
 
     @IBOutlet weak var stepName: UILabel!
-    @IBOutlet weak var logs: UILabel!
+   // @IBOutlet weak var logs: UILabel!
     var step:OperationStep?
+    var type: String?
     
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var endTIme: UILabel!
     @IBOutlet weak var statusIcon: UIButton!
     
+    @IBOutlet weak var logs: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,13 +32,13 @@ class LogsViewViewController: UIViewController {
             // Do any additional setup after loading the view.
             self.stepName.text = step?.name
             // self.logs.text = ""
-            self.logs.lineBreakMode = .byWordWrapping
-            self.logs.numberOfLines = 0
+//            self.logs.lineBreakMode = .byWordWrapping
+//            self.logs.numberOfLines = 0
 
             
-        self.startTime.text = dateFormatter.string(from: (step?.startTime)!)
+        self.startTime.text = dateFormatter.string(from: (step?.startTime)!) + " UTC"
         if let endTIme = step?.endTime{
-            self.endTIme.text = dateFormatter.string(from: endTIme)
+            self.endTIme.text = dateFormatter.string(from: endTIme)  + " UTC"
         }
             
             if (step?.percentageComplete == "100%"){
@@ -57,7 +59,46 @@ class LogsViewViewController: UIViewController {
         }
 
         
+        setLogs()
+        
     }
+    
+    func setLogs(){
+        if(step  == nil) {
+            return
+        }
+        let key = (self.step?.name)!
+        var fileName = ""
+        if type == "Backup Database"{
+           fileName = LogsMapper.backup[key]!
+        }
+        else{
+            fileName = LogsMapper.restore[key]!
+        }
+        
+        
+        
+        let bundle = Bundle.main
+        let path =  bundle.path(forResource: fileName, ofType: "txt")
+        if(path == nil ){
+            return
+        }
+        let fileURL = URL(fileURLWithPath: path!)
+
+        
+        var inString = ""
+        do {
+            inString = try String(contentsOf: fileURL)
+            logs.text = inString
+        } catch let error as NSError {
+            print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+        
+       
+
+    }
+  
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

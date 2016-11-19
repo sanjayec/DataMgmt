@@ -20,6 +20,8 @@ class CompareResultsViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var dataChangeTable: UITableView!
     @IBOutlet weak var timeDifference: UILabel!
     
+    @IBOutlet weak var tabsView: UIView!
+    @IBOutlet weak var tabsStack: UIStackView!
     @IBOutlet weak var dataChangeBtn: UIButton!
     @IBAction func dataChangeAction(_ sender: Any) {
         
@@ -57,33 +59,60 @@ class CompareResultsViewController: UIViewController, UITableViewDataSource, UIT
         self.schemaChangeTable.delegate = self
         self.schemaChangeTable.dataSource = self
         
-addBottomBorderForGraphSection(tableView: dataChangeTable)
+//addBottomBorderForGraphSection(tableView: dataChangeTable)
         
         // Do any additional setup after loading the view.
         
-        setTabImage(btnSort: dataChangeBtn)
-        setTabImage(btnSort: schemaChangeBtn)
+        setTabImage(btnSort: dataChangeBtn, leftAlign: true)
+        setTabImage(btnSort: schemaChangeBtn, leftAlign: false)
         selectTab(selectedBtn:dataChangeBtn, otherBtn: schemaChangeBtn)
+        
+        dataChangeTable.isHidden = false
+        schemaChangeTable.isHidden = true
+        
+        tabsView.layer.cornerRadius = 5
+        tabsView.layer.borderWidth = 1
+        tabsView.layer.borderColor = self.view.tintColor.cgColor
+        
         
     }
     
     func selectTab(selectedBtn: UIButton, otherBtn: UIButton){
-        selectedBtn.backgroundColor = UIColor(red:0.0/255, green:85.0/255, blue:142.0/255, alpha:1)
-        otherBtn.backgroundColor = UIColor(red:224.0/255, green:234.0/255, blue:252.0/255, alpha:1)
+       
+        selectedBtn.backgroundColor = self.view.tintColor // UIColor(red:0.0/255, green:85.0/255, blue:142.0/255, alpha:1)
+        otherBtn.backgroundColor = UINavigationBar.appearance().barTintColor //UIColor(red:224.0/255, green:234.0/255, blue:252.0/255, alpha:1)
         
         selectedBtn.setTitleColor(UIColor.white, for: .normal)
-        otherBtn.setTitleColor(UIColor.darkGray, for: .normal)
+        otherBtn.setTitleColor(self.view.tintColor, for: .normal)
     }
 
     
-    func setTabImage(btnSort: UIButton){
+    func setTabImage(btnSort: UIButton, leftAlign: Bool){
         let spacing = CGFloat(5.0)
         btnSort.imageEdgeInsets = UIEdgeInsets(top: 0,left: 0 ,bottom: 0,right: spacing)
       btnSort.titleEdgeInsets = UIEdgeInsets(top: 0,left: spacing, bottom: 0,right: 0)
+        var path:UIBezierPath?
         
-        btnSort.layer.cornerRadius = 8
-        btnSort.layer.borderWidth = 1
-        btnSort.layer.borderColor = UIColor.black.cgColor
+        if (leftAlign){
+         path = UIBezierPath(roundedRect:btnSort.bounds,
+                                byRoundingCorners:[.topLeft, .bottomLeft],
+                                cornerRadii: CGSize(width: 5, height:  5))
+        }
+        else{
+             path = UIBezierPath(roundedRect:btnSort.bounds,
+                                    byRoundingCorners:[.topRight, .bottomRight],
+                                    cornerRadii: CGSize(width: 5, height:  5))
+        }
+        
+        let maskLayer = CAShapeLayer()
+        
+        maskLayer.path = path?.cgPath
+        
+        btnSort.layer.mask = maskLayer
+        
+     //   btnSort.layer.cornerRadius = 8
+//        btnSort.layer.borderWidth = 1
+//        btnSort.layer.borderColor = self.view.tintColor.cgColor
         
         
 //        btnSort.frame =  CGRect(x:0, y:0, width:250, height:50)

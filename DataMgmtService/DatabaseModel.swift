@@ -187,22 +187,81 @@ class DatabaseModel {
         
     }
     
+    static func submitAssociate(database:Database, datasource: Datasource, backup : Backup, completionHandler: @escaping (String?) -> Void)  {
+        let url =  "http://52.53.155.179:8080/fws/workdepot/push_work"
+        var status = "succeeded"
+        
+        let assocProperty : [String : Any] = [
+            "id": "8001",
+            "name": "--associate_datasource"
+            // "value": "" as AnyObject
+        ]
+        let databaseIdProperty : [String : Any] = [
+            "id": "8002" ,
+            "name": "--instance_id" ,
+            "value": database.id
+        ]
+        
+        let datasourceIdProperty : [String : Any] = [
+            "id": "8003" ,
+            "name": "--datasource_id" ,
+            "value": datasource.id
+        ]
+        
+        let backupIdProperty : [String : Any] = [
+            "id": "8004" ,
+            "name": "--backup_id" ,
+            "value": backup.id
+        ]
+        
+        let json: [String: Any] = [
+            "id": "XXXXXX"  ,
+            "type": "associate_datasource" ,
+            "clientId": database.clientId  ,
+            "instanceId": database.id  ,
+            // "submissionDate": ""  ,
+            // "expiryDate": ""  ,
+            "status": "8"  ,
+            "ownerId": "1" ,
+            //  "opDefId": ""  as AnyObject,
+            "arguments":
+                [
+                    
+                    assocProperty,
+                    databaseIdProperty,
+                    datasourceIdProperty,
+                    backupIdProperty
+                    
+            ]
+        ]
+        
+        let valid = JSONSerialization.isValidJSONObject(json) // true
+        
+        print("valid Json: " + String(valid))
+        var data: Data?
+        do{
+            data = try? JSONSerialization.data(withJSONObject :json )
+            
+        } catch {
+            status = "error in JSONSerialization"
+            print("error in JSONSerialization")
+            
+        }
+        
+        
+        HTTPPostJSON(url: url, data:data!) { (response, error) in
+            print("Response: " + response )
+            if error != nil {
+                status =  error!
+            }
+            completionHandler(status)
+        }
+        
+    }
+    
     static func submitRestore(database:Database, backup : Backup, completionHandler: @escaping (String?) -> Void)  {
         let url =  "http://52.53.155.179:8080/fws/workdepot/push_work"
         var status = "succeeded"
-       // var json = NSMutableDictionary()
-//        json.setValue("XXXXXX", forKey: "id")
-//        json.setValue("restore_database", forKey: "type")
-//        json.setValue(database.clientId, forKey: "clientId")
-//        json.setValue(database.id, forKey: "instanceId")
-//        json.setValue(nil, forKey: "submissionDate")
-//        json.setValue(nil, forKey: "expiryDate")
-//        json.setValue("8", forKey: "status")
-//        json.setValue(nil, forKey: "opDefId")
-//        json.setValue("1", forKey: "ownerId")
-//        json.setValue(nil, forKey: "expiryDate")
-//        json.setValue(nil, forKey: "expiryDate")
-        
         
         let restoreProperty : [String : Any] = [
         "id": "8001",

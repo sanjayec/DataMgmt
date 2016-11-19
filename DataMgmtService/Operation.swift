@@ -79,7 +79,15 @@ class Operation {
         
         if opInstancesJson != nil{
             for case let opInstanceJson in opInstancesJson{
+                //skip associate from restore/refresh databse op
+               
                 if let opStep = try? OperationStep(json: opInstanceJson as! [String : Any]) {
+                    if name.hasPrefix("Restore") || name.hasPrefix("Refresh"){
+                        if (opStep?.name.hasPrefix("Associate"))!{
+                           // print("Hiding " + (opStep?.name)! + " as this is restore/refresh operation.")
+                            continue
+                        }
+                    }
                     self.operationSteps.append(opStep!)
                 }
             }

@@ -32,6 +32,9 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
 
     var datasources = [Datasource]()
     var selectedDatasource : Datasource?
+    var associatedDatasource: Datasource?
+    
+    var selectedBackup : Backup?
     
     @IBOutlet weak var datasourcesCollectionView: UICollectionView!
     
@@ -42,6 +45,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     @IBOutlet weak var instructMsg: UILabel!
     var selectedDatasourceIndexPath:IndexPath?
+    var associatedBackupIndexPath:IndexPath?
     
     func configureView() {
         // Update the user interface for the detail item.
@@ -95,8 +99,11 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
         title = "Data Management"
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        if( self.navigationItem != nil && self.navigationController != nil ){
         CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
-
+        }
+        self.activityIndicatorView = ActivityIndicatorView(title: "Submitting Job...", center: self.view.center)
+       
         
         progressStepsCollection.dataSource = self
         progressStepsCollection.delegate = self
@@ -143,7 +150,17 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             if(ds.name == self.detailItem?.datasource){
                 selectedDatasource = ds
                 selectedDatasourceIndexPath = IndexPath(row:index, section:0)
+                
+                associatedDatasource = ds
+                
 //                self.datasourcesCollectionView.selectItem(at: selectedDatasourceIndexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
+                
+                for (index,backup) in ds.backups.enumerated() {
+                    if(backup.id == self.detailItem?.datasource){
+                        
+                        selectedDatasourceIndexPath = IndexPath(row:index, section:0)
+                    }
+                }
                 
             }
         }
@@ -233,6 +250,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             
         }
         else if collectionView == backupsCollectionView{
+            self.selectedBackup =  self.selectedDatasource?.backups[indexPath[0].row]
             
         }
        else if collectionView == restoreOpsCollection {
@@ -263,8 +281,34 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             let backup = self.selectedDatasource?.backups[indexPath.item]
             
 //            let colors = [UIColor(red:76.0/255, green:162.0/255, blue:205.0/255, alpha:1).cgColor, UIColor(red:103.0/255, green:178.0/255, blue:111.0/255, alpha:1).cgColor]
-            let colors = [UIColor(red:238.0/255, green:242.0/255, blue:243.0/255, alpha:1).cgColor, UIColor(red:142.0/255, green:158.0/255, blue:171.0/255, alpha:1).cgColor]
-            addGradient(cell: cell, colors: colors)
+            var colors = [UIColor(red:238.0/255, green:242.0/255, blue:243.0/255, alpha:1).cgColor, UIColor(red:142.0/255, green:158.0/255, blue:171.0/255, alpha:1).cgColor]
+            if indexPath.row == 1 {
+                colors = [UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1).cgColor, UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1).cgColor]
+               // colors = [self.view.tintColor.cgColor, self.view.tintColor.cgColor]
+                cell.assocOrRefresh.isEnabled = false
+                cell.assocOrRefresh.setTitleColor(UIColor.clear, for: .normal)
+                cell.name.textColor = UIColor.white
+                cell.createdOn.textColor = UIColor.white
+                cell.storageType.textColor = UIColor.white
+                 cell.image.image = #imageLiteral(resourceName: "cloudbackup_blue")
+              // cell.backgroundColor = self.view.tintColor
+                
+
+            }
+            else{
+                cell.assocOrRefresh.isEnabled = true
+                
+                cell.assocOrRefresh.setTitleColor(UIColor.black, for: .normal)
+                cell.name.textColor = UIColor.black
+                cell.createdOn.textColor = UIColor.black
+                cell.storageType.textColor = UIColor.black
+                cell.image.image = #imageLiteral(resourceName: "cloudbackup")
+                
+                
+            }
+addGradient(cell: cell, colors: colors)
+            
+            
             
             cell.name.text = backup?.name
             let dateFormatter = DateFormatter()
@@ -417,22 +461,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
     }
     
     
-    // MARK: - Segues
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showOpDetails" {
-            
-            let operation = self.detailItem?.latestRestoreOperation
-            
-            let viewController = (segue.destination as! UINavigationController).topViewController as! OpearationStepsViewController
-            
-            viewController.operation = operation
-            
-           
-            
-        }
-        
-    }
+
     @IBAction func landBackfromOperationsPage(segue:UIStoryboardSegue) {
     }
 //     func goBackToParent()
@@ -440,6 +469,129 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
 //        self.navigationController?.popViewController(animated: true)
 //    }
     
+    @IBAction func submitAssoc(_ sender: Any) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = (view.superview)?.superview as! DatasourceBackupCollectionViewCell
+         let indexPath = backupsCollectionView.indexPath(for: cell)
+        
+        selectedBackup = self.selectedDatasource?.backups[(indexPath?.item)!]
+
+        showAssocConfirmPopup()
+        
+    }
     
+    var activityIndicatorView: ActivityIndicatorView!
+    
+    func showAssocConfirmPopup() {
+        var assocConfirmTitle = "Associate Datasource Confirmation"
+        var assocConfirmMessage = "Are you sure you want to associate with the selected datasource?"
+        if (self.detailItem?.datasource) != nil {
+            assocConfirmTitle = "Refresh Confirmation"
+            assocConfirmMessage = "Are you sure you want to refresh the databas to selected backup?"
+
+        }
+        
+        let refreshAlert = UIAlertController(title: assocConfirmTitle, message: assocConfirmMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            
+            self.view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
+            self.activityIndicatorView.startAnimating()
+            
+            if (self.detailItem?.datasource) == nil {
+            DatabaseModel.submitAssociate(database: self.detailItem!,datasource: self.selectedDatasource!, backup: self.selectedBackup!){ message in
+                self.removeIndicator()
+                if message == "succeeded" {
+                    self.showJobSubmittedAlert()
+                }
+                else {
+                    self.showFailedJobAlert(message: message)
+                }
+                
+            }
+            }
+            else{
+                DatabaseModel.submitRestore(database: self.detailItem!, backup: self.selectedBackup!){ message in
+                    self.removeIndicator()
+                    if message == "succeeded" {
+                        self.showJobSubmittedAlert()
+                    }
+                    else {
+                        self.showFailedJobAlert(message: message)
+                    }
+                    
+                }
+            }
+            print("Assoc Job Submitted")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancelled Job")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    func showJobSubmittedAlert() {
+        var jobSubmittedMsg = "Associate job submitted successfully"
+        
+        if (self.detailItem?.datasource) != nil {
+            jobSubmittedMsg = "Refresh job submitted successfully"
+        }
+        
+        let refreshAlert = UIAlertController(title: jobSubmittedMsg, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Clicked on OK")
+            self.performSegue(withIdentifier: "showOpDetails", sender: self)
+
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    
+    func showFailedJobAlert(message: String?) {
+        var jobSubmitFailedMsg = "Unable to submit associate job"
+        
+        if (self.detailItem?.datasource) != nil {
+            jobSubmitFailedMsg = "Unable to submit refresh job"
+        }
+        let refreshAlert = UIAlertController(title: jobSubmitFailedMsg, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Clicked on OK")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    func removeIndicator(){
+        self.activityIndicatorView.stopAnimating()
+        self.activityIndicatorView.getViewActivityIndicator().removeFromSuperview()
+        self.activityIndicatorView.getViewActivityIndicator().isHidden = true
+        self.view.setNeedsDisplay()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOpDetails" {
+            
+            let selectedDB = self.detailItem
+            //var operation:Operation?
+            
+            let opStepsviewController =  (segue.destination as! UINavigationController).topViewController  as! OpearationStepsViewController
+            
+            opStepsviewController.database = selectedDB
+            opStepsviewController.navigationItem.leftBarButtonItem = self.tabBarController?.splitViewController?.displayModeButtonItem
+            opStepsviewController.navigationItem.leftItemsSupplementBackButton = true
+            //opStepsviewController.navigationItem.title = selectedDB.name
+            
+            
+        }
+    }
+
 }
 

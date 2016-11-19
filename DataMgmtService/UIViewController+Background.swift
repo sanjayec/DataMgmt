@@ -15,6 +15,8 @@ extension UIViewController {
         view.sendSubview(toBack: imageViewBackground)
 
     }
+    
+    
     func colorMe(type: String?) {
         CommonUtil.colorMe(sview: view, type: type)
         

@@ -15,7 +15,7 @@ class Datasource {
     var name: String
     var type: String
     var release: String?
-    var id: String?
+    var id: String
     var owner: String?
     var storageType: String
     var backups = [Backup]()
@@ -28,8 +28,9 @@ class Datasource {
         case invalid(String, Any)
     }
     
-    init?(name: String, type: String, storageType: String, owner: String) {
+    init?(id: String, name: String, type: String, storageType: String, owner: String) {
         // Initialize stored properties.
+        self.id = id
         self.name = name
         self.type = type
         self.storageType = storageType

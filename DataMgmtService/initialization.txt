@@ -1,0 +1,64 @@
+================================================================
+Database target is available
+================================================================
+
+Database Target not specified/known..setting SI into DP var
+
+Deriving target based data
+
+Reference Node selected is :den01nro.us.domain.com
+The entity guid is 576AAC48C07CCED58BEF9E98C6576BE5
+The domain sid is db112
+The archive log mode of the database target : HCM_US is truedomain Home : /scratch/bobdev/app/bobdev/product/11.2.0/db
+DB Open Mode: READ WRITE
+DataGuard Status: PRIMARY
+Platform details of the database
+Platform name : domain Linux Server release 6.6
+ARU ID : 226
+
+=============Creating Working Directory======== ===
+working dir is =/tmp/rmanwork1477668519860
+===================== validateDPVars Start =================
+Validating DB Name
+DB name validated
+Validating DB SID
+DB SID validated
+Validating DB domain Home
+Database domain home validated
+===================== validateDpVarsForNewBackup Start =================
+Validating Backup tag
+Validating Backup Type
+Backup Type validated
+Validating no of channels
+No of channels is null or empty....setting to default value 2
+No of channels validated
+Validating Retain Until
+Retain Until validated
+Validating Encryption Type
+Encryption Type validated
+Validating Compresion Type
+Compresion Type validated
+Validating Backup Location
+Backup Location validated
+Validating Backup File Format
+Backup File Format is null or empty...resetting to %U
+Backup File Format==%%U
+Backup File Format validated=%%U
+Validating Control File Nmae
+Control File Nmae validated
+===================== validateDpVarsForNewBackup End =================
+===================== validateDPVars end =================Backup Location provided was /tmpSetting backup location to Location to /tmp/backup1477668519932
+
+****  Create reference host target list ****
+* Target Name: den01nro.us.domain.com
+* Target Type: host
+
+Validating the credential against den01nro.us.domain.com
+* Host Named Credential : NC_bobdev:domain
+
+****  Create reference host target list - Complete ****
+
+Database base sid=db112
+Setting init file name to initdb112.ora
+==============================End of DbProvisioningRMANBackupInitializeDP================
+Step: Initialize Deployment Procedure has been executed successfully.

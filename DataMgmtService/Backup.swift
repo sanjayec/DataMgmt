@@ -14,7 +14,7 @@ class Backup {
     
     var name: String
     var dateCreated: Date
-    var id: String?
+    var id: String
     var storageType: String
     var storageLocation: String?
     var status: String
@@ -27,8 +27,9 @@ class Backup {
         case invalid(String, Any)
     }
     
-    init?(name: String, dateCreated: Date?, storageType: String, status: String) {
+    init?(id : String, name: String, dateCreated: Date?, storageType: String, status: String) {
         // Initialize stored properties.
+        self.id = id
         self.name = name
         self.dateCreated = dateCreated!
         self.storageType = storageType

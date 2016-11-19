@@ -1,0 +1,11 @@
+Connecting to the database...
+
+Connected.
+
+Checking active connections...
+
+Waiting for current transactions to complete.
+
+Setting the database mode.
+
+Database is ready for backup.

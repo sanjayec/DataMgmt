@@ -135,7 +135,7 @@ class Database {
         for case let operationJson in operations {
             if let operation = try? Operation(json: (operationJson as? [String:Any])!) {
                 self.operations.append(operation!)
-                if(operation?.type == "Restore Database"){
+                if(operation?.type == "restore_database"){
                     restoreOperations.append(operation!)
 //                    restoreOperations.append(operation!)
 //                    restoreOperations.append(operation!)
@@ -158,8 +158,8 @@ class Database {
                 }
                 
                 // get running backup if any
-                if(operation?.type == "Backup Database"){
-                    if(operation?.percentageComplete != "100%"){
+                if(operation?.type == "backup_database"){
+                    if(operation?.status == "1"){
                         runningBackupOperation = operation
                     }
                     
@@ -168,7 +168,7 @@ class Database {
         }
         
         if runningBackupOperation != nil{
-            if let runningBackup = Backup(name: (runningBackupOperation?.name)!, dateCreated: runningBackupOperation?.startTime, storageType: "N/A", status: "Running"){
+            if let runningBackup = Backup(id: (runningBackupOperation?.id)!,  name: (runningBackupOperation?.name)!, dateCreated: runningBackupOperation?.startTime, storageType: "N/A", status: "Running"){
               //   self.backups.append(runningBackup)
             }
             
@@ -180,6 +180,8 @@ class Database {
         //sort restore operations
         self.restoreOperations.sort{ $0.startTime > $1.startTime }
         
+        self.operations.sort{ $0.startTime > $1.startTime }
+
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

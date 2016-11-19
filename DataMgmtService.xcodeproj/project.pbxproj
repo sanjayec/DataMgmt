@@ -32,6 +32,28 @@
 		43494FA01DD938460031398E /* proximanova-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494F9F1DD938460031398E /* proximanova-regular-webfont.ttf */; };
 		43494FA21DD938B50031398E /* proximanova-semibold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43494FA11DD938B50031398E /* proximanova-semibold-webfont.ttf */; };
 		43494FA51DDA9CC50031398E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43494FA41DDA9CC50031398E /* ProfileViewController.swift */; };
+		435B4BAF1DDCE5BA00B86625 /* cleanup_backup_pieces_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BAE1DDCE5BA00B86625 /* cleanup_backup_pieces_rst.txt */; };
+		435B4BB11DDCE5CD00B86625 /* data_restoration_using_backup_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB01DDCE5CD00B86625 /* data_restoration_using_backup_rst.txt */; };
+		435B4BB31DDCE5EA00B86625 /* prepare_restoration_scripts_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB21DDCE5EA00B86625 /* prepare_restoration_scripts_rst.txt */; };
+		435B4BB51DDCE5F600B86625 /* download_backup_pieces_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB41DDCE5F600B86625 /* download_backup_pieces_rst.txt */; };
+		435B4BBB1DDCE60400B86625 /* prepare_upload_package_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB61DDCE60400B86625 /* prepare_upload_package_rst.txt */; };
+		435B4BBC1DDCE60400B86625 /* prepare_database_for_backup_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB71DDCE60400B86625 /* prepare_database_for_backup_rst.txt */; };
+		435B4BBD1DDCE60400B86625 /* cleanup_intermediate_files_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB81DDCE60400B86625 /* cleanup_intermediate_files_rst.txt */; };
+		435B4BBE1DDCE60400B86625 /* prepare_dowbload_package_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BB91DDCE60400B86625 /* prepare_dowbload_package_rst.txt */; };
+		435B4BBF1DDCE60400B86625 /* associate_instance_to_datasource_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BBA1DDCE60400B86625 /* associate_instance_to_datasource_rst.txt */; };
+		435B4BC11DDCE6B400B86625 /* cleanup_intermediate_files.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BC01DDCE6B400B86625 /* cleanup_intermediate_files.txt */; };
+		435B4BC31DDCE80300B86625 /* upload_backup_pieces.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BC21DDCE80300B86625 /* upload_backup_pieces.txt */; };
+		435B4BC51DDCE80D00B86625 /* prepare_cloud_storage.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BC41DDCE80D00B86625 /* prepare_cloud_storage.txt */; };
+		435B4BC71DDCE81400B86625 /* prepare_upload_package.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BC61DDCE81400B86625 /* prepare_upload_package.txt */; };
+		435B4BC91DDCE86400B86625 /* prepare_database_for_backup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BC81DDCE86400B86625 /* prepare_database_for_backup.txt */; };
+		435B4BCB1DDCE86B00B86625 /* prepare_backup_scripts.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BCA1DDCE86B00B86625 /* prepare_backup_scripts.txt */; };
+		435B4BCD1DDCE87400B86625 /* run_mysql_backupp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BCC1DDCE87400B86625 /* run_mysql_backupp.txt */; };
+		435B4BCF1DDCE9D500B86625 /* LogsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B4BCE1DDCE9D500B86625 /* LogsMapper.swift */; };
+		435B4BD11DDD050C00B86625 /* initialization_rst.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BD01DDD050C00B86625 /* initialization_rst.txt */; };
+		435B4BD31DDD05DC00B86625 /* initialization.txt in Resources */ = {isa = PBXBuildFile; fileRef = 435B4BD21DDD05DC00B86625 /* initialization.txt */; };
+		435B4BD51DDD3C6A00B86625 /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B4BD41DDD3C6A00B86625 /* UISplitViewController.swift */; };
+		435B4BD71DDE718400B86625 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B4BD61DDE718400B86625 /* ActivityIndicatorView.swift */; };
+		435B4BD91DDEA75200B86625 /* OpWorkArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B4BD81DDEA75200B86625 /* OpWorkArgument.swift */; };
 		436B23021DCBCB30001F7ADC /* OpearationStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */; };
 		436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */; };
 		436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */; };
@@ -105,6 +127,28 @@
 		43494F9F1DD938460031398E /* proximanova-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-regular-webfont.ttf"; sourceTree = "<group>"; };
 		43494FA11DD938B50031398E /* proximanova-semibold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-semibold-webfont.ttf"; sourceTree = "<group>"; };
 		43494FA41DDA9CC50031398E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		435B4BAE1DDCE5BA00B86625 /* cleanup_backup_pieces_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cleanup_backup_pieces_rst.txt; sourceTree = "<group>"; };
+		435B4BB01DDCE5CD00B86625 /* data_restoration_using_backup_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data_restoration_using_backup_rst.txt; sourceTree = "<group>"; };
+		435B4BB21DDCE5EA00B86625 /* prepare_restoration_scripts_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_restoration_scripts_rst.txt; sourceTree = "<group>"; };
+		435B4BB41DDCE5F600B86625 /* download_backup_pieces_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = download_backup_pieces_rst.txt; sourceTree = "<group>"; };
+		435B4BB61DDCE60400B86625 /* prepare_upload_package_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_upload_package_rst.txt; sourceTree = "<group>"; };
+		435B4BB71DDCE60400B86625 /* prepare_database_for_backup_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_database_for_backup_rst.txt; sourceTree = "<group>"; };
+		435B4BB81DDCE60400B86625 /* cleanup_intermediate_files_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cleanup_intermediate_files_rst.txt; sourceTree = "<group>"; };
+		435B4BB91DDCE60400B86625 /* prepare_dowbload_package_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_dowbload_package_rst.txt; sourceTree = "<group>"; };
+		435B4BBA1DDCE60400B86625 /* associate_instance_to_datasource_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = associate_instance_to_datasource_rst.txt; sourceTree = "<group>"; };
+		435B4BC01DDCE6B400B86625 /* cleanup_intermediate_files.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cleanup_intermediate_files.txt; sourceTree = "<group>"; };
+		435B4BC21DDCE80300B86625 /* upload_backup_pieces.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upload_backup_pieces.txt; sourceTree = "<group>"; };
+		435B4BC41DDCE80D00B86625 /* prepare_cloud_storage.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_cloud_storage.txt; sourceTree = "<group>"; };
+		435B4BC61DDCE81400B86625 /* prepare_upload_package.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_upload_package.txt; sourceTree = "<group>"; };
+		435B4BC81DDCE86400B86625 /* prepare_database_for_backup.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_database_for_backup.txt; sourceTree = "<group>"; };
+		435B4BCA1DDCE86B00B86625 /* prepare_backup_scripts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prepare_backup_scripts.txt; sourceTree = "<group>"; };
+		435B4BCC1DDCE87400B86625 /* run_mysql_backupp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = run_mysql_backupp.txt; sourceTree = "<group>"; };
+		435B4BCE1DDCE9D500B86625 /* LogsMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsMapper.swift; sourceTree = "<group>"; };
+		435B4BD01DDD050C00B86625 /* initialization_rst.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initialization_rst.txt; sourceTree = "<group>"; };
+		435B4BD21DDD05DC00B86625 /* initialization.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initialization.txt; sourceTree = "<group>"; };
+		435B4BD41DDD3C6A00B86625 /* UISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
+		435B4BD61DDE718400B86625 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		435B4BD81DDEA75200B86625 /* OpWorkArgument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpWorkArgument.swift; sourceTree = "<group>"; };
 		436B23011DCBCB30001F7ADC /* OpearationStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpearationStepsViewController.swift; sourceTree = "<group>"; };
 		436B23031DCBCEFE001F7ADC /* StepTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
 		436B23051DCBCFF4001F7ADC /* TreeViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewNode.swift; sourceTree = "<group>"; };
@@ -167,6 +211,7 @@
 			children = (
 				430341E11DB9C2D300688800 /* Date.swift */,
 				436B23091DCBD079001F7ADC /* GlobalVariables.swift */,
+				435B4BD61DDE718400B86625 /* ActivityIndicatorView.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -194,6 +239,7 @@
 				43F8F3D91DC689E8001D80A7 /* UICollectionViewController+Background.swift */,
 				43F8F3DC1DC68A01001D80A7 /* CommonUtil.swift */,
 				43494F9D1DD936120031398E /* UILabel+FontStyleOverride.swift */,
+				435B4BD41DDD3C6A00B86625 /* UISplitViewController.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -236,6 +282,48 @@
 				43494FA41DDA9CC50031398E /* ProfileViewController.swift */,
 			);
 			name = profile;
+			sourceTree = "<group>";
+		};
+		435B4BAB1DDCE56300B86625 /* logs */ = {
+			isa = PBXGroup;
+			children = (
+				435B4BAD1DDCE57700B86625 /* restore */,
+				435B4BAC1DDCE56C00B86625 /* backup */,
+				435B4BCE1DDCE9D500B86625 /* LogsMapper.swift */,
+			);
+			name = logs;
+			sourceTree = "<group>";
+		};
+		435B4BAC1DDCE56C00B86625 /* backup */ = {
+			isa = PBXGroup;
+			children = (
+				435B4BC01DDCE6B400B86625 /* cleanup_intermediate_files.txt */,
+				435B4BC21DDCE80300B86625 /* upload_backup_pieces.txt */,
+				435B4BC41DDCE80D00B86625 /* prepare_cloud_storage.txt */,
+				435B4BC61DDCE81400B86625 /* prepare_upload_package.txt */,
+				435B4BC81DDCE86400B86625 /* prepare_database_for_backup.txt */,
+				435B4BCA1DDCE86B00B86625 /* prepare_backup_scripts.txt */,
+				435B4BCC1DDCE87400B86625 /* run_mysql_backupp.txt */,
+				435B4BD21DDD05DC00B86625 /* initialization.txt */,
+			);
+			name = backup;
+			sourceTree = "<group>";
+		};
+		435B4BAD1DDCE57700B86625 /* restore */ = {
+			isa = PBXGroup;
+			children = (
+				435B4BAE1DDCE5BA00B86625 /* cleanup_backup_pieces_rst.txt */,
+				435B4BB01DDCE5CD00B86625 /* data_restoration_using_backup_rst.txt */,
+				435B4BB21DDCE5EA00B86625 /* prepare_restoration_scripts_rst.txt */,
+				435B4BB41DDCE5F600B86625 /* download_backup_pieces_rst.txt */,
+				435B4BB61DDCE60400B86625 /* prepare_upload_package_rst.txt */,
+				435B4BB71DDCE60400B86625 /* prepare_database_for_backup_rst.txt */,
+				435B4BB81DDCE60400B86625 /* cleanup_intermediate_files_rst.txt */,
+				435B4BB91DDCE60400B86625 /* prepare_dowbload_package_rst.txt */,
+				435B4BBA1DDCE60400B86625 /* associate_instance_to_datasource_rst.txt */,
+				435B4BD01DDD050C00B86625 /* initialization_rst.txt */,
+			);
+			name = restore;
 			sourceTree = "<group>";
 		};
 		436B23001DCBCAE5001F7ADC /* operation */ = {
@@ -324,6 +412,7 @@
 				43FCE4561DB13D9D00130EB1 /* MasterViewController.swift */,
 				43FCE4781DB1695200130EB1 /* Database.swift */,
 				430D14381DDBDA3900C59CF7 /* OpWork.swift */,
+				435B4BD81DDEA75200B86625 /* OpWorkArgument.swift */,
 				43FCE4581DB13D9D00130EB1 /* DataMgmtViewController.swift */,
 				43FCE45A1DB13D9D00130EB1 /* Main.storyboard */,
 				43FCE4761DB147DC00130EB1 /* DatabaseTableViewCell.swift */,
@@ -332,6 +421,7 @@
 				43FCE4621DB13D9D00130EB1 /* Info.plist */,
 				43FCE47B1DB1DA8700130EB1 /* DbSummaryViewController.swift */,
 				4302BC511DB85EF000994DF7 /* DatabaseModel.swift */,
+				435B4BAB1DDCE56300B86625 /* logs */,
 			);
 			path = DataMgmtService;
 			sourceTree = "<group>";
@@ -440,10 +530,28 @@
 			files = (
 				43494F9A1DD932CC0031398E /* proximanova-light-webfont.ttf in Resources */,
 				43FCE4611DB13D9D00130EB1 /* LaunchScreen.storyboard in Resources */,
+				435B4BB51DDCE5F600B86625 /* download_backup_pieces_rst.txt in Resources */,
 				43494FA01DD938460031398E /* proximanova-regular-webfont.ttf in Resources */,
+				435B4BD11DDD050C00B86625 /* initialization_rst.txt in Resources */,
+				435B4BC31DDCE80300B86625 /* upload_backup_pieces.txt in Resources */,
+				435B4BCD1DDCE87400B86625 /* run_mysql_backupp.txt in Resources */,
+				435B4BBC1DDCE60400B86625 /* prepare_database_for_backup_rst.txt in Resources */,
+				435B4BC71DDCE81400B86625 /* prepare_upload_package.txt in Resources */,
+				435B4BD31DDD05DC00B86625 /* initialization.txt in Resources */,
 				43494F9C1DD932D60031398E /* proximanova-bold-webfont.ttf in Resources */,
+				435B4BC11DDCE6B400B86625 /* cleanup_intermediate_files.txt in Resources */,
+				435B4BAF1DDCE5BA00B86625 /* cleanup_backup_pieces_rst.txt in Resources */,
+				435B4BBE1DDCE60400B86625 /* prepare_dowbload_package_rst.txt in Resources */,
 				43FCE45E1DB13D9D00130EB1 /* Assets.xcassets in Resources */,
+				435B4BB31DDCE5EA00B86625 /* prepare_restoration_scripts_rst.txt in Resources */,
+				435B4BC91DDCE86400B86625 /* prepare_database_for_backup.txt in Resources */,
+				435B4BC51DDCE80D00B86625 /* prepare_cloud_storage.txt in Resources */,
+				435B4BB11DDCE5CD00B86625 /* data_restoration_using_backup_rst.txt in Resources */,
+				435B4BBD1DDCE60400B86625 /* cleanup_intermediate_files_rst.txt in Resources */,
 				43FCE45C1DB13D9D00130EB1 /* Main.storyboard in Resources */,
+				435B4BBB1DDCE60400B86625 /* prepare_upload_package_rst.txt in Resources */,
+				435B4BCB1DDCE86B00B86625 /* prepare_backup_scripts.txt in Resources */,
+				435B4BBF1DDCE60400B86625 /* associate_instance_to_datasource_rst.txt in Resources */,
 				43494FA21DD938B50031398E /* proximanova-semibold-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +583,7 @@
 				436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */,
 				43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */,
 				436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */,
+				435B4BD51DDD3C6A00B86625 /* UISplitViewController.swift in Sources */,
 				4321E0251DD570BD006C1004 /* SchemaChangeTableRowData.swift in Sources */,
 				43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */,
 				4321E0231DD54E9A006C1004 /* ResultsModel.swift in Sources */,
@@ -495,12 +604,15 @@
 				43FE2BDB1DC84702008E1BAD /* DatasourceCollectionViewCell.swift in Sources */,
 				43FE2BDD1DC8E1FE008E1BAD /* DatasourceBackupCollectionViewCell.swift in Sources */,
 				4321E01C1DD512E8006C1004 /* CompareResultsViewController.swift in Sources */,
+				435B4BD91DDEA75200B86625 /* OpWorkArgument.swift in Sources */,
 				430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
 				43FCE4791DB1695200130EB1 /* Database.swift in Sources */,
 				436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */,
 				4321E0271DD573B7006C1004 /* SchemaChangeTableViewCell.swift in Sources */,
+				435B4BCF1DDCE9D500B86625 /* LogsMapper.swift in Sources */,
 				4303420F1DBC40A400688800 /* BackupCollectionViewCell.swift in Sources */,
 				436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */,
+				435B4BD71DDE718400B86625 /* ActivityIndicatorView.swift in Sources */,
 				43494FA51DDA9CC50031398E /* ProfileViewController.swift in Sources */,
 				4302BC521DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
 				436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */,

@@ -1,0 +1,5 @@
+Starting download of backup files...
+
+10%...20%...35%...59%...70%...86%...96%...100%
+
+All backup file downloaded successfully from cloud storage.

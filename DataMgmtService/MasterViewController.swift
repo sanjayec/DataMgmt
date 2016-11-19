@@ -13,6 +13,8 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     // MARK: Properties
     var databases = [Database]()
     var selectedDB: Database?
+    
+    
    
     var tabBarViewController: UITabBarController? = nil
    
@@ -59,11 +61,22 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
    Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(loadDatabases), userInfo: nil, repeats: true)
        // self.splitViewController?.minimumPrimaryColumnWidth = 500
         
+       
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+       // let indexPath = IndexPath(row: 0, section: 0);
+     //   self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+      //  self.tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
     }
     
     func loadDatabases(){
         DatabaseModel.fetchDatabases(){ databases in
             self.databases = databases
+            
             
             for db in databases {
                
@@ -74,6 +87,13 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                         if db.id == (work?.instanceId)!{
                             db.workSubmitted = work
                         }
+                        if(db.latestRestoreOperation?.status == "1"){
+                        let endIndex = db.latestRestoreOperation?.percentageComplete.index((db.latestRestoreOperation?.percentageComplete.startIndex)!, offsetBy: ((db.latestRestoreOperation?.percentageComplete.characters.count)!-1))
+                        let fractionalProgress = Float((db.latestRestoreOperation?.percentageComplete.substring(to: endIndex!))!)! / 100.0
+                            
+                            self.lastRestoreWidthPercentageShown = fractionalProgress
+                        }
+                        
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -187,7 +207,9 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                     operation = backupOperation
                 }
             let opStepsviewController =  (segue.destination as! UINavigationController).topViewController  as! OpearationStepsViewController
-            
+                if  selectedDB?.workSubmitted?.restoretype == "associate_datasource" || selectedDB?.workSubmitted?.restoretype == "restore_database" {
+                    opStepsviewController.database = selectedDB
+                }
             opStepsviewController.operation = operation
                 opStepsviewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 opStepsviewController.navigationItem.leftItemsSupplementBackButton = true
@@ -221,13 +243,17 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         //cell.expiresIn!.text = "Expires in " + databases[indexPath.row].expiresIn
         //cell.expiresIn!.textAlignment = .right
         // if databases[indexPath.row].latestRestoreOperation?.status == "1"  {
-        if databases[indexPath.row].latestRestoreOperation?.status == "1"
+        let latestRestoreOp = databases[indexPath.row].latestRestoreOperation
+        if latestRestoreOp?.status == "1"
         {
             cell.Status.isHidden = false
             cell.statusBtnText.isHidden = false
             cell.Status.setImage(UIImage(named:"gear"), for: .normal)
             CommonUtil.startRotating(duration:2, button: cell.Status)
             cell.statusBtnText.setTitle("Restore in Progress", for: .normal)
+            
+            
+           // addRestoreRunningAnimation(cell: cell, percentageComplete: (latestRestoreOp?.percentageComplete)!)
 
         }
         else if databases[indexPath.row].runningBackupOperation?.status == "1" {
@@ -258,6 +284,9 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
             cell.Status.isHidden = true
             cell.statusBtnText.isHidden = true
         }
+//        if(indexPath.row == 1){
+//            addRestoreRunningAnimation(cell: cell)
+//        }
         
         return cell
     }
@@ -278,12 +307,17 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red:76.0/255, green:162.0/255, blue:205.0/255, alpha:1)
-        if databases[indexPath.row].latestRestoreOperation?.status != "1"{
+        if databases[indexPath.row].latestRestoreOperation?.status != "1"  && databases[indexPath.row].workSubmitted?.restoretype != "associate_datasource" && databases[indexPath.row].workSubmitted?.restoretype != "restore_database" {
+            
          self.performSegue(withIdentifier: "showTabDetails", sender: self)
+            
         }
         else{
+            
+            //selectedCell.selectionStyle = .none
             (selectedCell as? DatabaseTableViewCell)?.Status.isHidden = false
             self.performSegue(withIdentifier: "showOpDetails", sender: self)
+            
         }
     }
     
@@ -293,7 +327,10 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        cellToDeSelect.contentView.backgroundColor = UIColor.clear
+       // cellToDeSelect.contentView.backgroundColor = UIColor.clear
+        
+        //self.splitViewController?.toggleMasterView()
+
     }
  
     
@@ -305,10 +342,49 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     
     @IBAction func statusButtonTxtClicked(_ sender: Any) {
         
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = (view.superview) as! UITableViewCell
+        let indexPath = self.tableView.indexPath(for: cell)
+        
+        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+       // self.tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
+   
+        self.splitViewController?.toggleMasterView()
          self.performSegue(withIdentifier: "showOpDetails", sender: self)
         
     }
    
+    var lastRestoreWidthPercentageShown = Float(0.0)
+    
+    func addRestoreRunningAnimation(cell: UITableViewCell, percentageComplete: String){
+       
+        let endIndex = percentageComplete.index((percentageComplete.startIndex), offsetBy: ((percentageComplete.characters.count)-1))
+        let fractionalProgress = Float(percentageComplete.substring(to: endIndex))! / 100.0
+        
+        let widthForCompleted = fractionalProgress * Float(cell.frame.width)
+        
+        let widthForStart = self.lastRestoreWidthPercentageShown *  Float(cell.frame.width)
+      //  let xindex = Float(cell.frame.origin.x) + widthForCompleted
+        
+        var animatedBackroundColorView = UIView(frame: CGRect(x: (cell.frame.origin.x) , y: (cell.frame.origin.y - 2.0), width: CGFloat(widthForStart), height: -(cell.frame.height - 3.0 )))
+        animatedBackroundColorView.backgroundColor = UIColor(red:62.0/255, green:196.0/255, blue:118.0/255, alpha:1)
+        
+        cell.addSubview(animatedBackroundColorView)
+        cell.sendSubview(toBack: animatedBackroundColorView)
+        //cell.sendSubview(toBack: animatedBackroundColorView)
+
+        UIView.animate(withDuration: 30, animations :  {
+            animatedBackroundColorView.frame = CGRect(x: cell.frame.origin.x , y: (cell.frame.origin.y - 2.0), width: CGFloat(widthForCompleted), height: -(cell.frame.height - 3.0))
+        
+        },
+          completion: {
+            finished in
+            animatedBackroundColorView.removeFromSuperview()
+            self.lastRestoreWidthPercentageShown = fractionalProgress
+        })
+        
+    }
    
 }
 

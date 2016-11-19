@@ -14,5 +14,8 @@ class DatasourceBackupCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var createdOn: UILabel!
     @IBOutlet weak var storageType: UILabel!
+//    @IBOutlet weak var assocOrRefresh: UIButton!
     @IBOutlet weak var assocOrRefresh: UIButton!
+    
+    @IBOutlet weak var image: UIImageView!
 }

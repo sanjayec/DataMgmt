@@ -61,7 +61,16 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         super.viewDidLoad()
         CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
    setCompareRegion()
+        self.activityIndicatorView = ActivityIndicatorView(title: "Submitting Job...", center: self.view.center)
        
+        let colors =  [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
+        
+        addGradient(view: selectedBackupView,colors:colors)
+        addGradient(view: backupPointView,colors:colors)
+        selectedBackupView.layer.cornerRadius = 10.0
+        backupPointView.layer.cornerRadius = 10.0
+
+        
         let green = UIColor.init(red: 76/255, green: 175/255, blue: 80/255, alpha: 1)
         
         let touchAction = { (point:ISPoint, _ sliderValue: Float) in
@@ -257,6 +266,7 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         popover.backup1 = backup1ForCompare
         popover.backup2 = backup2ForCompare
         
+        //self.tabBarController?.splitViewController?.toggleMasterView()
         
         self.present(popover, animated: true, completion: nil)
 
@@ -295,13 +305,21 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         showRestoreConfirmPopup()
     }
     
-    
+    var activityIndicatorView: ActivityIndicatorView!
+
     func showRestoreConfirmPopup() {
         let refreshAlert = UIAlertController(title: "Restore Database Confirmation", message: "Are you sure you want to restore the database ?", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            
+            self.view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
+            self.activityIndicatorView.startAnimating()
+
             DatabaseModel.submitRestore(database: self.detailItem!, backup: self.selectedBackup!){ message in
+                self.removeIndicator()
+                self.splitViewController?.toggleMasterView()
                 if message == "succeeded" {
+                    
                     self.showJobSubmittedAlert()
                 }
                 else {
@@ -324,6 +342,9 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Clicked on OK")
+        //   self.removeIndicator()
+           // self.splitViewController?.toggleMasterView()
+            self.performSegue(withIdentifier: "showOpDetails", sender: self)
         }))
         
         present(refreshAlert, animated: true, completion: nil)
@@ -336,9 +357,56 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Clicked on OK")
+         //  self.removeIndicator()
+          //  self.splitViewController?.toggleMasterView()
         }))
         
         present(refreshAlert, animated: true, completion: nil)
     }
     
+    func addGradient(view: UIView, colors: [Any]){
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = view.bounds
+        
+        
+        gradient.colors = colors
+        
+        gradient.startPoint = CGPoint.zero
+        gradient.endPoint = CGPoint(x: 1,y :0)
+        gradient.name = "gradient"
+        let sublayer = view.layer.sublayers?[0]
+        
+        if sublayer?.name == "gradient"{
+            view.layer.replaceSublayer(sublayer!, with: gradient)
+        }
+        
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    
+
+    func removeIndicator(){
+        self.activityIndicatorView.stopAnimating()
+        self.activityIndicatorView.getViewActivityIndicator().removeFromSuperview()
+        self.activityIndicatorView.getViewActivityIndicator().isHidden = true
+        self.view.setNeedsDisplay()
+    }
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "showOpDetails" {
+        
+                let selectedDB = self.detailItem
+                //var operation:Operation?
+                
+              let opStepsviewController =  (segue.destination as! UINavigationController).topViewController  as! OpearationStepsViewController
+                
+                opStepsviewController.database = selectedDB
+                opStepsviewController.navigationItem.leftBarButtonItem = self.tabBarController?.splitViewController?.displayModeButtonItem
+                opStepsviewController.navigationItem.leftItemsSupplementBackButton = true
+                //opStepsviewController.navigationItem.title = selectedDB.name
+        
+            
+        }
+    }
+
 }

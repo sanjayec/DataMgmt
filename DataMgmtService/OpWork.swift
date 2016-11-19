@@ -20,6 +20,8 @@ class OpWork {
     var expiryDate: Date?
     var status: String?
     var ownerId:String?
+    var arguments = [OpWorkArgument]()
+    var restoretype : String?
     
     
     // MARK: Initialization
@@ -72,6 +74,25 @@ class OpWork {
             throw SerializationError.missing("status")
         }
         
+        // Extract status
+        guard let args = json["arguments"] as? [Any] else {
+            throw SerializationError.missing("arguments")
+        }
+        
+        for argument in args {
+            let arg = argument as? [String: Any]
+            
+            if let opWorkArg = try? OpWorkArgument(json: arg!) {
+                arguments.append(opWorkArg!)
+                if(opWorkArg?.id == "8001"){
+                    if let name = opWorkArg?.name {
+                    let r = name.index(name.startIndex, offsetBy: 2)..<name.endIndex
+                    restoretype = opWorkArg?.name[r]
+                    }
+                }
+            }
+            
+        }
         
         
         // Initialize properties

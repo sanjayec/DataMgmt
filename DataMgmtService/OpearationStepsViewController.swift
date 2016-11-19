@@ -19,6 +19,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     var data: [TreeViewData] = []
     
     var operation : Operation?
+    var database: Database?
     
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var name: UILabel!
@@ -30,6 +31,7 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var stepsHeader: UILabel!
     @IBOutlet weak var duration: UILabel!
+    var activityIndicatorView: ActivityIndicatorView!
     
     //MARK:  Init & Load
     
@@ -74,13 +76,13 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
          duration.text =  CommonUtil.getDuration(date1: (operation?.startTime)!, date2: endTIme)
 
         }
-        if operation?.status == "0" {
-        self.status.text = "Completed"
+        if operation?.status == "0" || operation?.status == "8" {
+        self.status.text = "Not Started"
         }
         else if operation?.status == "5" {
             self.status.text = "Completed"
         }
-        else {
+        else if operation?.status == "1" {
             self.status.text = "Running"
         }
         setStepsHeader()
@@ -94,6 +96,29 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         
         Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchOperation), userInfo: nil, repeats: true)
 
+        var message = ""
+        
+        if(self.operation == nil ) {
+            self.navigationItem.title = database?.name
+            
+            message = "Restore job is submitted for database " + (self.database?.name)! + ". Waiting for logs.."
+            
+            if  database?.workSubmitted?.restoretype == "associate_datasource" {
+                message = "Associate job is submitted for database " + (self.database?.name)! + ". Waiting for logs.."
+                
+            }
+         
+            self.activityIndicatorView = ActivityIndicatorView(title: message, center: self.view.center, width: 1000, height:550, aplha: 0.92, vertical : true)
+
+        self.view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
+        self.activityIndicatorView.startAnimating()
+        }
+        else{
+            if (self.activityIndicatorView != nil) {
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.getViewActivityIndicator().removeFromSuperview()
+            }
+        }
         
     }
     
@@ -116,6 +141,8 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func fetchOperation(){
+        
+        if(self.operation != nil){
         if self.operation?.status == "1"{
         DatabaseModel.fetchOperation(operationId: (self.operation?.id)!){ op in
             if(op != nil){
@@ -130,7 +157,25 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
             
         }
         }
-        
+        }
+        else{
+             DatabaseModel.fetchDatabases(){ databases in
+                for db in databases{
+                    if db.id == self.database?.id {
+                        self.database = db
+                        if(db.latestRestoreOperation?.status == "1"){
+                            self.operation = db.latestRestoreOperation
+                            DispatchQueue.main.async {
+                            self.viewDidLoad()
+                            self.tableView.reloadData()
+                            self.view.setNeedsDisplay()
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
     }
     
     func goBackToParent()
@@ -297,12 +342,23 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
             popover.popoverPresentationController?.sourceView = selectedCell
             popover.popoverPresentationController?.sourceRect = (selectedCell?.bounds)!
             popover.popoverPresentationController?.permittedArrowDirections = .unknown
+        
+        
             popover.preferredContentSize = CGSize(width: view.bounds.width-70, height: view.bounds.height-100)
            popover.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
             //map database object
-            popover.step = selectedCell?.treeNode.nodeObject as? OperationStep
+            let opStep = (selectedCell?.treeNode.nodeObject as! OperationStep)
+
+            popover.step = opStep
+             popover.type = self.operation?.type
             popover.viewDidLoad()
+        
+//        let height = popover.logs.bounds.height
+//        popover.preferredContentSize = CGSize(width: view.bounds.width-100, height: height)
+//        
+
+        
             
             self.present(popover, animated: true, completion: nil)
             }

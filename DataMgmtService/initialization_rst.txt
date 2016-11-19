@@ -1,0 +1,82 @@
+Initializing...
+ossStorageBackupProfileUrn = domain:defaultService:em:provisioning:1:cmp:COMP_Component:SUB_DatabaseConfigProfile:3FF3D75165570C1DE053A3B0F00A3842:0.1
+restoreDbSize = 25GB
+restoreDbPassword =  **********
+restoreWorkDir = /var/opt/domain
+Source DBCS service instance target GUID: D7B64B456F88040A92033C7D2C6103F9
+Source service instance name in OPC: HCM-DBCS
+Source service URL: https://dbcs.emea.domaincloud.com:443/paas/service/dbcs/api/v1.1/instances/emeaauebs5/HCM-DBCS
+Cloud Account Name: BALAEMEAAUEBS5 Account ID: 101
+Cloud Account Identity Domain: emeaauebs5
+Cloud Service URL: https://dbcs.emea.domaincloud.com/paas/service/dbcs/api/v1.1/instances/emeaauebs5/
+Source DBCS details:
+{
+"service_name": "HCM-DBCS",
+"version": "11.2.0.4",
+"status": "Running",
+"description": "HCM-DBCS",
+"identity_domain": "emeaauebs5",
+"creation_time": "2016-10-27T06:16:42.890+0000",
+"last_modified_time": "2016-10-27T06:16:42.877+0000",
+"created_by": "bob.dev@domain.com",
+"sm_plugin_version": "16.4.1-534",
+"service_uri": "https:\/\/dbcs.emea.domaincloud.com:443\/paas\/service\/dbcs\/api\/v1.1\/instances\/emeaauebs5\/HCM-DBCS",
+"database_id": "0",
+"num_nodes": 1,
+"level": "PAAS",
+"edition": "EE",
+"shape": "oc3",
+"subscriptionType": "MONTHLY",
+"creation_job_id": "2619291",
+"num_ip_reservations": 1,
+"backup_destination": "NONE",
+"failover_database": false,
+"rac_database": false,
+"current_version": "11.2.0.4.160719",
+"sid": "HCMDB",
+"demoPdb": "",
+"listenerPort": 1521,
+"timezone": "UTC",
+"em_url": "https:\/\/140.86.38.252:1158\/em",
+"connect_descriptor": "HCM-DBCS:1521\/HCMDB.emeaauebs5.domaincloud.internal",
+"connect_descriptor_with_public_ip": "140.86.38.252:1521\/HCMDB.emeaauebs5.domaincloud.internal",
+"apex_url": "https:\/\/140.86.38.252\/apex\/",
+"glassfish_url": "",
+"dbaasmonitor_url": "https:\/\/140.86.38.252\/dbaas_monitor",
+"charset": "AL32UTF8",
+"ncharset": "AL16UTF16",
+"is_clone": false,
+"clone_supported_version": "16.3.1",
+"compute_site_name": "EM002_Z16",
+"jaas_instances_using_service": ""
+}
+Source service DB SID: HCMDB
+cloudAccountName = BALAEMEAAUEBS5
+cloudIdentityDomain = emeaauebs5
+sourceServiceTargetName = HCM-DBCS-emeaauebs5
+sourceServiceName = HCM-DBCS
+restoreDbName = HCMDB
+ossStorageBackupProfileUrn = domain:defaultService:em:provisioning:1:cmp:COMP_Component:SUB_DatabaseConfigProfile:3FF3D75165570C1DE053A3B0F00A3842:0.1
+Getting OSS backup details from the given RMAN backup component URN: domain:defaultService:em:provisioning:1:cmp:COMP_Component:SUB_DatabaseConfigProfile:3FF3D75165570C1DE053A3B0F00A3842:0.1
+ControlFileBackupTag: control_backup_1477687830633
+Database ID: 603845546
+Storage Container Name: Hclone1-2016-10-28-135039
+Storage Container URL: https://dbdevcs23.storage.domaincloud.com/v1/Storage-dbdevcs23/Hclone1-2016-10-28-135039
+Storage User: bob.dev@domain.com
+ibackupDatabaseID = 603845546
+ibackupDecryptionKey =  **********
+ibackupCloudStorageContainer = https://dbdevcs23.storage.domaincloud.com/v1/Storage-dbdevcs23/Hclone1-2016-10-28-135039
+ibackupCloudStorageUser = bob.dev@domain.com
+ibackupCloudStoragePwd =  **********
+operation parameter is not provided. Derived value is: RESTORE_DBCS_FROM_IBKP
+DBCS host name is: 140.86.38.252
+DBCS host user is: opc
+Writing the SSH key in DBCS host at location: /var/opt/domain/.id_rsa_1294836885365759
+Setting variables for unlocking DBSNMP user after DBCS restore operation
+DBCS database target name: HCMDB.emeaauebs5.domaincloud.internal
+DBCS database target type: domain_database
+DBCS database domain home: /u01/app/domain/product/11.2.0/dbhome_1
+DBCS database SID: HCMDB
+Retrieving the current monitoring creds set for the DBCS DB target: HCMDB.emeaauebs5.domaincloud.internal
+DBCS database monitoring user: dbsnmp Role: Normal
+Step: Perform DBCS operation has been executed successfully.
