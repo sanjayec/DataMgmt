@@ -512,7 +512,7 @@ addGradient(cell: cell, colors: colors)
             }
             }
             else{
-                DatabaseModel.submitRestore(database: self.detailItem!, backup: self.selectedBackup!){ message in
+                DatabaseModel.submitAssociate(database: self.detailItem!,datasource: self.selectedDatasource!, backup: self.selectedBackup!){ message in
                     self.removeIndicator()
                     if message == "succeeded" {
                         self.showJobSubmittedAlert()
