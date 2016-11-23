@@ -82,6 +82,8 @@ class DbSummaryViewController: UIViewController, UIPopoverPresentationController
     
     @IBOutlet weak var socketOrconnectStringLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var spaceEfficiencyStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.colorMe(type: self.detailItem?.type)
@@ -95,6 +97,10 @@ class DbSummaryViewController: UIViewController, UIPopoverPresentationController
          addLeftBorderForGraphSection(stackView: self.graphStack)
         addLeftBorderForGraphSection(stackView: self.oracleGraphs)
         // addLeftBorderForGraphSection(stackView: self.perfRightDownStack)
+        
+        if(self.detailItem?.name == "PROD_MOBILE_DATA_DB"){
+            self.spaceEfficiencyStack.isHidden = false
+        }
     }
     
     func setContent(){

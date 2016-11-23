@@ -39,13 +39,13 @@ extension Date {
     }
     /// Returns the a custom time interval description from another date
     func offset(from date: Date) -> String {
-        if years(from: date)   > 0 { return "\(years(from: date))y"   }
-        if months(from: date)  > 0 { return "\(months(from: date))M"  }
-        if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }
-        if days(from: date)    > 0 { return "\(days(from: date))d"    }
-        if hours(from: date)   > 0 { return "\(hours(from: date))h"   }
-        if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
-        if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
+        if years(from: date)   > 0 { return "\(years(from: date)) years"   }
+        if months(from: date)  > 0 { return "\(months(from: date)) months"  }
+        if weeks(from: date)   > 0 { return "\(weeks(from: date)) weeks"   }
+        if days(from: date)    > 0 { return "\(days(from: date)) days"    }
+        if hours(from: date)   > 0 { return "\(hours(from: date)) hours"   }
+        if minutes(from: date) > 0 { return "\(minutes(from: date)) minutes" }
+        if seconds(from: date) > 0 { return "\(seconds(from: date)) seconds" }
         return ""
     }
 }

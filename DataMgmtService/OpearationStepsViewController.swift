@@ -35,6 +35,9 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK:  Init & Load
     
+    func goBack(){
+        self.performSegue(withIdentifier: "goBackToOps", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,6 +45,10 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         CommonUtil.setNavigationBarItems(navigationItem: self.navigationItem,navController: self.navigationController!,viewController: self)
         }
         
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Operations", style:.plain, target:nil, action:#selector(goBack))
+//   
+//        self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem
+
         NotificationCenter.default.addObserver(self, selector: #selector(OpearationStepsViewController.ExpandCollapseNode(_:)), name: NSNotification.Name(rawValue: "TreeNodeButtonClicked"), object: nil)
         
         tableView.dataSource = self

@@ -96,7 +96,7 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set Title
-        title = "Data Management"
+       // title = "Data Management"
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
         if( self.navigationItem != nil && self.navigationController != nil ){

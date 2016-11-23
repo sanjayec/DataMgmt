@@ -61,6 +61,11 @@
 		436B230A1DCBD079001F7ADC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B23091DCBD079001F7ADC /* GlobalVariables.swift */; };
 		436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B230B1DCBD229001F7ADC /* TreeViewLists.swift */; };
 		436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */; };
+		437778BD1DE51DAB00B3BD7F /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778BC1DE51DAB00B3BD7F /* AnalyticsViewController.swift */; };
+		437778BF1DE523DD00B3BD7F /* OperationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778BE1DE523DD00B3BD7F /* OperationTableViewCell.swift */; };
+		437778C31DE6454300B3BD7F /* MaskingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778C21DE6454300B3BD7F /* MaskingTableViewCell.swift */; };
+		437778C51DE6494000B3BD7F /* MakingDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778C41DE6494000B3BD7F /* MakingDefinition.swift */; };
+		437778C71DE649F000B3BD7F /* MaskingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778C61DE649F000B3BD7F /* MaskingModel.swift */; };
 		4386965A1DC0EABE00C49F06 /* BackupPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */; };
 		4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */; };
 		4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */; };
@@ -156,6 +161,11 @@
 		436B23091DCBD079001F7ADC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		436B230B1DCBD229001F7ADC /* TreeViewLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewLists.swift; sourceTree = "<group>"; };
 		436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewViewController.swift; sourceTree = "<group>"; };
+		437778BC1DE51DAB00B3BD7F /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		437778BE1DE523DD00B3BD7F /* OperationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTableViewCell.swift; sourceTree = "<group>"; };
+		437778C21DE6454300B3BD7F /* MaskingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskingTableViewCell.swift; sourceTree = "<group>"; };
+		437778C41DE6494000B3BD7F /* MakingDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingDefinition.swift; sourceTree = "<group>"; };
+		437778C61DE649F000B3BD7F /* MaskingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskingModel.swift; sourceTree = "<group>"; };
 		438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupPopupViewController.swift; sourceTree = "<group>"; };
 		4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupProgressViewController.swift; sourceTree = "<group>"; };
 		4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -339,6 +349,15 @@
 			name = operation;
 			sourceTree = "<group>";
 		};
+		437778BB1DE51D9300B3BD7F /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				437778BC1DE51DAB00B3BD7F /* AnalyticsViewController.swift */,
+				437778BE1DE523DD00B3BD7F /* OperationTableViewCell.swift */,
+			);
+			name = analytics;
+			sourceTree = "<group>";
+		};
 		4386965F1DC4445200C49F06 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				43E2D0141DD928A6005D4387 /* MaskingViewController.swift */,
+				437778C21DE6454300B3BD7F /* MaskingTableViewCell.swift */,
+				437778C41DE6494000B3BD7F /* MakingDefinition.swift */,
+				437778C61DE649F000B3BD7F /* MaskingModel.swift */,
 			);
 			name = masking;
 			sourceTree = "<group>";
@@ -397,6 +419,7 @@
 		43FCE4531DB13D9D00130EB1 /* DataMgmtService */ = {
 			isa = PBXGroup;
 			children = (
+				437778BB1DE51D9300B3BD7F /* analytics */,
 				43494FA31DDA9CA50031398E /* profile */,
 				43494F941DD932450031398E /* fontStyles */,
 				43E2D0131DD9288A005D4387 /* masking */,
@@ -589,8 +612,11 @@
 				43C1563E1DBEEE39002B9870 /* RestoreProgressCollectionViewCell.swift in Sources */,
 				4321E0231DD54E9A006C1004 /* ResultsModel.swift in Sources */,
 				43FE2BD81DC83498008E1BAD /* Datasource.swift in Sources */,
+				437778C31DE6454300B3BD7F /* MaskingTableViewCell.swift in Sources */,
 				43F8F3DA1DC689E8001D80A7 /* UICollectionViewController+Background.swift in Sources */,
+				437778BD1DE51DAB00B3BD7F /* AnalyticsViewController.swift in Sources */,
 				43A6E6991DD17B3200E3B095 /* BackupsTimelineViewController.swift in Sources */,
+				437778BF1DE523DD00B3BD7F /* OperationTableViewCell.swift in Sources */,
 				4330BF511DBCA715004911A8 /* Backup.swift in Sources */,
 				43FCE4571DB13D9D00130EB1 /* MasterViewController.swift in Sources */,
 				430D14391DDBDA3900C59CF7 /* OpWork.swift in Sources */,
@@ -598,6 +624,7 @@
 				438696611DC4447100C49F06 /* LoginViewController.swift in Sources */,
 				4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */,
 				43E2D0151DD928A6005D4387 /* MaskingViewController.swift in Sources */,
+				437778C51DE6494000B3BD7F /* MakingDefinition.swift in Sources */,
 				4386965A1DC0EABE00C49F06 /* BackupPopupViewController.swift in Sources */,
 				43FCE4771DB147DC00130EB1 /* DatabaseTableViewCell.swift in Sources */,
 				430341E21DB9C2D300688800 /* Date.swift in Sources */,
@@ -615,6 +642,7 @@
 				436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */,
 				435B4BD71DDE718400B86625 /* ActivityIndicatorView.swift in Sources */,
 				43494FA51DDA9CC50031398E /* ProfileViewController.swift in Sources */,
+				437778C71DE649F000B3BD7F /* MaskingModel.swift in Sources */,
 				4302BC521DB85EF000994DF7 /* DatabaseModel.swift in Sources */,
 				436B230E1DCC2A61001F7ADC /* LogsViewViewController.swift in Sources */,
 				43A6E6971DD174EE00E3B095 /* ISPoint.swift in Sources */,

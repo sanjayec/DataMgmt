@@ -157,6 +157,9 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                 let summaryController = (summaryNavController).topViewController as!  DbSummaryViewController
                 summaryController.detailItem = selDB
                 
+               
+
+                
                 summaryController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 summaryController.navigationItem.leftItemsSupplementBackButton = true
                 summaryController.navigationItem.title = selDB.name
@@ -185,11 +188,14 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                 maskingViewController.navigationItem.leftItemsSupplementBackButton = true
                 maskingViewController.navigationItem.title = selDB.name
                 
-                    
-                                       // self.performSegue(withIdentifier: "showOpDetails", sender: self)
-                    
                 
-                 
+                let analyticsViewController = (tabController.viewControllers?[4] as! UINavigationController).topViewController  as! AnalyticsViewController
+                analyticsViewController.detailItem = selDB
+                analyticsViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                analyticsViewController.navigationItem.leftItemsSupplementBackButton = true
+                analyticsViewController.navigationItem.title = selDB.name
+                
+                                                        
             }
                     }
         else if segue.identifier == "showOpDetails" {
@@ -235,10 +241,17 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         cell.databaseName!.text = databases[indexPath.row].name
         if let dsName = databases[indexPath.row].datasource{
              cell.datasource!.text = "Using " + dsName
+            
         }
         else{
             cell.datasource.isHidden = true
         }
+        
+        if(databases[indexPath.row].name == "PROD_MOBILE_DATA_DB"){
+             cell.datasource.isHidden = false
+            cell.datasource!.text = "Snapcloned from PROD_CRM_DB"
+        }
+        
         cell.typeImage!.image = databases[indexPath.row].typeImage
         //cell.expiresIn!.text = "Expires in " + databases[indexPath.row].expiresIn
         //cell.expiresIn!.textAlignment = .right
