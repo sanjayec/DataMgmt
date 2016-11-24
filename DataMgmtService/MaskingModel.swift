@@ -99,4 +99,63 @@ maskingDef = MaskingDefinition(name:"GLBA Compliance Masking Definition",descrip
         return maskingDefs
         
     }
+    
+    static func fetchMaskedColumns() -> [MaskedColumn]{
+        
+        var maskedColumns = [MaskedColumn]()
+        
+        var column = MaskedColumn(tableName: "Table Name", columnName:"Column Name", columnType:"Column Type", format:"Format")
+        maskedColumns.append(column)
+        
+        column = MaskedColumn(tableName: "AP_CARDS_ALL#", columnName:"CARD_NUMBER", columnType:"Card Number", format:"/(\\rand:d{4})-(\\rand:d{4})-(\\rand:d{4})-(\\rand:d{4})/")
+        maskedColumns.append(column)
+        
+        column = MaskedColumn(tableName: "AP_CHECKS_ALL#", columnName:"BANK_ACCOUNT_NUM", columnType:"Account Number", format:"/(\\rand:d{12})/")
+        maskedColumns.append(column)
+
+        
+        column = MaskedColumn(tableName: "AP_EXPENSE_FEED_LINES_ALL#", columnName:"CARD_NUMNER", columnType:"Card Number", format:"^((\\()?[[:digit:]]{3}(\\))?-||?{{:digit}}")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "AP_INVOICE_PAYMENTS_ALL#  ", columnName:"BANK_ACCOUNT_NUM", columnType:"Account Number", format:"^((\\()?[[:digit:]]{4}(\\))?-||?{{:digit}}$")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "AP_SELECTED_INVOICES_ALL#", columnName:"BANK_ACCOUNT_NUM", columnType:"Account Number", format:"?(($\\()?[[:digit:]]{3}(\\))?-||?{{:digit}}")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "AP_SUPPLIERS#", columnName:"INDIVIDUAL_1099", columnType:"User Info", format:"/(\\[A-Z0-9]*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "AP_SUPPLIERS#", columnName:"NUM_1099", columnType:"User Id", format:"/(\\rand:d{6})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"CUSTOMER_ID", columnType:"Customer Id", format:"\\rand:d{8})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"DESCRIPTION", columnType:"User Info", format:"/(\\[A-Z0-9]?\\[A-Z0-9]*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"EMAIL_ADDRESS", columnType:"Email Address", format:"/(\\[A-Z0-9]?*rand:d{6})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"EMPLOYEE_ID", columnType:"Employee Id", format:"/(\\[A-Z0-9]?*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"ENCRYPTED_FOUNDATION_PASSWORD", columnType:"Password", format:"/(d{5}?\\[A-Z0-9]*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"ENCRYPTED_USER_PASSWORD", columnType:"Password", format:"/(d{5}?\\[A-Z0-9]*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"FAX", columnType:"Fax Number", format:"/(\\[A-Z0-9]?*rand:d{2})/")
+        maskedColumns.append(column)
+
+        column = MaskedColumn(tableName: "FND_USER#", columnName:"SUPPLIER_ID", columnType:"Supplier ID", format:"/(\\[A-Z0-9]?*rand:d{2})/")
+        maskedColumns.append(column)
+
+        
+        return maskedColumns
+
+    }
+    
 }

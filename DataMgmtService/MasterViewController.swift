@@ -188,8 +188,13 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                 maskingViewController.navigationItem.leftItemsSupplementBackButton = true
                 maskingViewController.navigationItem.title = selDB.name
                 
+                let cloneMgmtViewController = (tabController.viewControllers?[4] as! UINavigationController).topViewController  as! CloneManagementViewController
+                cloneMgmtViewController.detailItem = selDB
+                cloneMgmtViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                cloneMgmtViewController.navigationItem.leftItemsSupplementBackButton = true
+                cloneMgmtViewController.navigationItem.title = selDB.name
                 
-                let analyticsViewController = (tabController.viewControllers?[4] as! UINavigationController).topViewController  as! AnalyticsViewController
+                let analyticsViewController = (tabController.viewControllers?[5] as! UINavigationController).topViewController  as! AnalyticsViewController
                 analyticsViewController.detailItem = selDB
                 analyticsViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 analyticsViewController.navigationItem.leftItemsSupplementBackButton = true

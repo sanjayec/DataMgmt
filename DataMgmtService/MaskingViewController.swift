@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var maskingTableView: UITableView!
     var maskingDefs = [MaskingDefinition]()
@@ -85,17 +85,31 @@ class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    
+    //var selectedCell: MaskingTableViewCell?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         
-        let selectedCell = tableView.cellForRow(at: indexPath) as? MaskingTableViewCell
+         let selectedCell = maskingTableView.cellForRow(at: indexPath) as? MaskingTableViewCell
         
         
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let more = UITableViewRowAction(style: .normal, title: "Show Details") { action, index in
             //print("more button tapped")
+            let popover = self.storyboard?.instantiateViewController(withIdentifier: "MaskedColumnsView") as! MaskedColumnsViewController
+            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+           // popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+            
+            let selectedCell = self.maskingTableView.cellForRow(at: indexPath) as? MaskingTableViewCell
+
+            
+            popover.popoverPresentationController?.delegate = self
+            popover.popoverPresentationController?.sourceView = selectedCell
+            popover.popoverPresentationController?.sourceRect = CGRect(x: 1000, y: (selectedCell?.frame.origin.y)!, width: 10, height: 10)
+            popover.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
+            popover.preferredContentSize = CGSize(width: 800, height: 700)
+            
+            self.present(popover, animated: true, completion: nil)
             
         }
         more.backgroundColor = UIColor.lightGray
