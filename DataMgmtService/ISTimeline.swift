@@ -74,7 +74,7 @@ open class ISTimeline: UIScrollView {
     
     open var bubbleArrows:Bool = true
     
-    fileprivate var sections:[(point:CGPoint, bubbleRect:CGRect, descriptionRect:CGRect?, titleLabel:UILabel, descriptionLabel:UILabel?, pointColor:CGColor, lineColor:CGColor, fill:Bool)] = []
+    fileprivate var sections:[(point:CGPoint, bubbleRect:CGRect, descriptionRect:CGRect?, titleLabel:UILabel, descriptionLabel:UILabel?, pointColor:CGColor, lineColor:CGColor, fill:Bool, objectType:String)] = []
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -106,7 +106,7 @@ open class ISTimeline: UIScrollView {
                 drawLine(start, end: end, color: sections[i].lineColor)
             }
             drawPoint(sections[i].point, color: sections[i].pointColor, fill: sections[i].fill)
-            drawBubble(sections[i].bubbleRect, backgroundColor: bubbleColor, textColor:titleColor, titleLabel: sections[i].titleLabel)
+            drawBubble(sections[i].bubbleRect, backgroundColor: bubbleColor, textColor:titleColor, titleLabel: sections[i].titleLabel, objectType: sections[i].objectType)
             
             let descriptionLabel = sections[i].descriptionLabel
             if (descriptionLabel != nil) {
@@ -201,7 +201,7 @@ open class ISTimeline: UIScrollView {
             let bubbleRect = CGRect(
                 x: point.x + pointDiameter + lineWidth / 2 + offset,
                 y: y + pointDiameter / 2,
-                width: titleWidth,
+                width: titleWidth+20,
                 height: titleHeight + ISTimeline.gap)
             
             var descriptionRect:CGRect?
@@ -213,7 +213,7 @@ open class ISTimeline: UIScrollView {
                     height: descriptionLabel!.intrinsicContentSize.height)
             }
             
-            sections.append((point, bubbleRect, descriptionRect, titleLabel, descriptionLabel, points[i].pointColor.cgColor, points[i].lineColor.cgColor, points[i].fill))
+            sections.append((point, bubbleRect, descriptionRect, titleLabel, descriptionLabel, points[i].pointColor.cgColor, points[i].lineColor.cgColor, points[i].fill, points[i].objectType))
             
             y += height
             y += ISTimeline.gap * 2.2 // section gap
@@ -275,7 +275,7 @@ open class ISTimeline: UIScrollView {
         self.layer.addSublayer(shapeLayer)
     }
     
-    fileprivate func drawBubble(_ rect:CGRect, backgroundColor:UIColor, textColor:UIColor, titleLabel:UILabel) {
+    fileprivate func drawBubble(_ rect:CGRect, backgroundColor:UIColor, textColor:UIColor, titleLabel:UILabel, objectType: String) {
         let path = UIBezierPath(roundedRect: rect, cornerRadius: bubbleRadius)
         
         if bubbleArrows {
@@ -292,9 +292,23 @@ open class ISTimeline: UIScrollView {
         
         self.layer.addSublayer(shapeLayer)
         
-        let titleRect = CGRect(x: rect.origin.x + 10, y: rect.origin.y, width: rect.size.width - 15, height: rect.size.height - 1)
+        let titleRect = CGRect(x: rect.origin.x + 35, y: rect.origin.y, width: rect.size.width - 15, height: rect.size.height - 1)
         titleLabel.textColor = textColor
         titleLabel.frame = titleRect
+        
+        let button = UIButton(type: .custom) // let preferred over var here
+        button.frame = CGRect(x: rect.origin.x + 5, y: rect.origin.y + 5, width: 23, height: rect.size.height - 10)
+        button.backgroundColor = UIColor.clear
+        if(objectType == "snap"){
+         button.setImage(UIImage(named:"snapshot"), for: .normal)
+        }
+        else{
+            button.setImage(UIImage(named:"cloudbackup"), for: .normal)
+            
+        }
+        self.addSubview(button)
+      
+
         self.addSubview(titleLabel)
     }
     

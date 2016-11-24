@@ -126,12 +126,12 @@ class AnalyticsViewController: UIViewController, UISearchBarDelegate , UITableVi
         cell.matchedText.numberOfLines = 2
         cell.matchedText.lineBreakMode = .byWordWrapping
         var tags: String?
-        if(operation.name == "Backup database 2016-11-20 20:17:37.789965"){
+        if(operation.name == "Backup database 2016-11-18 14:58:43.879047"){
           tags = "Tags: preUpgrade CRM V2.3.1, stable repos, post patch P176201"
 
             
         }
-        if(operation.name == "Backup database 2016-11-22 05:27:24.320891"){
+        if(operation.name == "Backup database 2016-11-21 14:36:46.087182"){
             tags = "Tags: postUpgrade CRM V2.3.1, Full Backup, Nov 2016. "
         }
         if tags != nil{
@@ -193,14 +193,14 @@ class AnalyticsViewController: UIViewController, UISearchBarDelegate , UITableVi
             
           
             if "preUpgrade CRM V2.3.1, stable repos, post patch P176201".range(of: searchText, options: .caseInsensitive) != nil{
-                if(oper.name == "Backup database 2016-11-20 20:17:37.789965"){
+                if(oper.name == "Backup database 2016-11-18 14:58:43.879047"){
                     
                     return true
                 }
             }
             
             if "postUpgrade CRM V2.3.1, Full Backup, Nov 2016".range(of: searchText, options: .caseInsensitive) != nil{
-                if(oper.name == "Backup database 2016-11-22 05:27:24.320891"){
+                if(oper.name == "Backup database 2016-11-21 14:36:46.087182"){
                     
                     return true
                 }

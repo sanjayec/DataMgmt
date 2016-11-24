@@ -236,17 +236,24 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             _ = selectedCell?.bounds
         // handle tap events
         if collectionView == datasourcesCollectionView{
-          
             selectedDatasource =  self.datasources[indexPath[0].row]
+            
+            if selectedDatasourceIndexPath == nil  || selectedDatasource?.name == associatedDatasource?.name{
+          
+            
             
             let colors = [UIColor(red:238.0/255, green:242.0/255, blue:243.0/255, alpha:1).cgColor, UIColor(red:142.0/255, green:158.0/255, blue:171.0/255, alpha:1).cgColor]
             addGradient(cell: selectedCell!, colors: colors)
-            
+                
+                if(lastDatasourceCellSelected != selectedCell) {
             lastDatasourceCellSelected?.layer.sublayers?[0].removeFromSuperlayer()
+              
             lastDatasourceCellSelected = selectedCell as! DatasourceCollectionViewCell?
+                      }
             
             self.view.setNeedsDisplay()
             self.backupsCollectionView.reloadData()
+            }
             
         }
         else if collectionView == backupsCollectionView{
@@ -282,11 +289,11 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             
 //            let colors = [UIColor(red:76.0/255, green:162.0/255, blue:205.0/255, alpha:1).cgColor, UIColor(red:103.0/255, green:178.0/255, blue:111.0/255, alpha:1).cgColor]
             var colors = [UIColor(red:238.0/255, green:242.0/255, blue:243.0/255, alpha:1).cgColor, UIColor(red:142.0/255, green:158.0/255, blue:171.0/255, alpha:1).cgColor]
-            if indexPath.row == 1 {
+            if indexPath.row == 1  && self.detailItem?.datasource != nil{
                 colors = [UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1).cgColor, UIColor(red: 66.0/255, green: 75.0/255, blue:91.0/255, alpha:1).cgColor]
                // colors = [self.view.tintColor.cgColor, self.view.tintColor.cgColor]
                 cell.assocOrRefresh.isEnabled = false
-                cell.assocOrRefresh.setTitleColor(UIColor.clear, for: .normal)
+                cell.assocOrRefresh.isHidden = true
                 cell.name.textColor = UIColor.white
                 cell.createdOn.textColor = UIColor.white
                 cell.storageType.textColor = UIColor.white
@@ -297,8 +304,8 @@ class DataMgmtViewController: UIViewController, UICollectionViewDelegateFlowLayo
             }
             else{
                 cell.assocOrRefresh.isEnabled = true
-                
-                cell.assocOrRefresh.setTitleColor(UIColor.black, for: .normal)
+                cell.assocOrRefresh.isHidden = false
+                //cell.assocOrRefresh.setTitleColor(UIColor.black, for: .normal)
                 cell.name.textColor = UIColor.black
                 cell.createdOn.textColor = UIColor.black
                 cell.storageType.textColor = UIColor.black
@@ -472,7 +479,7 @@ addGradient(cell: cell, colors: colors)
     @IBAction func submitAssoc(_ sender: Any) {
         let button = sender as! UIButton
         let view = button.superview!
-        let cell = (view.superview)?.superview as! DatasourceBackupCollectionViewCell
+        let cell = (view.superview)?.superview?.superview as! DatasourceBackupCollectionViewCell
          let indexPath = backupsCollectionView.indexPath(for: cell)
         
         selectedBackup = self.selectedDatasource?.backups[(indexPath?.item)!]

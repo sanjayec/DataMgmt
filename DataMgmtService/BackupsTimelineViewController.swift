@@ -63,7 +63,7 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
    setCompareRegion()
         self.activityIndicatorView = ActivityIndicatorView(title: "Submitting Job...", center: self.view.center)
        
-        let colors =  [UIColor(red:240.0/255, green:240.0/255, blue:240.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
+        let colors = [UIColor(red:200.0/255, green:216.0/255, blue:200.0/255, alpha:1).cgColor, UIColor(red:171.0/255, green:186.0/255, blue:171.0/255, alpha:1).cgColor]
         
         addGradient(view: selectedBackupView,colors:colors)
         addGradient(view: backupPointView,colors:colors)
@@ -120,7 +120,7 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
                 
             }
             let point = ISPoint(title: title, description: backup.name
-                , pointColor: pointColor, lineColor: lineColor, touchUpInside: touchAction, fill: fill, pointValue: pointValue, pointObject: backup)
+                , pointColor: pointColor, lineColor: lineColor, touchUpInside: touchAction, fill: fill, pointValue: pointValue, pointObject: backup, type: "full")
             backupPoints.append(point)
         }
         
@@ -228,7 +228,7 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
     }
 
      func addToCompareAction() {
-        
+        self.compareStackeView.isHidden = false
         if numberOfSelects % 2 == 0 {
             if self.backup2ForCompare?.name != self.selectedBackup?.name{
             self.backup1ForCompare = self.selectedBackup
@@ -408,5 +408,8 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
             
         }
     }
+    
+    @IBOutlet weak var compareStackeView: UIStackView!
+    
 
 }
