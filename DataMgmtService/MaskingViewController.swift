@@ -11,7 +11,7 @@ import UIKit
 class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var maskingTableView: UITableView!
-    var maskingDefs = [MaskingDefinition]()
+    var policyDefs = [Policy]()
     override func viewDidLoad() {
         super.viewDidLoad()
       //  title = "Masking/Subsetting"
@@ -20,7 +20,7 @@ class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewD
         maskingTableView.delegate = self
         maskingTableView.dataSource = self
     
-        maskingDefs = MaskingModel.fetchMaskingDefs()
+        policyDefs = MaskingModel.fetchPolicies()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +61,7 @@ class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         
-                 return maskingDefs.count
+                 return policyDefs.count
        
         
     }
@@ -69,18 +69,18 @@ class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let maskingDef  = self.maskingDefs[indexPath.row]
+        let policy  = self.policyDefs[indexPath.row]
        
         
         let cell  = (self.maskingTableView.dequeueReusableCell(withIdentifier: "maskingDefCell") as! MaskingTableViewCell)
         
-        cell.name.text = maskingDef.name
-        cell.desc.text = maskingDef.description
-        cell.maskedColumns.text = "Masked Columns: " + String(maskingDef.maskedColumns)
+        cell.name.text = policy.name
+        cell.desc.text = policy.description
+        cell.maskedColumns.text =  policy.customText
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        cell.dateCreated.text = dateFormatter.string(from: maskingDef.dateCreated) + "UTC"
+        cell.dateCreated.text = dateFormatter.string(from: policy.dateModified) + " UTC"
         
         return cell
     }
@@ -105,9 +105,22 @@ class MaskingViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             popover.popoverPresentationController?.delegate = self
             popover.popoverPresentationController?.sourceView = selectedCell
-            popover.popoverPresentationController?.sourceRect = CGRect(x: 1000, y: (selectedCell?.frame.origin.y)!, width: 10, height: 10)
+            popover.popoverPresentationController?.sourceRect = CGRect(x:self.view.bounds.midX + 125, y:self.view.bounds.midY-150,width:0,height:0) //CGRect(x: 1000, y: (selectedCell?.frame.origin.y)!, width: 10, height: 10)
+            
             popover.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
-            popover.preferredContentSize = CGSize(width: 800, height: 700)
+            
+            let policy = self.policyDefs[indexPath.row]
+            
+            popover.policyType = policy.type
+            
+            if(policy.type == "backup"){
+                popover.preferredContentSize = CGSize(width: 600, height: 400)
+
+            }
+            else{
+                popover.preferredContentSize = CGSize(width: 800, height: 700)
+
+            }
             
             self.present(popover, animated: true, completion: nil)
             

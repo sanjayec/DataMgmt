@@ -200,6 +200,12 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                 analyticsViewController.navigationItem.leftItemsSupplementBackButton = true
                 analyticsViewController.navigationItem.title = selDB.name
                 
+                let updateMgmtsViewController = (tabController.viewControllers?[6] as! UINavigationController).topViewController  as! UpdateManagementViewController
+                updateMgmtsViewController.detailItem = selDB
+                updateMgmtsViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                updateMgmtsViewController.navigationItem.leftItemsSupplementBackButton = true
+                updateMgmtsViewController.navigationItem.title = selDB.name
+                
                                                         
             }
                     }
@@ -218,9 +224,13 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
                     operation = backupOperation
                 }
             let opStepsviewController =  (segue.destination as! UINavigationController).topViewController  as! OpearationStepsViewController
+                opStepsviewController.database = selectedDB
+              
                 if  selectedDB?.workSubmitted?.restoretype == "associate_datasource" || selectedDB?.workSubmitted?.restoretype == "restore_database" {
                     opStepsviewController.database = selectedDB
                 }
+               
+                
             opStepsviewController.operation = operation
                 opStepsviewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 opStepsviewController.navigationItem.leftItemsSupplementBackButton = true

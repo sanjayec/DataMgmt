@@ -1868,28 +1868,29 @@
                                 <state key="normal" image="search"/>
                                 <connections>
                                     <action selector="refreshAction:" destination="DLR-2g-nyN" eventType="touchUpInside" id="83T-r1-erb"/>
+                                    <action selector="searchAction:" destination="DLR-2g-nyN" eventType="touchUpInside" id="S6c-gI-4ye"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aoN-rY-wV5" userLabel="Top Summary Stack View Left">
-                                <rect key="frame" x="70" y="108" width="9000000117" height="563"/>
+                                <rect key="frame" x="70" y="108" width="9000000117" height="612"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oe8-hX-7ET">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="563"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="612"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZG-tY-Ta7">
-                                                <rect key="frame" x="0.0" y="0.0" width="107" height="511"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="560"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operation Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEu-12-G6b">
-                                                <rect key="frame" x="0.0" y="521" width="107" height="16"/>
+                                                <rect key="frame" x="0.0" y="570" width="107" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oa-3a-Tt7">
-                                                <rect key="frame" x="0.0" y="547" width="107" height="16"/>
+                                                <rect key="frame" x="0.0" y="596" width="107" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1897,7 +1898,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nwa-X4-tW2">
-                                        <rect key="frame" x="117" y="0.0" width="9000000000" height="563"/>
+                                        <rect key="frame" x="117" y="0.0" width="9000000000" height="612"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-Pf-8iO">
                                                 <rect key="frame" x="0.0" y="0.0" width="9000000000" height="0.0"/>
@@ -1906,13 +1907,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEd-6k-4bE">
-                                                <rect key="frame" x="0.0" y="10" width="9000000000" height="543"/>
+                                                <rect key="frame" x="0.0" y="10" width="9000000000" height="592"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKi-8f-TwN">
-                                                <rect key="frame" x="0.0" y="563" width="9000000000" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="612" width="9000000000" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1993,13 +1994,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restore Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cau-H8-y6U">
-                                <rect key="frame" x="30" y="691" width="100.5" height="18"/>
+                                <rect key="frame" x="30" y="740" width="100.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kus-EO-eaI">
-                                <rect key="frame" x="20" y="719" width="662.5" height="0.0"/>
+                                <rect key="frame" x="20" y="768" width="662.5" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" id="q8B-N7-ov3" customClass="StepTableViewCell" customModule="DataMgmtService" customModuleProvider="target">
@@ -2125,6 +2126,7 @@
                         <outlet property="name" destination="XEd-6k-4bE" id="Jo7-ny-Gwq"/>
                         <outlet property="percentageCompleted" destination="YQL-Jn-bDy" id="suZ-mc-YXN"/>
                         <outlet property="refreshBtn" destination="7SZ-n9-i0a" id="V6y-c7-ILM"/>
+                        <outlet property="searchBtnAction" destination="JAm-C2-7x6" id="gBL-Pn-ZY6"/>
                         <outlet property="startTime" destination="QKi-8f-TwN" id="Ofp-XO-Fah"/>
                         <outlet property="status" destination="Phs-Xa-cjp" id="EDH-06-xff"/>
                         <outlet property="stepsHeader" destination="cau-H8-y6U" id="QVd-b5-OJs"/>
@@ -2268,6 +2270,278 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
             </objects>
             <point key="canvasLocation" x="5544.140625" y="2194.53125"/>
         </scene>
+        <!--Op Search View Controller-->
+        <scene sceneID="lkj-c1-h08">
+            <objects>
+                <viewController storyboardIdentifier="opSearch" id="4Jo-2C-pyM" customClass="OpSearchViewController" customModule="DataMgmtService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8A-t1-Rml"/>
+                        <viewControllerLayoutGuide type="bottom" id="wye-a3-Mkr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zko-61-LUj">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3Bd-fV-Y1M">
+                                <rect key="frame" x="212" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="EaA-uX-YI0"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Bd-fV-Y1M" firstAttribute="centerX" secondItem="zko-61-LUj" secondAttribute="centerX" id="NlZ-c8-dW0"/>
+                            <constraint firstItem="3Bd-fV-Y1M" firstAttribute="top" secondItem="zko-61-LUj" secondAttribute="top" id="pWz-ZH-clp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="opSearchBar" destination="3Bd-fV-Y1M" id="QJ9-SG-fk3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4v5-4D-gSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5429" y="4311"/>
+        </scene>
+        <!--Clone Actions View Controller-->
+        <scene sceneID="9WQ-vq-Npi">
+            <objects>
+                <viewController storyboardIdentifier="CloneActions" id="9wZ-8s-yXV" customClass="CloneActionsViewController" customModule="DataMgmtService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2kM-QH-lxO"/>
+                        <viewControllerLayoutGuide type="bottom" id="iQS-GR-qWA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NbJ-y1-5gX">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f6v-nM-AxX" userLabel="top Stack View">
+                                <rect key="frame" x="25" y="25" width="180" height="146"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZM-RI-TKt">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="wFv-gZ-dcE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Full Clone"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mLV-SQ-iuq" userLabel="snap Stack View">
+                                        <rect key="frame" x="0.0" y="52" width="180" height="94"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbC-id-jXI">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="TLL-Ao-mih"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="Snap Clone"/>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="BVh-mA-xRs" userLabel="switch Stack View">
+                                                <rect key="frame" x="0.0" y="34" width="180" height="60"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="McK-Yj-WB7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21.5" height="60"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a co-locatable snap clone on the same node as snapshot got created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPb-En-VzF">
+                                                        <rect key="frame" x="19.5" y="0.0" width="160.5" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="gag-9q-q6x"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f6v-nM-AxX" firstAttribute="top" secondItem="NbJ-y1-5gX" secondAttribute="top" constant="25" id="Lgc-yD-7iv"/>
+                            <constraint firstItem="f6v-nM-AxX" firstAttribute="leading" secondItem="NbJ-y1-5gX" secondAttribute="leading" constant="25" id="MH6-t0-6FK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fullClone" destination="rZM-RI-TKt" id="Nlr-r6-xBr"/>
+                        <outlet property="snapClone" destination="XbC-id-jXI" id="aff-qz-m0N"/>
+                        <outlet property="snapSwitchText" destination="wPb-En-VzF" id="8f9-1I-HLu"/>
+                        <outlet property="snapswitch" destination="McK-Yj-WB7" id="kWq-mB-3yZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1L-s0-ZvH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4923" y="5486"/>
+        </scene>
+        <!--Schedule Backup View Controller-->
+        <scene sceneID="nuQ-2l-f89">
+            <objects>
+                <viewController storyboardIdentifier="scheduleBackupView" id="ZRn-dl-u41" customClass="ScheduleBackupViewController" customModule="DataMgmtService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gOg-2F-6iM"/>
+                        <viewControllerLayoutGuide type="bottom" id="cF5-t1-tIl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4At-Xu-P3a">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQm-kW-nSq">
+                                <rect key="frame" x="421" y="15" width="142" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CIY-qk-cM3">
+                                <rect key="frame" x="40" y="45.5" width="500" height="260"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Gs-bG-y6j">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-L6-SXO">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="bRJ-YO-0tc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9mF-ug-LA5">
+                                                <rect key="frame" x="100" y="0.0" width="400" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="400" id="beo-k8-Pag"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbB-rn-pZf">
+                                        <rect key="frame" x="0.0" y="40" width="500" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aX-8q-YCY">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhd-dm-Nfg">
+                                                <rect key="frame" x="100" y="0.0" width="400" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="RVC-pZ-Z2a"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YC-9k-cyS">
+                                        <rect key="frame" x="0.0" y="120" width="500" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQe-J3-xa7">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQF-BY-LVU">
+                                                <rect key="frame" x="100" y="0.0" width="400" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-ai-wUu">
+                                        <rect key="frame" x="0.0" y="160" width="500" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM2-H8-TTe">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tGi-r5-dzx">
+                                                <rect key="frame" x="100" y="0.0" width="400" height="100"/>
+                                                <subviews>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLH-yg-ARK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="e9Q-LJ-EAO"/>
+                                                            <constraint firstAttribute="height" constant="100" id="ozO-Vb-f75"/>
+                                                        </constraints>
+                                                    </pickerView>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2GM-z7-8lZ">
+                                                        <rect key="frame" x="50" y="0.0" width="350" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="350" id="Hov-em-4JW"/>
+                                                            <constraint firstAttribute="height" constant="100" id="dGu-EJ-J7L"/>
+                                                        </constraints>
+                                                        <date key="date" timeIntervalSinceReferenceDate="501897779.720415">
+                                                            <!--2016-11-27 00:02:59 +0000-->
+                                                        </date>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5aX-8q-YCY" firstAttribute="width" secondItem="i0O-L6-SXO" secondAttribute="width" id="1qm-tQ-xFj"/>
+                                    <constraint firstItem="cQe-J3-xa7" firstAttribute="width" secondItem="i0O-L6-SXO" secondAttribute="width" id="H8n-VU-IkU"/>
+                                    <constraint firstItem="5YC-9k-cyS" firstAttribute="leading" secondItem="0Gs-bG-y6j" secondAttribute="leading" id="RyG-ef-8PY"/>
+                                    <constraint firstItem="HVh-ai-wUu" firstAttribute="leading" secondItem="0Gs-bG-y6j" secondAttribute="leading" id="ZJZ-Rf-Cpm"/>
+                                    <constraint firstItem="EM2-H8-TTe" firstAttribute="width" secondItem="i0O-L6-SXO" secondAttribute="width" id="ZKL-oa-sTc"/>
+                                    <constraint firstItem="GbB-rn-pZf" firstAttribute="leading" secondItem="0Gs-bG-y6j" secondAttribute="leading" id="nSg-1p-mPj"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PV5-kS-3Ga" userLabel="Actions Stack View">
+                                <rect key="frame" x="434" y="316" width="117" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wND-wH-atr">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="ZRn-dl-u41" eventType="touchUpInside" id="BG7-Cf-3io"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpq-Xi-LAr">
+                                        <rect key="frame" x="68" y="0.0" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAction:" destination="ZRn-dl-u41" eventType="touchUpInside" id="Wo0-GM-fiE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pQm-kW-nSq" firstAttribute="centerX" secondItem="4At-Xu-P3a" secondAttribute="centerX" constant="-20" id="6J2-Uh-aff"/>
+                            <constraint firstAttribute="trailing" secondItem="PV5-kS-3Ga" secondAttribute="trailing" constant="20" id="Jgf-yf-oF0"/>
+                            <constraint firstItem="CIY-qk-cM3" firstAttribute="leading" secondItem="4At-Xu-P3a" secondAttribute="leadingMargin" constant="20" id="LAG-76-1YT"/>
+                            <constraint firstItem="pQm-kW-nSq" firstAttribute="top" secondItem="4At-Xu-P3a" secondAttribute="top" constant="15" id="Nus-ge-4QG"/>
+                            <constraint firstItem="pQm-kW-nSq" firstAttribute="bottom" secondItem="CIY-qk-cM3" secondAttribute="top" constant="-10" id="Tsg-Tg-xm1"/>
+                            <constraint firstItem="PV5-kS-3Ga" firstAttribute="top" secondItem="CIY-qk-cM3" secondAttribute="bottom" constant="10" id="i0W-yA-gRk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backupName" destination="9mF-ug-LA5" id="yDe-ta-QvQ"/>
+                        <outlet property="backupType" destination="qhd-dm-Nfg" id="Vb8-x5-OHo"/>
+                        <outlet property="datePicker" destination="2GM-z7-8lZ" id="jkq-l1-oY6"/>
+                        <outlet property="scheduleType" destination="dLH-yg-ARK" id="rhn-FU-Fu3"/>
+                        <outlet property="tags" destination="VQF-BY-LVU" id="lYo-FH-h0o"/>
+                        <segue destination="zEc-J1-cyH" kind="unwind" identifier="goToBackupTimeline" unwindAction="unwindToBackupTimelineWithSegue:" id="g6n-9C-Q2Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wv6-Jw-T3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zEc-J1-cyH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4904" y="6118"/>
+        </scene>
         <!--Login View-->
         <scene sceneID="LTW-Au-oDS">
             <objects>
@@ -2348,6 +2622,25 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
+        </scene>
+        <!--Update Management View Controller-->
+        <scene sceneID="lJU-BF-5Xx">
+            <objects>
+                <viewController id="AVq-wb-WKo" customClass="UpdateManagementViewController" customModule="DataMgmtService" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mnr-Qa-KHx"/>
+                        <viewControllerLayoutGuide type="bottom" id="4yX-fD-TGR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ntb-c1-awc">
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Adt-g6-OWf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zz0-ho-JuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.03125" y="-2640.625"/>
         </scene>
         <!--Databases-->
         <scene sceneID="smW-Zh-WAh">
@@ -2503,7 +2796,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdc-IB-kKf">
-                                                    <rect key="frame" x="572" y="6" width="31" height="14.5"/>
+                                                    <rect key="frame" x="570" y="6" width="31" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2560,7 +2853,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 <constraint firstItem="wdc-IB-kKf" firstAttribute="top" secondItem="6BU-Sy-VLX" secondAttribute="top" constant="6" id="eOl-Pb-0d9"/>
                                                 <constraint firstItem="Izt-oy-3HH" firstAttribute="top" secondItem="CqR-lj-fPl" secondAttribute="bottom" id="iYb-tt-GqS"/>
                                                 <constraint firstItem="wdc-IB-kKf" firstAttribute="centerY" secondItem="T7e-Ia-f4S" secondAttribute="centerY" id="kjs-Jc-L3x"/>
-                                                <constraint firstItem="wdc-IB-kKf" firstAttribute="trailing" secondItem="T7e-Ia-f4S" secondAttribute="leading" id="neB-XR-xFm"/>
+                                                <constraint firstItem="wdc-IB-kKf" firstAttribute="trailing" secondItem="T7e-Ia-f4S" secondAttribute="leading" constant="-2" id="neB-XR-xFm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2617,6 +2910,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <segue destination="dxZ-Ev-gp2" kind="relationship" relationship="viewControllers" id="j6H-cK-zDq"/>
                         <segue destination="vSt-tc-40O" kind="relationship" relationship="viewControllers" id="pFF-fq-V7s"/>
                         <segue destination="fZa-Eh-4Nm" kind="relationship" relationship="viewControllers" id="mb6-5j-4qq"/>
+                        <segue destination="kSy-67-RCS" kind="relationship" relationship="viewControllers" id="mYE-hn-Syg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98w-jF-ONb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3284,8 +3578,19 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUw-my-rCf">
+                                <rect key="frame" x="35" y="90" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="CcH-wz-iah"/>
+                                    <constraint firstAttribute="height" constant="25" id="dGL-V7-OpP"/>
+                                </constraints>
+                                <state key="normal" title="Schedule Backup" image="add"/>
+                                <connections>
+                                    <action selector="scheduleBackup:" destination="xoC-Pa-TRD" eventType="touchUpInside" id="lHb-yd-w6m"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-ZZ-Bax" customClass="ISTimeline" customModule="DataMgmtService" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="300" height="655"/>
+                                <rect key="frame" x="20" y="120" width="300" height="599"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="22g-Ex-koI"/>
@@ -3295,7 +3600,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                 <rect key="frame" x="370" y="194" width="500" height="380"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsV-lW-ZQ7">
-                                        <rect key="frame" x="75" y="100" width="430" height="19.5"/>
+                                        <rect key="frame" x="95" y="100" width="430" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="430" id="PPq-7p-caW"/>
                                         </constraints>
@@ -3392,7 +3697,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="DCa-WB-npF" userLabel="Actions Stack View">
-                                        <rect key="frame" x="164.5" y="267" width="171" height="32"/>
+                                        <rect key="frame" x="165" y="267" width="171" height="32"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgq-Ii-QOV">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="32"/>
@@ -3416,9 +3721,9 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                     <constraint firstItem="zsV-lW-ZQ7" firstAttribute="top" secondItem="lSb-Bg-nu6" secondAttribute="top" constant="100" id="9Me-bC-sct"/>
                                     <constraint firstItem="CZn-bc-Bw0" firstAttribute="top" secondItem="zsV-lW-ZQ7" secondAttribute="bottom" constant="5" id="Bc3-zq-3ba"/>
                                     <constraint firstItem="DCa-WB-npF" firstAttribute="centerX" secondItem="CZn-bc-Bw0" secondAttribute="centerX" constant="-40" id="BwU-W0-OG9"/>
-                                    <constraint firstItem="zsV-lW-ZQ7" firstAttribute="centerX" secondItem="lSb-Bg-nu6" secondAttribute="centerX" constant="40" id="LvD-rE-J4j"/>
+                                    <constraint firstItem="zsV-lW-ZQ7" firstAttribute="centerX" secondItem="lSb-Bg-nu6" secondAttribute="centerX" constant="60" id="LvD-rE-J4j"/>
                                     <constraint firstAttribute="height" constant="380" id="WfA-Ex-Ea1"/>
-                                    <constraint firstItem="CZn-bc-Bw0" firstAttribute="centerX" secondItem="zsV-lW-ZQ7" secondAttribute="centerX" id="kFy-e7-ZSJ"/>
+                                    <constraint firstItem="CZn-bc-Bw0" firstAttribute="centerX" secondItem="zsV-lW-ZQ7" secondAttribute="centerX" constant="-20" id="kFy-e7-ZSJ"/>
                                     <constraint firstAttribute="width" constant="500" id="ssR-1e-Uqc"/>
                                 </constraints>
                             </view>
@@ -3604,7 +3909,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pqf-gb-Fdr" userLabel="Actions Stack View">
-                                        <rect key="frame" x="144.5" y="317.5" width="161" height="32"/>
+                                        <rect key="frame" x="145" y="317.5" width="161" height="32"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjC-Dj-7Lo">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="32"/>
@@ -3703,11 +4008,13 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                             <constraint firstItem="lSb-Bg-nu6" firstAttribute="leading" secondItem="qWe-ZZ-Bax" secondAttribute="trailing" constant="50" id="6Td-k3-OdL"/>
                             <constraint firstItem="Mtd-K8-qVr" firstAttribute="top" secondItem="eCp-NQ-Xgo" secondAttribute="bottom" constant="10" id="AVT-Cf-BGC"/>
                             <constraint firstItem="qWe-ZZ-Bax" firstAttribute="leading" secondItem="jOD-6A-JUO" secondAttribute="leadingMargin" id="CGE-yK-bTz"/>
+                            <constraint firstItem="gUw-my-rCf" firstAttribute="top" secondItem="jOD-6A-JUO" secondAttribute="top" constant="90" id="JVA-EP-sP0"/>
                             <constraint firstItem="SAZ-DE-LCo" firstAttribute="leading" secondItem="qWe-ZZ-Bax" secondAttribute="trailing" constant="50" id="SMR-Hs-Xh4"/>
                             <constraint firstItem="lSb-Bg-nu6" firstAttribute="centerY" secondItem="jOD-6A-JUO" secondAttribute="centerY" id="XGj-gI-2AQ"/>
                             <constraint firstItem="eCp-NQ-Xgo" firstAttribute="leading" secondItem="qWe-ZZ-Bax" secondAttribute="trailing" constant="50" id="cT2-6G-aER"/>
-                            <constraint firstItem="qWe-ZZ-Bax" firstAttribute="top" secondItem="TWF-ZF-Jaq" secondAttribute="bottom" id="fF0-as-LpU"/>
                             <constraint firstItem="Mtd-K8-qVr" firstAttribute="top" secondItem="qWe-ZZ-Bax" secondAttribute="bottom" id="kRU-Re-2WK"/>
+                            <constraint firstItem="gUw-my-rCf" firstAttribute="bottom" secondItem="qWe-ZZ-Bax" secondAttribute="top" constant="-5" id="tMY-Ct-TNV"/>
+                            <constraint firstItem="gUw-my-rCf" firstAttribute="leading" secondItem="qWe-ZZ-Bax" secondAttribute="leading" constant="15" id="uxg-lO-wcf"/>
                             <constraint firstItem="SAZ-DE-LCo" firstAttribute="centerY" secondItem="jOD-6A-JUO" secondAttribute="centerY" id="xJl-9N-YCB"/>
                         </constraints>
                     </view>
@@ -3727,6 +4034,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <outlet property="compareItem2View" destination="Zlq-vo-Aju" id="c5h-o1-HTN"/>
                         <outlet property="compareStackeView" destination="eCp-NQ-Xgo" id="rNr-lg-CfZ"/>
                         <outlet property="restorePointTime" destination="gkF-l9-LxL" id="7qX-ja-zig"/>
+                        <outlet property="scheduleBtn" destination="gUw-my-rCf" id="72F-Hp-Lag"/>
                         <outlet property="selectedBackupId" destination="Aln-vR-LCW" id="CrU-qa-nfr"/>
                         <outlet property="selectedBackupId2" destination="gej-Pc-sNN" id="PPx-Fs-Kij"/>
                         <outlet property="selectedBackupName" destination="TTg-Z4-dYR" id="DRn-cN-v0W"/>
@@ -3795,6 +4103,171 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfQ-Cs-kWt">
+                                <rect key="frame" x="20" y="20" width="984" height="748"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup Retention" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wa-tR-Xn4">
+                                        <rect key="frame" x="420" y="20" width="145" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="84z-Gq-5gh">
+                                        <rect key="frame" x="20" y="54" width="475" height="253"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pzN-pz-8nN">
+                                                <rect key="frame" x="0.0" y="0.0" width="475" height="44.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArQ-ck-vm0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="44.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mnc-Jr-Oey">
+                                                        <rect key="frame" x="75" y="0.0" width="400" height="44.5"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2gY-vk-ACh">
+                                                                <rect key="frame" x="-2" y="0.0" width="404" height="31"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="400" id="vGO-ws-ubh"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <action selector="onDailySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="spt-aO-3Yc"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-Ur-LJZ">
+                                                                <rect key="frame" x="0.0" y="30" width="400" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Mnc-Jr-Oey" firstAttribute="leading" secondItem="pzN-pz-8nN" secondAttribute="leading" constant="75" id="FS3-UW-VCS"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XRr-ZA-rpe">
+                                                <rect key="frame" x="0.0" y="69.5" width="475" height="44.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex4-lh-jIy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="44.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="taV-h0-sX5">
+                                                        <rect key="frame" x="75" y="0.0" width="400" height="44.5"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ycu-rE-qBP">
+                                                                <rect key="frame" x="-2" y="0.0" width="404" height="31"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="400" id="0MG-rK-Lvo"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <action selector="onDailySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="Prb-Nq-MyR"/>
+                                                                    <action selector="onWeeklySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="6rh-Jv-O4G"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LST-fj-9yO">
+                                                                <rect key="frame" x="0.0" y="30" width="400" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="taV-h0-sX5" firstAttribute="leading" secondItem="XRr-ZA-rpe" secondAttribute="leading" constant="75" id="kId-mJ-gcx"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zkT-uQ-yhV">
+                                                <rect key="frame" x="0.0" y="139" width="475" height="44.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-9Y-E2n">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="44.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iXm-Xj-T7a">
+                                                        <rect key="frame" x="75" y="0.0" width="400" height="44.5"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-c2-USg">
+                                                                <rect key="frame" x="-2" y="0.0" width="404" height="31"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="400" id="zXc-Rt-qf0"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <action selector="onDailySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="6Nj-5Q-lq0"/>
+                                                                    <action selector="onMonthlySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="FGd-H7-DJg"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wK-K9-yFV">
+                                                                <rect key="frame" x="0.0" y="30" width="400" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="iXm-Xj-T7a" firstAttribute="leading" secondItem="zkT-uQ-yhV" secondAttribute="leading" constant="75" id="l0r-40-839"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E1z-V9-EwH">
+                                                <rect key="frame" x="0.0" y="208.5" width="475" height="44.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yearly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRH-Ss-09U">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="44.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eAL-Tf-q2U">
+                                                        <rect key="frame" x="75" y="0.0" width="400" height="44.5"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-NS-Qq4">
+                                                                <rect key="frame" x="-2" y="0.0" width="404" height="31"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="400" id="Eo0-YJ-ezX"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <action selector="onDailySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="BKL-mE-CCz"/>
+                                                                    <action selector="onYearlySliderChange:" destination="4TW-Xw-Z0p" eventType="valueChanged" id="VLm-MA-qQl"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tz-zA-vkj">
+                                                                <rect key="frame" x="0.0" y="30" width="400" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="eAL-Tf-q2U" firstAttribute="leading" secondItem="E1z-V9-EwH" secondAttribute="leading" constant="75" id="f40-bA-3eQ"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="pzN-pz-8nN" firstAttribute="leading" secondItem="84z-Gq-5gh" secondAttribute="leading" id="l0W-af-cHz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1Wa-tR-Xn4" firstAttribute="top" secondItem="tfQ-Cs-kWt" secondAttribute="top" constant="20" id="5w3-uz-jg6"/>
+                                    <constraint firstItem="1Wa-tR-Xn4" firstAttribute="centerX" secondItem="tfQ-Cs-kWt" secondAttribute="centerX" id="El4-hD-dS0"/>
+                                    <constraint firstItem="84z-Gq-5gh" firstAttribute="leading" secondItem="tfQ-Cs-kWt" secondAttribute="leading" constant="20" id="T0H-hh-2iE"/>
+                                    <constraint firstItem="1Wa-tR-Xn4" firstAttribute="bottom" secondItem="84z-Gq-5gh" secondAttribute="top" constant="-20" id="hJa-cT-z8d"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-02-wXF">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3807,10 +4280,10 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9p-pC-boL">
-                                                    <rect key="frame" x="10" y="0.0" width="558" height="43.5"/>
+                                                    <rect key="frame" x="10" y="0.0" width="573" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-cb-Rn9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="43.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="200" id="rQG-xT-EpX"/>
                                                             </constraints>
@@ -3819,7 +4292,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84n-4t-FeU">
-                                                            <rect key="frame" x="200" y="0.0" width="175" height="43.5"/>
+                                                            <rect key="frame" x="33" y="0.0" width="175" height="43.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="175" id="7fv-iO-U36"/>
                                                             </constraints>
@@ -3828,7 +4301,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqh-t3-cmF">
-                                                            <rect key="frame" x="375" y="0.0" width="150" height="43.5"/>
+                                                            <rect key="frame" x="208" y="0.0" width="150" height="43.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="150" id="y0m-Ho-gV0"/>
                                                             </constraints>
@@ -3837,7 +4310,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q18-7I-8IF">
-                                                            <rect key="frame" x="525" y="0.0" width="33" height="43.5"/>
+                                                            <rect key="frame" x="358" y="0.0" width="215" height="43.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="215" id="wWb-l7-FJp"/>
                                                             </constraints>
@@ -3870,11 +4343,26 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                             <constraint firstItem="wdm-02-wXF" firstAttribute="leading" secondItem="VA6-4R-C2a" secondAttribute="leading" id="4eH-SB-W7Z"/>
                             <constraint firstItem="wdm-02-wXF" firstAttribute="top" secondItem="VA6-4R-C2a" secondAttribute="top" id="PuK-od-bMx"/>
                             <constraint firstAttribute="bottom" secondItem="wdm-02-wXF" secondAttribute="bottom" id="TBX-Jw-562"/>
+                            <constraint firstItem="Jmw-R8-Uba" firstAttribute="top" secondItem="tfQ-Cs-kWt" secondAttribute="bottom" id="VSG-9d-YfQ"/>
+                            <constraint firstItem="tfQ-Cs-kWt" firstAttribute="top" secondItem="9tG-8b-Zrf" secondAttribute="bottom" id="WTX-Qb-cWt"/>
                             <constraint firstAttribute="trailing" secondItem="wdm-02-wXF" secondAttribute="trailing" id="b6I-AG-ccJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tfQ-Cs-kWt" secondAttribute="trailing" id="hPd-Ov-zGQ"/>
+                            <constraint firstItem="tfQ-Cs-kWt" firstAttribute="centerX" secondItem="VA6-4R-C2a" secondAttribute="centerX" id="uyO-O3-d4K"/>
+                            <constraint firstItem="tfQ-Cs-kWt" firstAttribute="leading" secondItem="VA6-4R-C2a" secondAttribute="leadingMargin" id="x2f-6f-y9l"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="MaskedColumnsTableView" destination="wdm-02-wXF" id="jhC-hD-XYS"/>
+                        <outlet property="dailyLabel" destination="ArQ-ck-vm0" id="4iV-Gs-03O"/>
+                        <outlet property="dailySlider" destination="2gY-vk-ACh" id="kKE-wl-sYL"/>
+                        <outlet property="days" destination="pdG-Ur-LJZ" id="zby-Jp-FdI"/>
+                        <outlet property="monthlySlider" destination="ZIt-c2-USg" id="m5v-xe-0A6"/>
+                        <outlet property="months" destination="7wK-K9-yFV" id="tFn-PV-nFW"/>
+                        <outlet property="retentionView" destination="tfQ-Cs-kWt" id="fWk-kM-gXO"/>
+                        <outlet property="weeklySlider" destination="Ycu-rE-qBP" id="oSe-6Q-gAK"/>
+                        <outlet property="weeks" destination="LST-fj-9yO" id="r9m-NH-dtK"/>
+                        <outlet property="yearlySlider" destination="WGq-NS-Qq4" id="A70-to-7aE"/>
+                        <outlet property="years" destination="5Tz-zA-vkj" id="AjI-of-TcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elJ-P1-15L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3893,43 +4381,43 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dra-FR-S6a">
-                                <rect key="frame" x="20" y="5" width="663" height="714"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dra-FR-S6a">
+                                <rect key="frame" x="20" y="5" width="662.5" height="714"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="maskingDefCell" id="wp7-Ad-Lxz" customClass="MaskingTableViewCell" customModule="DataMgmtService" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="663" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="662.5" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wp7-Ad-Lxz" id="aIB-vw-Fa1">
-                                            <rect key="frame" x="0.0" y="0.0" width="663" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="662.5" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Np2-j5-77B">
-                                                    <rect key="frame" x="15" y="5" width="36" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="15" y="19" width="38" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-5c-5Kp">
-                                                    <rect key="frame" x="35" y="22" width="31" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="35" y="47" width="33" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-ve-OYI">
-                                                    <rect key="frame" x="592" y="10" width="31" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="590" y="20" width="33" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zj8-uJ-DC7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zj8-uJ-DC7">
                                                     <rect key="frame" x="592" y="25" width="31" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sug-SQ-LkJ">
-                                                    <rect key="frame" x="623" y="1" width="40" height="40"/>
+                                                    <rect key="frame" x="623" y="20" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="i9g-HI-5Cd"/>
                                                         <constraint firstAttribute="width" constant="40" id="xH2-p9-Imj"/>
@@ -3938,12 +4426,12 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wyh-ve-OYI" firstAttribute="top" secondItem="aIB-vw-Fa1" secondAttribute="top" constant="10" id="37U-0P-GN4"/>
                                                 <constraint firstItem="wyh-ve-OYI" firstAttribute="trailing" secondItem="sug-SQ-LkJ" secondAttribute="leading" id="9ML-tb-bVf"/>
-                                                <constraint firstItem="ovH-5c-5Kp" firstAttribute="top" secondItem="Np2-j5-77B" secondAttribute="bottom" id="BKj-aA-Jak"/>
+                                                <constraint firstItem="ovH-5c-5Kp" firstAttribute="top" secondItem="Np2-j5-77B" secondAttribute="bottom" constant="10" id="BKj-aA-Jak"/>
                                                 <constraint firstItem="ovH-5c-5Kp" firstAttribute="leading" secondItem="Np2-j5-77B" secondAttribute="leading" constant="20" id="FIH-zg-Tpg"/>
-                                                <constraint firstItem="Np2-j5-77B" firstAttribute="top" secondItem="aIB-vw-Fa1" secondAttribute="top" constant="5" id="FNh-5R-URM"/>
-                                                <constraint firstItem="zj8-uJ-DC7" firstAttribute="top" secondItem="wyh-ve-OYI" secondAttribute="bottom" id="OVH-VF-7hT"/>
+                                                <constraint firstItem="Np2-j5-77B" firstAttribute="centerY" secondItem="aIB-vw-Fa1" secondAttribute="centerY" constant="-12" id="FNh-5R-URM"/>
+                                                <constraint firstItem="zj8-uJ-DC7" firstAttribute="top" secondItem="wyh-ve-OYI" secondAttribute="bottom" constant="10" id="OVH-VF-7hT"/>
+                                                <constraint firstItem="wyh-ve-OYI" firstAttribute="centerY" secondItem="Np2-j5-77B" secondAttribute="centerY" id="aU1-oZ-lY1"/>
                                                 <constraint firstItem="zj8-uJ-DC7" firstAttribute="leading" secondItem="wyh-ve-OYI" secondAttribute="leading" id="fFr-Yq-F1V"/>
                                                 <constraint firstAttribute="trailing" secondItem="sug-SQ-LkJ" secondAttribute="trailing" id="lK9-Ng-3SJ"/>
                                                 <constraint firstItem="sug-SQ-LkJ" firstAttribute="centerY" secondItem="aIB-vw-Fa1" secondAttribute="centerY" id="nDI-nO-x3E"/>
@@ -4046,11 +4534,11 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
             </objects>
             <point key="canvasLocation" x="-1358" y="1027"/>
         </scene>
-        <!--Masking/Subsetting-->
+        <!--Policies-->
         <scene sceneID="Ofa-8O-23c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxZ-Ev-gp2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Masking/Subsetting" image="masking" id="mib-nm-maf"/>
+                    <tabBarItem key="tabBarItem" title="Policies" image="masking" id="mib-nm-maf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WLt-UY-RA4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -4085,7 +4573,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9Z-5g-oU4" customClass="BackupView" customModule="DataMgmtService" customModuleProvider="target">
-                                <rect key="frame" x="380" y="179" width="500" height="410"/>
+                                <rect key="frame" x="380" y="164" width="500" height="440"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point In Time Restore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfo-c6-X60">
                                         <rect key="frame" x="155" y="20" width="430" height="19.5"/>
@@ -4160,10 +4648,10 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ylF-nn-GOO" userLabel="Back up Details Stack View">
-                                        <rect key="frame" x="55" y="154" width="424.5" height="132.5"/>
+                                        <rect key="frame" x="55" y="154" width="424.5" height="157"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="egs-mH-VqH">
-                                                <rect key="frame" x="0.0" y="10" width="104.5" height="112.5"/>
+                                                <rect key="frame" x="0.0" y="10" width="104.5" height="137"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKD-JD-1zW">
                                                         <rect key="frame" x="0.0" y="0.0" width="104.5" height="14.5"/>
@@ -4189,8 +4677,14 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH3-wk-pBb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Node:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylf-nq-Prj">
                                                         <rect key="frame" x="0.0" y="98" width="104.5" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH3-wk-pBb">
+                                                        <rect key="frame" x="0.0" y="122.5" width="104.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4198,7 +4692,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NEs-ff-WwA">
-                                                <rect key="frame" x="124.5" y="10" width="300" height="112.5"/>
+                                                <rect key="frame" x="124.5" y="10" width="300" height="137"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzi-JI-i8x">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="14.5"/>
@@ -4224,8 +4718,14 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-cd-Knt">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stbn_prim_nd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXq-hq-vYW">
                                                         <rect key="frame" x="0.0" y="98" width="300" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-cd-Knt">
+                                                        <rect key="frame" x="0.0" y="122.5" width="300" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4248,7 +4748,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archive Logs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmf-Wl-gXu">
-                                        <rect key="frame" x="55" y="291" width="430" height="16"/>
+                                        <rect key="frame" x="55" y="315.5" width="430" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="430" id="vpt-gM-5M8"/>
                                         </constraints>
@@ -4257,7 +4757,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-jp-XHD" userLabel="Archive Logs Value">
-                                        <rect key="frame" x="75" y="312" width="400" height="0.0"/>
+                                        <rect key="frame" x="75" y="336.5" width="400" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="400" id="PXW-Hu-dsu"/>
                                         </constraints>
@@ -4276,7 +4776,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                     <action selector="restoreAction:" destination="xoC-Pa-TRD" eventType="touchUpInside" id="p4k-EW-pOV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRI-m0-9p6">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRI-m0-9p6">
                                                 <rect key="frame" x="105" y="0.0" width="56" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Restore"/>
@@ -4289,6 +4789,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Clone"/>
                                                 <connections>
+                                                    <action selector="cloneAction:" destination="VrC-J9-aV9" eventType="touchUpInside" id="9DP-aN-c6K"/>
                                                     <action selector="restoreAction:" destination="xoC-Pa-TRD" eventType="touchUpInside" id="Lwx-Jv-BxR"/>
                                                 </connections>
                                             </button>
@@ -4299,7 +4800,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                 <constraints>
                                     <constraint firstItem="gwV-fy-JXB" firstAttribute="bottom" secondItem="cpR-Hg-vkP" secondAttribute="top" constant="-10" id="0QO-Fv-hOq"/>
                                     <constraint firstItem="ylF-nn-GOO" firstAttribute="top" secondItem="cpR-Hg-vkP" secondAttribute="bottom" constant="5" id="0wt-iu-BoM"/>
-                                    <constraint firstAttribute="height" constant="410" id="6xi-mJ-SX0"/>
+                                    <constraint firstAttribute="height" constant="440" id="6xi-mJ-SX0"/>
                                     <constraint firstItem="pTa-jp-XHD" firstAttribute="top" secondItem="Mmf-Wl-gXu" secondAttribute="bottom" constant="5" id="Da1-d9-O2I"/>
                                     <constraint firstItem="Mmf-Wl-gXu" firstAttribute="top" secondItem="ylF-nn-GOO" secondAttribute="bottom" constant="5" id="ELM-Hh-HU7"/>
                                     <constraint firstAttribute="width" constant="500" id="F5f-7z-vmk"/>
@@ -4330,10 +4831,10 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HGo-w9-2xd" userLabel="Back up Details Stack View">
-                                        <rect key="frame" x="98" y="125" width="424.5" height="132.5"/>
+                                        <rect key="frame" x="68" y="125" width="424.5" height="157"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LBg-2i-6YQ">
-                                                <rect key="frame" x="0.0" y="10" width="104.5" height="112.5"/>
+                                                <rect key="frame" x="0.0" y="10" width="104.5" height="137"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQq-3d-0wS">
                                                         <rect key="frame" x="0.0" y="0.0" width="104.5" height="14.5"/>
@@ -4359,8 +4860,14 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-pr-1Sj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Node:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQs-mF-h0f">
                                                         <rect key="frame" x="0.0" y="98" width="104.5" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-pr-1Sj">
+                                                        <rect key="frame" x="0.0" y="122.5" width="104.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4368,7 +4875,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeI-Zc-mCL">
-                                                <rect key="frame" x="124.5" y="10" width="300" height="112.5"/>
+                                                <rect key="frame" x="124.5" y="10" width="300" height="137"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-Z0-sb9">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="14.5"/>
@@ -4394,8 +4901,14 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAB-zK-Cwk">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stbn_prim_nd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tG-9n-EUB">
                                                         <rect key="frame" x="0.0" y="98" width="300" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAB-zK-Cwk">
+                                                        <rect key="frame" x="0.0" y="122.5" width="300" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4418,7 +4931,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="oUl-OO-pnX" userLabel="Actions Stack View">
-                                        <rect key="frame" x="153.5" y="267.5" width="233" height="32"/>
+                                        <rect key="frame" x="114" y="292" width="233" height="32"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QU4-fa-2Sa">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="32"/>
@@ -4428,7 +4941,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                     <action selector="restoreAction:" destination="xoC-Pa-TRD" eventType="touchUpInside" id="j7q-DC-iEm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-98-Avc">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-98-Avc">
                                                 <rect key="frame" x="105" y="0.0" width="56" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Restore"/>
@@ -4441,6 +4954,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Clone"/>
                                                 <connections>
+                                                    <action selector="cloneAction2:" destination="VrC-J9-aV9" eventType="touchUpInside" id="WKz-f4-an5"/>
                                                     <action selector="restoreAction:" destination="xoC-Pa-TRD" eventType="touchUpInside" id="M1a-Jx-xyh"/>
                                                 </connections>
                                             </button>
@@ -4449,11 +4963,11 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="oUl-OO-pnX" firstAttribute="centerX" secondItem="HGo-w9-2xd" secondAttribute="centerX" constant="-40" id="OhJ-Hh-aTm"/>
+                                    <constraint firstItem="oUl-OO-pnX" firstAttribute="centerX" secondItem="HGo-w9-2xd" secondAttribute="centerX" constant="-50" id="OhJ-Hh-aTm"/>
                                     <constraint firstItem="HGo-w9-2xd" firstAttribute="top" secondItem="0yc-sc-UF9" secondAttribute="bottom" constant="5" id="UTI-zI-WRo"/>
                                     <constraint firstItem="0yc-sc-UF9" firstAttribute="centerX" secondItem="Sur-Qq-KLR" secondAttribute="centerX" constant="60" id="V2p-9L-zeH"/>
                                     <constraint firstAttribute="width" constant="500" id="YOy-at-beg"/>
-                                    <constraint firstItem="HGo-w9-2xd" firstAttribute="centerX" secondItem="0yc-sc-UF9" secondAttribute="centerX" id="dB9-dL-C8L"/>
+                                    <constraint firstItem="HGo-w9-2xd" firstAttribute="centerX" secondItem="0yc-sc-UF9" secondAttribute="centerX" constant="-30" id="dB9-dL-C8L"/>
                                     <constraint firstAttribute="height" constant="380" id="gTv-Gd-LPx"/>
                                     <constraint firstItem="oUl-OO-pnX" firstAttribute="top" secondItem="HGo-w9-2xd" secondAttribute="bottom" constant="10" id="ldN-Ur-R9F"/>
                                     <constraint firstItem="0yc-sc-UF9" firstAttribute="top" secondItem="Sur-Qq-KLR" secondAttribute="top" constant="100" id="t7M-Lb-Ywz"/>
@@ -4480,6 +4994,7 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
                         <outlet property="backupPointView" destination="Sur-Qq-KLR" id="4kP-32-IhV"/>
                         <outlet property="backupStatus" destination="4dz-ZO-wcN" id="UhB-bN-Sci"/>
                         <outlet property="backupStatus2" destination="ezK-Z8-NDt" id="J9W-Iw-Vrw"/>
+                        <outlet property="cloneAction1" destination="C3k-HO-LYy" id="p1B-Eu-B9P"/>
                         <outlet property="restorePointTime" destination="E0k-ex-mqq" id="I2N-ac-Uhz"/>
                         <outlet property="selectedBackupId" destination="rzi-JI-i8x" id="Zi3-gj-NMQ"/>
                         <outlet property="selectedBackupId2" destination="mqI-Z0-sb9" id="3lR-fC-jit"/>
@@ -4535,11 +5050,31 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
             </objects>
             <point key="canvasLocation" x="1713.8671875" y="-1712.5"/>
         </scene>
+        <!--Update Management-->
+        <scene sceneID="FEP-TA-iP8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kSy-67-RCS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Update Management" image="update_mgmt" id="FEu-Gw-NUh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hp1-Fs-3Ta">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AVq-wb-WKo" kind="relationship" relationship="rootViewController" id="Mqc-9g-cB7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcV-z7-cK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632.8125" y="-2640.625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="OperAnalytics" width="30" height="27"/>
         <image name="Running" width="29" height="25"/>
         <image name="active_sessions" width="101" height="81"/>
+        <image name="add" width="112" height="112"/>
         <image name="ash_dot" width="12" height="12"/>
         <image name="backup" width="25" height="25"/>
         <image name="clock_time" width="12" height="12"/>
@@ -4567,9 +5102,10 @@ File Size(MB) Tablespace    Maxsize(MB) Tempfile Name
         <image name="schema_icon" width="20" height="20"/>
         <image name="search" width="64" height="64"/>
         <image name="summaryb" width="25" height="25"/>
+        <image name="update_mgmt" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vyJ-Xr-qCK"/>
-        <segue reference="G0W-a4-KET"/>
+        <segue reference="rhx-su-bf7"/>
     </inferredMetricsTieBreakers>
 </document>

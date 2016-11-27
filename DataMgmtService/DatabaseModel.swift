@@ -187,6 +187,68 @@ class DatabaseModel {
         
     }
     
+    static func submitBackup(database:Database, completionHandler: @escaping (String?) -> Void)  {
+        let url =  "http://52.53.155.179:8080/fws/workdepot/push_work"
+        var status = "succeeded"
+        
+        let restoreProperty : [String : Any] = [
+            "id": "6001",
+            "name": "--backup_database"
+            // "value": "" as AnyObject
+        ]
+        let databaseIdProperty : [String : Any] = [
+            "id": "6002" ,
+            "name": "--inst_id" ,
+            "value": database.id
+        ]
+        
+        
+        
+        let json: [String: Any] = [
+            "id": "XXXXXX"  ,
+            "type": "backup_database" ,
+            "clientId": database.clientId  ,
+            "instanceId": database.id  ,
+            // "submissionDate": ""  ,
+            // "expiryDate": ""  ,
+            "status": "8"  ,
+            "ownerId": "1" ,
+            //  "opDefId": ""  as AnyObject,
+            "arguments":
+                [
+                    
+                    restoreProperty,
+                    databaseIdProperty
+                    
+            ]
+        ]
+        
+        let valid = JSONSerialization.isValidJSONObject(json) // true
+        
+        print("valid Json: " + String(valid))
+        var data: Data?
+        do{
+            data = try? JSONSerialization.data(withJSONObject :json )
+            
+        } catch {
+            status = "error in JSONSerialization"
+            print("error in JSONSerialization")
+            
+        }
+        
+        
+        HTTPPostJSON(url: url, data:data!) { (response, error) in
+            print("Response: " + response )
+            if error != nil {
+                status =  error!
+            }
+            completionHandler(status)
+        }
+        
+    }
+
+    
+    
     static func submitAssociate(database:Database, datasource: Datasource, backup : Backup, completionHandler: @escaping (String?) -> Void)  {
         let url =  "http://52.53.155.179:8080/fws/workdepot/push_work"
         var status = "succeeded"

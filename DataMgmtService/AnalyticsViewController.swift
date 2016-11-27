@@ -127,12 +127,12 @@ class AnalyticsViewController: UIViewController, UISearchBarDelegate , UITableVi
         cell.matchedText.lineBreakMode = .byWordWrapping
         var tags: String?
         if(operation.name == "Backup database 2016-11-18 14:58:43.879047"){
-          tags = "Tags: preUpgrade CRM V2.3.1, stable repos, post patch P176201"
+          tags = "Tags: preUpgrade CRM V2.3.1, stable repos, post patch P176201,offline backup, Nov_18_2016"
 
             
         }
         if(operation.name == "Backup database 2016-11-21 14:36:46.087182"){
-            tags = "Tags: postUpgrade CRM V2.3.1, Full Backup, Nov 2016. "
+            tags = "Tags: postUpgrade CRM V2.3.1, Full Backup, online backup, Nov_21_2016"
         }
         if tags != nil{
         let searchWordRange = (tags! as NSString).range(of: searchTextUsed, options: .caseInsensitive)

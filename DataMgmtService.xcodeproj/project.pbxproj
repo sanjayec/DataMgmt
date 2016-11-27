@@ -70,6 +70,11 @@
 		437778CB1DE65A2600B3BD7F /* MaskedColumnTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778CA1DE65A2600B3BD7F /* MaskedColumnTableViewCell.swift */; };
 		437778CD1DE65C4C00B3BD7F /* MaskedColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778CC1DE65C4C00B3BD7F /* MaskedColumn.swift */; };
 		437778D01DE68B0D00B3BD7F /* CloneManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778CF1DE68B0D00B3BD7F /* CloneManagementViewController.swift */; };
+		437778D21DE939CA00B3BD7F /* OpSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778D11DE939CA00B3BD7F /* OpSearchViewController.swift */; };
+		437778D41DE9581F00B3BD7F /* CloneActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778D31DE9581F00B3BD7F /* CloneActionsViewController.swift */; };
+		437778D61DE98AE200B3BD7F /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778D51DE98AE200B3BD7F /* Policy.swift */; };
+		437778D91DE9FA0700B3BD7F /* UpdateManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778D81DE9FA0700B3BD7F /* UpdateManagementViewController.swift */; };
+		437778DB1DEA35EB00B3BD7F /* ScheduleBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437778DA1DEA35EB00B3BD7F /* ScheduleBackupViewController.swift */; };
 		4386965A1DC0EABE00C49F06 /* BackupPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */; };
 		4386965C1DC1260200C49F06 /* BackupProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */; };
 		4386965E1DC26F7800C49F06 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */; };
@@ -174,6 +179,11 @@
 		437778CA1DE65A2600B3BD7F /* MaskedColumnTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskedColumnTableViewCell.swift; sourceTree = "<group>"; };
 		437778CC1DE65C4C00B3BD7F /* MaskedColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskedColumn.swift; sourceTree = "<group>"; };
 		437778CF1DE68B0D00B3BD7F /* CloneManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneManagementViewController.swift; sourceTree = "<group>"; };
+		437778D11DE939CA00B3BD7F /* OpSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpSearchViewController.swift; sourceTree = "<group>"; };
+		437778D31DE9581F00B3BD7F /* CloneActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloneActionsViewController.swift; sourceTree = "<group>"; };
+		437778D51DE98AE200B3BD7F /* Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
+		437778D81DE9FA0700B3BD7F /* UpdateManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateManagementViewController.swift; sourceTree = "<group>"; };
+		437778DA1DEA35EB00B3BD7F /* ScheduleBackupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleBackupViewController.swift; sourceTree = "<group>"; };
 		438696591DC0EABE00C49F06 /* BackupPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupPopupViewController.swift; sourceTree = "<group>"; };
 		4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupProgressViewController.swift; sourceTree = "<group>"; };
 		4386965D1DC26F7800C49F06 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +255,7 @@
 				4386965B1DC1260200C49F06 /* BackupProgressViewController.swift */,
 				43A6E6981DD17B3200E3B095 /* BackupsTimelineViewController.swift */,
 				4321E0181DD2CFE0006C1004 /* BackupView.swift */,
+				437778DA1DEA35EB00B3BD7F /* ScheduleBackupViewController.swift */,
 			);
 			name = backup;
 			sourceTree = "<group>";
@@ -353,6 +364,7 @@
 				436B23071DCBD039001F7ADC /* TreeViewData.swift */,
 				436B230B1DCBD229001F7ADC /* TreeViewLists.swift */,
 				436B230D1DCC2A61001F7ADC /* LogsViewViewController.swift */,
+				437778D11DE939CA00B3BD7F /* OpSearchViewController.swift */,
 			);
 			name = operation;
 			sourceTree = "<group>";
@@ -370,8 +382,17 @@
 			isa = PBXGroup;
 			children = (
 				437778CF1DE68B0D00B3BD7F /* CloneManagementViewController.swift */,
+				437778D31DE9581F00B3BD7F /* CloneActionsViewController.swift */,
 			);
 			name = "clone management";
+			sourceTree = "<group>";
+		};
+		437778D71DE9F9EB00B3BD7F /* updateManagement */ = {
+			isa = PBXGroup;
+			children = (
+				437778D81DE9FA0700B3BD7F /* UpdateManagementViewController.swift */,
+			);
+			name = updateManagement;
 			sourceTree = "<group>";
 		};
 		4386965F1DC4445200C49F06 /* login */ = {
@@ -413,6 +434,7 @@
 				437778C81DE6595800B3BD7F /* MaskedColumnsViewController.swift */,
 				437778CA1DE65A2600B3BD7F /* MaskedColumnTableViewCell.swift */,
 				437778CC1DE65C4C00B3BD7F /* MaskedColumn.swift */,
+				437778D51DE98AE200B3BD7F /* Policy.swift */,
 			);
 			name = masking;
 			sourceTree = "<group>";
@@ -438,6 +460,7 @@
 		43FCE4531DB13D9D00130EB1 /* DataMgmtService */ = {
 			isa = PBXGroup;
 			children = (
+				437778D71DE9F9EB00B3BD7F /* updateManagement */,
 				437778CE1DE68AD000B3BD7F /* clone management */,
 				437778BB1DE51D9300B3BD7F /* analytics */,
 				43494FA31DDA9CA50031398E /* profile */,
@@ -625,6 +648,7 @@
 				430483871DBF209B00FB9100 /* Operation.swift in Sources */,
 				436B230A1DCBD079001F7ADC /* GlobalVariables.swift in Sources */,
 				436B23061DCBCFF4001F7ADC /* TreeViewNode.swift in Sources */,
+				437778D61DE98AE200B3BD7F /* Policy.swift in Sources */,
 				43FCE4591DB13D9D00130EB1 /* DataMgmtViewController.swift in Sources */,
 				436B230C1DCBD229001F7ADC /* TreeViewLists.swift in Sources */,
 				437778C91DE6595800B3BD7F /* MaskedColumnsViewController.swift in Sources */,
@@ -658,8 +682,10 @@
 				435B4BD91DDEA75200B86625 /* OpWorkArgument.swift in Sources */,
 				430483901DC056E700FB9100 /* UIViewExtensions.swift in Sources */,
 				43FCE4791DB1695200130EB1 /* Database.swift in Sources */,
+				437778D41DE9581F00B3BD7F /* CloneActionsViewController.swift in Sources */,
 				436B23041DCBCEFE001F7ADC /* StepTableViewCell.swift in Sources */,
 				4321E0271DD573B7006C1004 /* SchemaChangeTableViewCell.swift in Sources */,
+				437778DB1DEA35EB00B3BD7F /* ScheduleBackupViewController.swift in Sources */,
 				435B4BCF1DDCE9D500B86625 /* LogsMapper.swift in Sources */,
 				4303420F1DBC40A400688800 /* BackupCollectionViewCell.swift in Sources */,
 				436B23081DCBD039001F7ADC /* TreeViewData.swift in Sources */,
@@ -674,6 +700,8 @@
 				430341E71DBB1FB900688800 /* BackupCollectionViewController.swift in Sources */,
 				43B92E471DC574B600659764 /* UIViewController+Background.swift in Sources */,
 				437778D01DE68B0D00B3BD7F /* CloneManagementViewController.swift in Sources */,
+				437778D91DE9FA0700B3BD7F /* UpdateManagementViewController.swift in Sources */,
+				437778D21DE939CA00B3BD7F /* OpSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

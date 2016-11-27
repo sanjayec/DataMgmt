@@ -411,5 +411,33 @@ class BackupsTimelineViewController: UIViewController, UIPopoverPresentationCont
     
     @IBOutlet weak var compareStackeView: UIStackView!
     
+    @IBOutlet weak var scheduleBtn: UIButton!
+    @IBAction func scheduleBackup(_ sender: Any) {
+        
+        let popover = self.storyboard?.instantiateViewController(withIdentifier: "scheduleBackupView") as! ScheduleBackupViewController
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        // popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+         popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = self.view
+        popover.popoverPresentationController?.sourceRect = CGRect(x:self.view.bounds.midX + 75, y:self.view.bounds.midY-50,width:0,height:0) //CGRect(x: 1000, y: (selectedCell?.frame.origin.y)!, width: 10, height: 10)
+        popover.preferredContentSize = CGSize(width: 600, height: 360)
+
+        popover.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
+        
+       
+        
+        popover.detailItem = self.detailItem
+        
+        
+       
+        
+       
+        
+        self.present(popover, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToBackupTimeline(segue: UIStoryboardSegue) {
+        
+    }
 
 }

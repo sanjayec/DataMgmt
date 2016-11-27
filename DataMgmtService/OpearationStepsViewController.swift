@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
+class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -107,14 +107,18 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
         
         if(self.operation == nil ) {
             self.navigationItem.title = database?.name
-            
+            if(database?.workSubmitted?.type == "backup_database"){
+                message = "Backup job is submitted for database " + (self.database?.name)! + ". Waiting for logs.."
+                
+            }
+            else{
             message = "Restore job is submitted for database " + (self.database?.name)! + ". Waiting for logs.."
             
             if  database?.workSubmitted?.restoretype == "associate_datasource" {
                 message = "Associate job is submitted for database " + (self.database?.name)! + ". Waiting for logs.."
                 
             }
-         
+            }
             self.activityIndicatorView = ActivityIndicatorView(title: message, center: self.view.center, width: 1000, height:550, aplha: 0.92, vertical : true)
 
         self.view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
@@ -391,6 +395,21 @@ class OpearationStepsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     
+    @IBOutlet weak var searchBtnAction: UIButton!
+    
+    @IBAction func searchAction(_ sender: Any) {
+        
+        let popover = self.storyboard?.instantiateViewController(withIdentifier: "opSearch") as! OpSearchViewController
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+        
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = self.view
+        popover.popoverPresentationController?.sourceRect = CGRect(x:self.view.bounds.midX, y:self.view.bounds.midY-200,width:0,height:0)
+        popover.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
+        
+        popover.preferredContentSize = CGSize(width: 600, height: 43)
 
+        self.present(popover, animated: true, completion: nil)    }
 
 }

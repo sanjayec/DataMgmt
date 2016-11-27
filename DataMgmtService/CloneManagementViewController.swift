@@ -149,7 +149,7 @@ class CloneManagementViewController: UIViewController, UIPopoverPresentationCont
             self.selectedBackupName?.text = snapshotName
             self.selectedBackupId?.text = self.selectedBackup?.id
             self.backupStatus?.text = self.selectedBackup?.status
-            self.storageType?.text = self.selectedBackup?.storageType
+            self.storageType?.text = "Nutanix/DSF" //self.selectedBackup?.storageType
             self.storageLocation?.text = self.selectedBackup?.storageLocation
             
             let dateFormatter = DateFormatter()
@@ -192,7 +192,7 @@ class CloneManagementViewController: UIViewController, UIPopoverPresentationCont
         self.selectedBackupName2?.text = snapshotName
         self.selectedBackupId2?.text = self.selectedBackup?.id
         self.backupStatus2?.text = self.selectedBackup?.status
-        self.storageType2?.text = self.selectedBackup?.storageType
+        self.storageType2?.text = "Nutanix/DSF" //self.selectedBackup?.storageType
         self.storageLocation2?.text = self.selectedBackup?.storageLocation
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
@@ -262,6 +262,33 @@ class CloneManagementViewController: UIViewController, UIPopoverPresentationCont
 //        
         
         
+    }
+    
+    @IBOutlet weak var cloneAction1: UIButton!
+    @IBAction func cloneAction(_ sender: Any) {
+        
+        showCloneActionPopup(sender)
+    }
+    
+    @IBAction func cloneAction2(_ sender: Any) {
+        showCloneActionPopup(sender)
+
+    }
+    
+    func showCloneActionPopup(_ sender: Any){
+        let popover = self.storyboard?.instantiateViewController(withIdentifier: "CloneActions") as! CloneActionsViewController
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        popover.popoverPresentationController?.backgroundColor = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:1.0)
+        
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = (sender as! UIView)
+        popover.popoverPresentationController?.sourceRect = (sender as! UIView).bounds
+        popover.popoverPresentationController?.permittedArrowDirections = .any
+        popover.preferredContentSize = CGSize(width: 230, height: 190)
+        
+        
+        
+        self.present(popover, animated: true, completion: nil)
     }
 
 }
